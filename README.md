@@ -10,6 +10,10 @@
   <a href="#"><img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript"></a>
 </p>
 
+<p align="center">
+  <a href="README_EN.md"><img src="https://img.shields.io/badge/🇺🇸_English-0969DA?style=for-the-badge&logoColor=white" alt="English Version"></a>
+</p>
+
 ---
 
 ## 📋 Descripción
