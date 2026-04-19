@@ -72,9 +72,9 @@
 - [x] `starter/use-cases.md` — TODO: 3 casos de uso reales
 
 ### Recursos (`4-recursos/`)
-- [ ] `ebooks-free/` — links a libros relevantes
-- [ ] `videografia/` — videos recomendados
-- [ ] `webgrafia/` — links a docs oficiales MCP
+- [x] `ebooks-free/README.md` — libros gratuitos: Python asyncio, TS Handbook, Docker Docs, Prompt Engineering Guide
+- [x] `videografia/README.md` — videos MCP: demos Anthropic, tutoriales Python, canales recomendados
+- [x] `webgrafia/README.md` — docs oficiales MCP, JSON-RPC spec, MCP Inspector, Awesome MCP Servers
 
 ### Glosario (`5-glosario/`)
 - [x] `README.md` — 13 términos clave (Function Calling, Host, JSON-RPC, LLM, MCP, MCP Client, MCP Server, Primitivo, Prompt, Resource, stdio, Tool, Transport)
