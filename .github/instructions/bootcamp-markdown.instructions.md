@@ -29,9 +29,16 @@ Todo `bootcamp/week-XX-*/README.md` debe incluir estas secciones en orden:
 
 ## Archivos de teoría (1-teoria/)
 
+**Longitud mínima obligatoria: 150 líneas por archivo.**
+
+Cada archivo de teoría debe desarrollar su tema con profundidad suficiente para cubrir:
+explicación conceptual, ejemplos de código en Python y/o TypeScript, un diagrama SVG vinculado,
+errores comunes y un checklist de verificación. Un archivo con menos de 150 líneas indica
+contenido incompleto.
+
 Estructura obligatoria:
 
-```markdown
+````markdown
 # Título del Tema
 
 ## 🎯 Objetivos
@@ -47,12 +54,24 @@ Estructura obligatoria:
 
 ### 3. Ejemplos Prácticos
 
-### 4. Ejercicios
+```python
+# ejemplo Python con type hints
+```
+````
+
+```typescript
+// ejemplo TypeScript equivalente
+```
+
+### 4. Errores Comunes
+
+### 5. Ejercicios de Comprensión
 
 ## 📚 Recursos Adicionales
 
 ## ✅ Checklist de Verificación
-```
+
+````
 
 ## Diagramas y assets SVG
 
@@ -61,7 +80,7 @@ Estructura obligatoria:
 
 ```markdown
 ![Diagrama de arquitectura MCP client-server](../0-assets/mcp-architecture.svg)
-```
+````
 
 ## Bloques de código
 

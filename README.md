@@ -131,13 +131,6 @@ bootcamp/week-XX-tema_principal/
 
 ## 🚀 Inicio Rápido
 
-### Prerrequisitos
-
-- **Docker** y **Docker Compose** instalados ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
-- **Git** para control de versiones
-- **VS Code** (recomendado) con extensiones incluidas
-- Navegador moderno (Chrome, Firefox, Edge)
-
 ### 1. Clonar el Repositorio
 
 ```bash
@@ -145,26 +138,35 @@ git clone https://github.com/ergrato-dev/bc-mcp.git
 cd bc-mcp
 ```
 
-### 2. Instalar Extensiones de VS Code
+### 2. Elegir el método de setup
+
+| Método | Cuándo usarlo | Guía |
+|--------|--------------|------|
+| **Docker** ✅ | Recomendado — entorno idéntico para todos | [docs/setup/docker.md](docs/setup/docker.md) |
+| **Local** | Si no puedes instalar Docker | [docs/setup/local.md](docs/setup/local.md) |
+| **Híbrido** | Código local + BD/servicios en Docker | [docs/setup/local.md#bases-de-datos-locales-semanas-07](docs/setup/local.md#bases-de-datos-locales-semanas-07) |
+
+> El bootcamp está diseñado y probado con Docker. Para dudas de instalación, consulta [docs/setup/](docs/setup/).
+
+### 3. Instalar Extensiones de VS Code
 
 ```bash
 # Abrir en VS Code
 code .
 
 # Las extensiones recomendadas aparecerán automáticamente
-# O ejecutar:
 # Ctrl+Shift+P → "Extensions: Show Recommended Extensions"
 ```
 
-### 3. Navegar a la Semana Actual
+### 4. Navegar a la Semana Actual
 
 ```bash
 cd bootcamp/week-01-introduccion_mcp
 ```
 
-### 4. Seguir las Instrucciones
+### 5. Seguir las Instrucciones
 
-Cada semana contiene un `README.md` con instrucciones detalladas y los comandos Docker necesarios para ejecutar los ejemplos.
+Cada semana contiene un `README.md` con instrucciones detalladas y los comandos necesarios para ejecutar los ejemplos.
 
 ---
 

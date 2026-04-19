@@ -131,13 +131,6 @@ bootcamp/week-XX-main_topic/
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- **Docker** and **Docker Compose** installed ([Docker Bootcamp](https://github.com/ergrato-dev/bc-docker))
-- **Git** for version control
-- **VS Code** (recommended) with included extensions
-- Modern browser (Chrome, Firefox, Edge)
-
 ### 1. Clone the Repository
 
 ```bash
@@ -145,26 +138,35 @@ git clone https://github.com/ergrato-dev/bc-mcp.git
 cd bc-mcp
 ```
 
-### 2. Install VS Code Extensions
+### 2. Choose Your Setup Method
+
+| Method | When to use | Guide |
+|--------|-------------|-------|
+| **Docker** ✅ | Recommended — identical environment for everyone | [docs/setup/docker.md](docs/setup/docker.md) |
+| **Local** | If you cannot install Docker | [docs/setup/local.md](docs/setup/local.md) |
+| **Hybrid** | Local code + DB/services in Docker | [docs/setup/local.md#local-databases-weeks-07](docs/setup/local.md#local-databases-weeks-07) |
+
+> The bootcamp is designed and tested with Docker. For installation questions, see [docs/setup/](docs/setup/).
+
+### 3. Install VS Code Extensions
 
 ```bash
 # Open in VS Code
 code .
 
 # Recommended extensions will appear automatically
-# Or run:
 # Ctrl+Shift+P → "Extensions: Show Recommended Extensions"
 ```
 
-### 3. Navigate to the Current Week
+### 4. Navigate to the Current Week
 
 ```bash
 cd bootcamp/week-01-introduccion_mcp
 ```
 
-### 4. Follow the Instructions
+### 5. Follow the Instructions
 
-Each week contains a `README.md` with detailed instructions and the Docker commands needed to run the examples.
+Each week contains a `README.md` with detailed instructions and the commands needed to run the examples.
 
 ---
 

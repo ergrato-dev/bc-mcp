@@ -116,8 +116,10 @@ bootcamp/week-XX-tema_principal/
 ### 1. Teoría (1-teoria/)
 
 - Archivos markdown con explicaciones conceptuales
+- **Longitud mínima: 150 líneas por archivo** — contenido incompleto si es menor
 - Ejemplos de código con comentarios claros en Python y/o TypeScript
-- Diagramas y visualizaciones de arquitectura MCP
+- Diagramas y visualizaciones de arquitectura MCP (SVG vinculado obligatorio)
+- Sección de errores comunes y checklist de verificación en cada archivo
 - Referencias a la documentación oficial de MCP
 
 ### 2. Prácticas (2-practicas/)
@@ -444,7 +446,12 @@ Debe incluir:
 
 ### Archivos de Teoría
 
-```markdown
+> **Longitud mínima obligatoria: 150 líneas por archivo.**
+> Un archivo menor a 150 líneas indica contenido incompleto.
+
+Estructura obligatoria:
+
+````markdown
 # Título del Tema
 
 ## 🎯 Objetivos
@@ -460,12 +467,24 @@ Debe incluir:
 
 ### 3. Ejemplos Prácticos
 
-### 4. Ejercicios
+```python
+# ejemplo Python con type hints
+```
+````
+
+```typescript
+// ejemplo TypeScript equivalente
+```
+
+### 4. Errores Comunes
+
+### 5. Ejercicios de Comprensión
 
 ## 📚 Recursos Adicionales
 
 ## ✅ Checklist de Verificación
-```
+
+````
 
 ---
 
@@ -502,7 +521,7 @@ Reglas de vinculación:
 ![Diagrama del flujo de ejecución de un MCP tool](../0-assets/tool-execution-flow.svg)
 
 Como se observa en el diagrama, el client envía una solicitud `tools/call`...
-```
+````
 
 ### Tema Visual
 
@@ -656,8 +675,10 @@ Cuando trabajes en este proyecto:
    - TypeScript 5.x: tipos estrictos, Zod para validación de inputs, ESM modules
    - Node.js 22+: `import/export` nativo, top-level await cuando aplique
 
-2. **Entorno de Desarrollo con Docker**
-   - ✅ USAR Docker para evitar problemas de versiones múltiples
+2. **Entorno de Desarrollo**
+   - ✅ Método oficial: **Docker** — ver [docs/setup/docker.md](../docs/setup/docker.md)
+   - ⚠️ Alternativa sin Docker: **setup local** — ver [docs/setup/local.md](../docs/setup/local.md)
+   - ⚠️ Alternativa híbrida: código local + servicios (BD, etc.) en Docker
    - ✅ `docker compose` para orquestar servicios (server MCP, DB, etc.)
    - ✅ Crear archivos `.env` para configuración de entorno
    - Razón: Entorno consistente y reproducible para todos los estudiantes
@@ -812,7 +833,7 @@ Cuando crees contenido para una nueva semana:
 - [ ] Crear estructura de carpetas completa
 - [ ] README.md con objetivos y estructura
 - [ ] Assets SVG en `0-assets/`: mínimo un SVG por cada archivo de teoría que refuerce visualmente el concepto principal
-- [ ] Material teórico en `1-teoria/` — cada archivo debe referenciar su SVG correspondiente de `0-assets/`
+- [ ] Material teórico en `1-teoria/` — **mínimo 150 líneas por archivo**, cada uno referencia su SVG de `0-assets/`
 - [ ] Ejercicios prácticos en `2-practicas/` (formato descomentar, NO TODOs)
 - [ ] Proyecto integrador en `3-proyecto/` (formato TODOs, con `starter/` y `solution/`)
 - [ ] Recursos adicionales en `4-recursos/`
