@@ -1,0 +1,16 @@
+services:
+  python-full-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    container_name: week03-practice04-python
+    stdin_open: true
+    tty: true
+
+  ts-full-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile
+    container_name: week03-practice04-ts
+    stdin_open: true
+    tty: true

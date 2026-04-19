@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="420" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">¿Cuándo usar Tool, Resource o Prompt?</text>
+  <text x="410" y="52" text-anchor="middle" fill="#8B949E" font-size="11">Árbol de decisión para diseñar interfaces MCP</text>
+
+  <!-- ROOT question -->
+  <rect x="295" y="68" width="230" height="36" rx="8" fill="#21262D" stroke="#E6EDF3" stroke-width="1.5"/>
+  <text x="410" y="91" text-anchor="middle" fill="#E6EDF3" font-size="11">¿Qué necesita el LLM?</text>
+
+  <!-- Branch line from root -->
+  <line x1="295" y1="86" x2="130" y2="140" stroke="#30363D" stroke-width="1.5"/>
+  <line x1="410" y1="104" x2="410" y2="140" stroke="#30363D" stroke-width="1.5"/>
+  <line x1="525" y1="86" x2="690" y2="140" stroke="#30363D" stroke-width="1.5"/>
+
+  <!-- Labels on branches -->
+  <text x="195" y="122" text-anchor="middle" fill="#8B949E" font-size="9">ejecutar algo /</text>
+  <text x="195" y="134" text-anchor="middle" fill="#8B949E" font-size="9">causar efecto</text>
+  <text x="410" y="130" text-anchor="middle" fill="#8B949E" font-size="9">leer datos /</text>
+  <text x="410" y="142" text-anchor="middle" fill="#8B949E" font-size="9">contexto estático</text>
+  <text x="622" y="122" text-anchor="middle" fill="#8B949E" font-size="9">plantilla de</text>
+  <text x="622" y="134" text-anchor="middle" fill="#8B949E" font-size="9">prompt reutilizable</text>
+
+  <!-- TOOL box -->
+  <rect x="30" y="148" width="200" height="70" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <text x="130" y="170" text-anchor="middle" fill="#F0883E" font-size="14" font-weight="700">TOOL</text>
+  <text x="130" y="188" text-anchor="middle" fill="#8B949E" font-size="9">Ejecuta código con side-effects</text>
+  <text x="130" y="203" text-anchor="middle" fill="#8B949E" font-size="9">Recibe inputs → retorna outputs</text>
+  <text x="130" y="218" text-anchor="middle" fill="#8B949E" font-size="9">Validado con inputSchema (Zod/Pydantic)</text>
+
+  <!-- RESOURCE box -->
+  <rect x="300" y="148" width="220" height="70" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="410" y="170" text-anchor="middle" fill="#3FB950" font-size="14" font-weight="700">RESOURCE</text>
+  <text x="410" y="188" text-anchor="middle" fill="#8B949E" font-size="9">Lee datos sin modificar estado</text>
+  <text x="410" y="203" text-anchor="middle" fill="#8B949E" font-size="9">Identificado por URI (scheme://path)</text>
+  <text x="410" y="218" text-anchor="middle" fill="#8B949E" font-size="9">Retorna text, blob o imagen</text>
+
+  <!-- PROMPT box -->
+  <rect x="590" y="148" width="200" height="70" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="2"/>
+  <text x="690" y="170" text-anchor="middle" fill="#BC8CFF" font-size="14" font-weight="700">PROMPT</text>
+  <text x="690" y="188" text-anchor="middle" fill="#8B949E" font-size="9">Genera mensajes para el LLM</text>
+  <text x="690" y="203" text-anchor="middle" fill="#8B949E" font-size="9">Acepta argumentos → messages[]</text>
+  <text x="690" y="218" text-anchor="middle" fill="#8B949E" font-size="9">Reutilizable entre aplicaciones</text>
+
+  <!-- EXAMPLES section -->
+  <text x="410" y="254" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="600">Ejemplos por tipo</text>
+
+  <!-- Tool examples -->
+  <rect x="30" y="262" width="200" height="90" rx="8" fill="#1C2128" stroke="#F0883E" stroke-width="1"/>
+  <text x="130" y="279" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">Ejemplos de Tools</text>
+  <text x="44" y="295" fill="#8B949E" font-size="9">• search_database(query)</text>
+  <text x="44" y="310" fill="#8B949E" font-size="9">• send_email(to, subject)</text>
+  <text x="44" y="325" fill="#8B949E" font-size="9">• run_python_code(code)</text>
+  <text x="44" y="340" fill="#8B949E" font-size="9">• create_file(path, content)</text>
+
+  <!-- Resource examples -->
+  <rect x="300" y="262" width="220" height="90" rx="8" fill="#1C2128" stroke="#3FB950" stroke-width="1"/>
+  <text x="410" y="279" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">Ejemplos de Resources</text>
+  <text x="314" y="295" fill="#8B949E" font-size="9">• db://schema → esquema de la BD</text>
+  <text x="314" y="310" fill="#8B949E" font-size="9">• file:///README.md → doc del proyecto</text>
+  <text x="314" y="325" fill="#8B949E" font-size="9">• config://settings → configuración</text>
+  <text x="314" y="340" fill="#8B949E" font-size="9">• db://products/{id} → template</text>
+
+  <!-- Prompt examples -->
+  <rect x="590" y="262" width="200" height="90" rx="8" fill="#1C2128" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="690" y="279" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">Ejemplos de Prompts</text>
+  <text x="604" y="295" fill="#8B949E" font-size="9">• code_review(language, code)</text>
+  <text x="604" y="310" fill="#8B949E" font-size="9">• explain_error(error_msg)</text>
+  <text x="604" y="325" fill="#8B949E" font-size="9">• summarize(text, style)</text>
+  <text x="604" y="340" fill="#8B949E" font-size="9">• translate(text, target_lang)</text>
+
+  <!-- Footer rule -->
+  <rect x="30" y="368" width="760" height="40" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="384" text-anchor="middle" fill="#E6EDF3" font-size="10" font-weight="700">Regla de oro</text>
+  <text x="410" y="400" text-anchor="middle" fill="#8B949E" font-size="9">¿Muta estado o llama APIs? → Tool   ·   ¿Solo lee datos? → Resource   ·   ¿Genera mensajes para el LLM? → Prompt</text>
+</svg>

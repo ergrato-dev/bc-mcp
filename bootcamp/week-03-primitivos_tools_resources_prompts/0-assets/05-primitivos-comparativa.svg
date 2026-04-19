@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="430" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Comparativa: Tools vs Resources vs Prompts</text>
+
+  <!-- Header row -->
+  <rect x="30" y="48" width="220" height="36" rx="0" fill="#161B22"/>
+  <rect x="254" y="48" width="170" height="36" rx="0" fill="#2A1F3A"/>
+  <rect x="428" y="48" width="180" height="36" rx="0" fill="#0D2B1A"/>
+  <rect x="612" y="48" width="178" height="36" rx="0" fill="#1A1A2E"/>
+  <text x="140" y="71" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="700">Dimensión</text>
+  <text x="339" y="65" text-anchor="middle" fill="#F0883E" font-size="12" font-weight="700">TOOL</text>
+  <text x="339" y="79" text-anchor="middle" fill="#8B949E" font-size="8">acción / ejecución</text>
+  <text x="518" y="65" text-anchor="middle" fill="#3FB950" font-size="12" font-weight="700">RESOURCE</text>
+  <text x="518" y="79" text-anchor="middle" fill="#8B949E" font-size="8">datos / contexto</text>
+  <text x="701" y="65" text-anchor="middle" fill="#BC8CFF" font-size="12" font-weight="700">PROMPT</text>
+  <text x="701" y="79" text-anchor="middle" fill="#8B949E" font-size="8">plantilla de mensajes</text>
+
+  <!-- Row backgrounds (alternating) -->
+  <rect x="30" y="84" width="760" height="36" fill="#161B22"/>
+  <rect x="30" y="120" width="760" height="36" fill="#0D1117"/>
+  <rect x="30" y="156" width="760" height="36" fill="#161B22"/>
+  <rect x="30" y="192" width="760" height="36" fill="#0D1117"/>
+  <rect x="30" y="228" width="760" height="36" fill="#161B22"/>
+  <rect x="30" y="264" width="760" height="36" fill="#0D1117"/>
+  <rect x="30" y="300" width="760" height="36" fill="#161B22"/>
+  <rect x="30" y="336" width="760" height="36" fill="#0D1117"/>
+
+  <!-- Dividers -->
+  <line x1="254" y1="48" x2="254" y2="372" stroke="#30363D" stroke-width="1"/>
+  <line x1="428" y1="48" x2="428" y2="372" stroke="#30363D" stroke-width="1"/>
+  <line x1="612" y1="48" x2="612" y2="372" stroke="#30363D" stroke-width="1"/>
+  <line x1="790" y1="48" x2="790" y2="372" stroke="#30363D" stroke-width="1"/>
+  <line x1="30" y1="84" x2="790" y2="84" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="120" x2="790" y2="120" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="156" x2="790" y2="156" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="192" x2="790" y2="192" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="228" x2="790" y2="228" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="264" x2="790" y2="264" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="300" x2="790" y2="300" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="336" x2="790" y2="336" stroke="#30363D" stroke-width="0.5"/>
+  <line x1="30" y1="372" x2="790" y2="372" stroke="#30363D" stroke-width="0.5"/>
+  <rect x="30" y="48" width="760" height="324" fill="none" stroke="#30363D" stroke-width="1.5"/>
+
+  <!-- Row labels -->
+  <text x="140" y="107" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Iniciado por</text>
+  <text x="140" y="143" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Dirección del flujo</text>
+  <text x="140" y="179" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Side effects</text>
+  <text x="140" y="215" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Cacheable</text>
+  <text x="140" y="251" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Tipo de retorno</text>
+  <text x="140" y="287" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Método JSON-RPC</text>
+  <text x="140" y="323" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Validación input</text>
+  <text x="140" y="359" text-anchor="middle" fill="#E6EDF3" font-size="9" font-weight="600">Caso de uso típico</text>
+
+  <!-- TOOL column values -->
+  <text x="339" y="107" text-anchor="middle" fill="#F0883E" font-size="9">LLM (model-driven)</text>
+  <text x="339" y="143" text-anchor="middle" fill="#8B949E" font-size="9">LLM → Server → función</text>
+  <text x="339" y="179" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">SÍ (puede mutar estado)</text>
+  <text x="339" y="215" text-anchor="middle" fill="#8B949E" font-size="9">No recomendado</text>
+  <text x="339" y="251" text-anchor="middle" fill="#8B949E" font-size="9">CallToolResult (text/image)</text>
+  <text x="339" y="287" text-anchor="middle" fill="#F0883E" font-size="9" font-family="monospace">tools/call</text>
+  <text x="339" y="323" text-anchor="middle" fill="#8B949E" font-size="9">inputSchema (JSON Schema)</text>
+  <text x="339" y="359" text-anchor="middle" fill="#8B949E" font-size="9">Buscar en BD, enviar email</text>
+
+  <!-- RESOURCE column values -->
+  <text x="518" y="107" text-anchor="middle" fill="#3FB950" font-size="9">App / LLM (read)</text>
+  <text x="518" y="143" text-anchor="middle" fill="#8B949E" font-size="9">Client → Server → data</text>
+  <text x="518" y="179" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">NO (solo lectura)</text>
+  <text x="518" y="215" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">Sí (datos estáticos)</text>
+  <text x="518" y="251" text-anchor="middle" fill="#8B949E" font-size="9">ResourceContents (text/blob)</text>
+  <text x="518" y="287" text-anchor="middle" fill="#3FB950" font-size="9" font-family="monospace">resources/read</text>
+  <text x="518" y="323" text-anchor="middle" fill="#8B949E" font-size="9">URI (scheme://path)</text>
+  <text x="518" y="359" text-anchor="middle" fill="#8B949E" font-size="9">Esquema BD, documentación</text>
+
+  <!-- PROMPT column values -->
+  <text x="701" y="107" text-anchor="middle" fill="#BC8CFF" font-size="9">App / usuario (UI)</text>
+  <text x="701" y="143" text-anchor="middle" fill="#8B949E" font-size="9">Client → Server → messages</text>
+  <text x="701" y="179" text-anchor="middle" fill="#3FB950" font-size="9">NO (genera mensajes)</text>
+  <text x="701" y="215" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">Sí (plantillas)</text>
+  <text x="701" y="251" text-anchor="middle" fill="#8B949E" font-size="9">GetPromptResult (messages[])</text>
+  <text x="701" y="287" text-anchor="middle" fill="#BC8CFF" font-size="9" font-family="monospace">prompts/get</text>
+  <text x="701" y="323" text-anchor="middle" fill="#8B949E" font-size="9">PromptArgument (required/opt)</text>
+  <text x="701" y="359" text-anchor="middle" fill="#8B949E" font-size="9">Code review, explicar errores</text>
+
+  <!-- Footer -->
+  <rect x="30" y="380" width="760" height="38" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="396" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Todos usan JSON-RPC 2.0 sobre stdio o HTTP/SSE — solo cambia el método y el shape del resultado</text>
+  <text x="410" y="412" text-anchor="middle" fill="#8B949E" font-size="9">Descubrir con */list  ·  Invocar con */call o */read o */get  ·  Schema con */list</text>
+</svg>

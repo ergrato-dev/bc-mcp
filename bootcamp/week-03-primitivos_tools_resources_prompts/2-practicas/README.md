@@ -2,10 +2,14 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Definir schemas de tools en JSON (Python y TypeScript)
-- [practica-02/](practica-02/) — Diseñar URIs de resources para distintos casos de uso
-- [practica-03/](practica-03/) — Crear plantillas de prompts con argumentos variables
-- [practica-04/](practica-04/) — Revisar servers MCP de ejemplo y analizar sus primitivos
+| Práctica | Tema | Secciones |
+|---|---|---|
+| [01 — Tools](practica-01/) | inputSchema, annotations, isError | A: list_tools · B: call_tool básico · C: isError · D: ToolAnnotations |
+| [02 — Resources](practica-02/) | URIs, templates, blob | A: list_resources · B: read_resource estático · C: ResourceTemplate · D: BlobResourceContents |
+| [03 — Prompts](practica-03/) | argumentos, messages, EmbeddedResource | A: list_prompts · B: get_prompt básico · C: role assistant seed · D: EmbeddedResource |
+| [04 — Los 3 Primitivos](practica-04/) | Tools + Resources + Prompts combinados | A: ServerCapabilities · B: Tools · C: Resources · D: Prompts + EmbeddedResource |
+
+Cada práctica tiene implementación en **Python** y **TypeScript**.
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
 > El estudiante aprende descomentando las secciones indicadas en el `README.md`

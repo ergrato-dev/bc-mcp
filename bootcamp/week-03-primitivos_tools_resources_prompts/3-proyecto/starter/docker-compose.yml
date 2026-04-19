@@ -1,0 +1,16 @@
+services:
+  python-kb-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    container_name: week03-project-python
+    stdin_open: true
+    tty: true
+
+  ts-kb-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile
+    container_name: week03-project-ts
+    stdin_open: true
+    tty: true

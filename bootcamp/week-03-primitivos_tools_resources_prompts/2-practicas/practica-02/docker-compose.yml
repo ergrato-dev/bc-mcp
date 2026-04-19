@@ -1,0 +1,16 @@
+services:
+  python-resources-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    container_name: week03-practice02-python
+    stdin_open: true
+    tty: true
+
+  ts-resources-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile
+    container_name: week03-practice02-ts
+    stdin_open: true
+    tty: true

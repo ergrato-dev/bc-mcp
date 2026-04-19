@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Flujo de Ejecución de un MCP Tool</text>
+
+  <!-- ACTORS (top boxes) -->
+  <!-- LLM -->
+  <rect x="30" y="55" width="110" height="44" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <text x="85" y="74" text-anchor="middle" fill="#F0883E" font-size="11" font-weight="700">LLM</text>
+  <text x="85" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(Claude / GPT)</text>
+
+  <!-- MCP Client -->
+  <rect x="210" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="270" y="74" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="700">MCP Client</text>
+  <text x="270" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(host interno)</text>
+
+  <!-- MCP Server -->
+  <rect x="490" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="550" y="74" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="700">MCP Server</text>
+  <text x="550" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(subproceso)</text>
+
+  <!-- Tool Logic -->
+  <rect x="680" y="55" width="110" height="44" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="735" y="74" text-anchor="middle" fill="#58A6FF" font-size="11" font-weight="700">Tool Logic</text>
+  <text x="735" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(función)</text>
+
+  <!-- TIMELINE LINES -->
+  <line x1="85" y1="99" x2="85" y2="395" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="270" y1="99" x2="270" y2="395" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="550" y1="99" x2="550" y2="395" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="735" y1="99" x2="735" y2="395" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- STEP 1: LLM decides to call a tool -->
+  <text x="85" y="128" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">1</text>
+  <rect x="30" y="133" width="110" height="26" rx="4" fill="#21262D"/>
+  <text x="85" y="150" text-anchor="middle" fill="#8B949E" font-size="9">decide llamar tool</text>
+  <line x1="95" y1="146" x2="258" y2="146" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="256,142 260,146 256,150" fill="#F0883E"/>
+  <text x="180" y="140" text-anchor="middle" fill="#F0883E" font-size="8">tool_use block</text>
+
+  <!-- STEP 2: Client sends tools/call -->
+  <text x="270" y="178" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">2</text>
+  <line x1="282" y1="183" x2="538" y2="183" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="536,179 540,183 536,187" fill="#BC8CFF"/>
+  <text x="410" y="177" text-anchor="middle" fill="#BC8CFF" font-size="8">tools/call {name, arguments}</text>
+  <rect x="210" y="188" width="120" height="22" rx="3" fill="#1C2128" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="270" y="203" text-anchor="middle" fill="#E6EDF3" font-size="8" font-family="monospace">"name": "search_db"</text>
+
+  <!-- STEP 3: Server validates -->
+  <text x="550" y="228" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">3</text>
+  <rect x="490" y="233" width="120" height="22" rx="4" fill="#21262D" stroke="#3FB950" stroke-width="1"/>
+  <text x="550" y="248" text-anchor="middle" fill="#8B949E" font-size="8">valida inputSchema</text>
+
+  <!-- STEP 4: Calls function -->
+  <line x1="562" y1="268" x2="723" y2="268" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="721,264 725,268 721,272" fill="#58A6FF"/>
+  <text x="643" y="262" text-anchor="middle" fill="#58A6FF" font-size="8">llama función</text>
+  <text x="550" y="262" text-anchor="middle" fill="#58A6FF" font-size="9" font-weight="600">4</text>
+
+  <!-- STEP 5: Function executes -->
+  <rect x="680" y="274" width="110" height="36" rx="4" fill="#21262D" stroke="#58A6FF" stroke-width="1"/>
+  <text x="735" y="289" text-anchor="middle" fill="#58A6FF" font-size="8">ejecuta lógica</text>
+  <text x="735" y="303" text-anchor="middle" fill="#8B949E" font-size="8">DB / API / FS</text>
+  <text x="680" y="274" fill="#58A6FF" font-size="9" font-weight="600" dx="4" dy="-4">5</text>
+
+  <!-- STEP 6: Returns content -->
+  <line x1="723" y1="326" x2="562" y2="326" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="564,322 560,326 564,330" fill="#58A6FF"/>
+  <text x="643" y="320" text-anchor="middle" fill="#58A6FF" font-size="8">retorna resultado</text>
+  <text x="735" y="320" text-anchor="middle" fill="#58A6FF" font-size="9" font-weight="600">6</text>
+
+  <!-- STEP 7: Server returns CallToolResult -->
+  <line x1="538" y1="350" x2="282" y2="350" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="284,346 280,350 284,354" fill="#3FB950"/>
+  <text x="410" y="344" text-anchor="middle" fill="#3FB950" font-size="8">result {content:[...], isError?}</text>
+  <text x="550" y="344" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">7</text>
+
+  <!-- STEP 8: Client sends result to LLM -->
+  <line x1="258" y1="374" x2="97" y2="374" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="99,370 95,374 99,378" fill="#F0883E"/>
+  <text x="180" y="368" text-anchor="middle" fill="#F0883E" font-size="8">tool_result al LLM</text>
+  <text x="270" y="368" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">8</text>
+
+  <!-- Notes -->
+  <rect x="30" y="405" width="760" height="44" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="422" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Puntos clave</text>
+  <text x="150" y="440" text-anchor="middle" fill="#8B949E" font-size="9">inputSchema valida antes de ejecutar</text>
+  <text x="410" y="440" text-anchor="middle" fill="#8B949E" font-size="9">isError:true ≠ JSON-RPC error</text>
+  <text x="660" y="440" text-anchor="middle" fill="#8B949E" font-size="9">Tools son síncronos desde el SDK</text>
+</svg>

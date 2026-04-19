@@ -1,0 +1,26 @@
+services:
+  python-tools-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    container_name: week03-practice01-python
+    stdin_open: true
+    tty: true
+
+  ts-tools-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile
+    container_name: week03-practice01-ts
+    stdin_open: true
+    tty: true
+
+  mcp-inspector:
+    image: node:22-slim
+    container_name: week03-practice01-inspector
+    working_dir: /app
+    command: >
+      sh -c "corepack enable && npx @modelcontextprotocol/inspector"
+    ports:
+      - "5173:5173"
+      - "3000:3000"

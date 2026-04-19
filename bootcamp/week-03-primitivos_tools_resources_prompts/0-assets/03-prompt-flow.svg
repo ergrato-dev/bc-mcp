@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 450" width="820" height="450" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="450" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Flujo de un MCP Prompt</text>
+
+  <!-- ACTORS -->
+  <rect x="30" y="55" width="110" height="44" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <text x="85" y="74" text-anchor="middle" fill="#F0883E" font-size="11" font-weight="700">LLM / App</text>
+  <text x="85" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(consumidor)</text>
+
+  <rect x="220" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="280" y="74" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="700">MCP Client</text>
+  <text x="280" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(host)</text>
+
+  <rect x="490" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="550" y="74" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="700">MCP Server</text>
+  <text x="550" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(prompts handler)</text>
+
+  <!-- TIMELINE LINES -->
+  <line x1="85" y1="99" x2="85" y2="370" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="280" y1="99" x2="280" y2="370" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="550" y1="99" x2="550" y2="370" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- STEP 1: prompts/list -->
+  <line x1="292" y1="124" x2="538" y2="124" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="536,120 540,124 536,128" fill="#BC8CFF"/>
+  <text x="415" y="118" text-anchor="middle" fill="#BC8CFF" font-size="8">prompts/list</text>
+  <text x="280" y="118" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">1</text>
+
+  <!-- STEP 2: returns list -->
+  <line x1="538" y1="144" x2="292" y2="144" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="294,140 290,144 294,148" fill="#3FB950"/>
+  <text x="415" y="138" text-anchor="middle" fill="#3FB950" font-size="8">result: [{name, description, arguments:[...]}]</text>
+  <text x="550" y="138" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">2</text>
+
+  <!-- Prompt definition example -->
+  <rect x="30" y="153" width="380" height="56" rx="6" fill="#1C2128" stroke="#30363D" stroke-width="1"/>
+  <text x="220" y="168" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Ejemplo de definición de Prompt</text>
+  <text x="44" y="183" fill="#3FB950" font-size="8" font-family="monospace">name: "code_review"</text>
+  <text x="44" y="197" fill="#E6EDF3" font-size="8" font-family="monospace">arguments: [{name:"language"}, {name:"code"}]</text>
+  <text x="44" y="211" fill="#8B949E" font-size="8" font-family="monospace">description: "Genera una revisión de código"</text>
+
+  <!-- STEP 3: Client shows in UI / user picks prompt -->
+  <rect x="220" y="218" width="120" height="26" rx="4" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="280" y="235" text-anchor="middle" fill="#8B949E" font-size="8">muestra en UI / elige</text>
+  <text x="280" y="218" text-anchor="start" fill="#BC8CFF" font-size="9" font-weight="600" dx="-12" dy="-4">3</text>
+
+  <!-- STEP 4: User triggers prompt -->
+  <line x1="97" y1="260" x2="268" y2="260" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="266,256 270,260 266,264" fill="#F0883E"/>
+  <text x="183" y="254" text-anchor="middle" fill="#F0883E" font-size="8">elige prompt con argumentos</text>
+  <text x="85" y="254" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">4</text>
+
+  <!-- STEP 5: prompts/get -->
+  <line x1="292" y1="282" x2="538" y2="282" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="536,278 540,282 536,286" fill="#BC8CFF"/>
+  <text x="415" y="276" text-anchor="middle" fill="#BC8CFF" font-size="8">prompts/get {name, arguments:{language,code}}</text>
+  <text x="280" y="276" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">5</text>
+
+  <!-- STEP 6: Server returns messages -->
+  <line x1="538" y1="302" x2="292" y2="302" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="294,298 290,302 294,306" fill="#3FB950"/>
+  <text x="415" y="296" text-anchor="middle" fill="#3FB950" font-size="8">result: {messages: [{role, content}]}</text>
+  <text x="550" y="296" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">6</text>
+
+  <!-- Messages array example -->
+  <rect x="420" y="308" width="260" height="52" rx="6" fill="#1C2128" stroke="#30363D" stroke-width="1"/>
+  <text x="550" y="323" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Messages array</text>
+  <text x="434" y="338" fill="#BC8CFF" font-size="8" font-family="monospace">{role:"user",   content:"Revisa este Python:..."}</text>
+  <text x="434" y="352" fill="#F0883E" font-size="8" font-family="monospace">{role:"assistant", content:"Análisis:..."}</text>
+
+  <!-- STEP 7: Client sends to LLM -->
+  <line x1="268" y1="330" x2="97" y2="330" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="99,326 95,330 99,334" fill="#F0883E"/>
+  <text x="183" y="324" text-anchor="middle" fill="#F0883E" font-size="8">envía messages al LLM</text>
+  <text x="280" y="324" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">7</text>
+
+  <!-- Footer -->
+  <rect x="30" y="375" width="760" height="62" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="393" text-anchor="middle" fill="#E6EDF3" font-size="10" font-weight="700">¿Para qué sirven los Prompts MCP?</text>
+  <text x="150" y="411" text-anchor="middle" fill="#3FB950" font-size="9">Plantillas reutilizables</text>
+  <text x="150" y="425" text-anchor="middle" fill="#8B949E" font-size="9">generan mensajes consistentes</text>
+  <text x="410" y="411" text-anchor="middle" fill="#3FB950" font-size="9">Parámetros tipados</text>
+  <text x="410" y="425" text-anchor="middle" fill="#8B949E" font-size="9">se validan antes de enviar al LLM</text>
+  <text x="660" y="411" text-anchor="middle" fill="#3FB950" font-size="9">Multi-turn</text>
+  <text x="660" y="425" text-anchor="middle" fill="#8B949E" font-size="9">pueden incluir mensajes user + assistant</text>
+</svg>

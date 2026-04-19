@@ -1,0 +1,16 @@
+services:
+  python-prompts-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    container_name: week03-practice03-python
+    stdin_open: true
+    tty: true
+
+  ts-prompts-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile
+    container_name: week03-practice03-ts
+    stdin_open: true
+    tty: true

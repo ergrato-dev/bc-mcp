@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 450" width="820" height="450" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="450" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Flujo de Lectura de un MCP Resource</text>
+
+  <!-- ACTORS -->
+  <!-- MCP Client -->
+  <rect x="30" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="90" y="74" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="700">MCP Client</text>
+  <text x="90" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(o LLM agent)</text>
+
+  <!-- MCP Server -->
+  <rect x="310" y="55" width="120" height="44" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="370" y="74" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="700">MCP Server</text>
+  <text x="370" y="89" text-anchor="middle" fill="#8B949E" font-size="9">(resources handler)</text>
+
+  <!-- Data Source -->
+  <rect x="590" y="55" width="200" height="44" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="690" y="74" text-anchor="middle" fill="#58A6FF" font-size="11" font-weight="700">Data Source</text>
+  <text x="690" y="89" text-anchor="middle" fill="#8B949E" font-size="9">DB / File / API / memory</text>
+
+  <!-- TIMELINE LINES -->
+  <line x1="90" y1="99" x2="90" y2="375" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="370" y1="99" x2="370" y2="375" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="690" y1="99" x2="690" y2="375" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- STEP 1: resources/list -->
+  <line x1="102" y1="125" x2="358" y2="125" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="356,121 360,125 356,129" fill="#BC8CFF"/>
+  <text x="230" y="119" text-anchor="middle" fill="#BC8CFF" font-size="8">resources/list</text>
+  <text x="90" y="119" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">1</text>
+
+  <!-- STEP 2: Server returns list of URIs -->
+  <line x1="358" y1="145" x2="102" y2="145" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="104,141 100,145 104,149" fill="#3FB950"/>
+  <text x="230" y="139" text-anchor="middle" fill="#3FB950" font-size="8">result: [{uri, name, mimeType}]</text>
+  <text x="370" y="139" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">2</text>
+
+  <!-- URI Examples box -->
+  <rect x="100" y="153" width="380" height="48" rx="6" fill="#1C2128" stroke="#30363D" stroke-width="1"/>
+  <text x="290" y="168" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Ejemplos de URIs de Resource</text>
+  <text x="150" y="183" text-anchor="middle" fill="#3FB950" font-size="8" font-family="monospace">db://users/schema</text>
+  <text x="290" y="183" text-anchor="middle" fill="#3FB950" font-size="8" font-family="monospace">file:///docs/api.md</text>
+  <text x="430" y="183" text-anchor="middle" fill="#3FB950" font-size="8" font-family="monospace">config://settings</text>
+  <text x="200" y="197" text-anchor="middle" fill="#58A6FF" font-size="8" font-family="monospace">db://products/{id}</text>
+  <text x="380" y="197" text-anchor="middle" fill="#58A6FF" font-size="8" font-family="monospace">← resource template</text>
+
+  <!-- STEP 3: resources/read with URI -->
+  <line x1="102" y1="222" x2="358" y2="222" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="356,218 360,222 356,226" fill="#BC8CFF"/>
+  <text x="230" y="216" text-anchor="middle" fill="#BC8CFF" font-size="8">resources/read {uri}</text>
+  <text x="90" y="216" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">3</text>
+
+  <!-- STEP 4: Server reads from data source -->
+  <line x1="382" y1="248" x2="678" y2="248" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="676,244 680,248 676,252" fill="#58A6FF"/>
+  <text x="530" y="242" text-anchor="middle" fill="#58A6FF" font-size="8">lee datos según URI</text>
+  <text x="370" y="242" text-anchor="middle" fill="#58A6FF" font-size="9" font-weight="600">4</text>
+
+  <!-- STEP 5: Data returns -->
+  <line x1="678" y1="268" x2="382" y2="268" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="384,264 380,268 384,272" fill="#58A6FF"/>
+  <text x="530" y="262" text-anchor="middle" fill="#58A6FF" font-size="8">datos crudos</text>
+  <text x="690" y="262" text-anchor="middle" fill="#58A6FF" font-size="9" font-weight="600">5</text>
+
+  <!-- STEP 6: Server returns ResourceContents -->
+  <line x1="358" y1="295" x2="102" y2="295" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="104,291 100,295 104,299" fill="#3FB950"/>
+  <text x="230" y="289" text-anchor="middle" fill="#3FB950" font-size="8">result: {contents: [{uri, text | blob}]}</text>
+  <text x="370" y="289" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">6</text>
+
+  <!-- Content types box -->
+  <rect x="30" y="308" width="750" height="52" rx="6" fill="#1C2128" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="323" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Tipos de contenido en ResourceContents</text>
+  <rect x="45" y="330" width="215" height="22" rx="4" fill="#21262D"/>
+  <text x="152" y="345" text-anchor="middle" fill="#E6EDF3" font-size="8" font-family="monospace">{uri, mimeType, text: "..."}</text>
+  <rect x="302" y="330" width="215" height="22" rx="4" fill="#21262D"/>
+  <text x="409" y="345" text-anchor="middle" fill="#E6EDF3" font-size="8" font-family="monospace">{uri, mimeType, blob: base64}</text>
+  <rect x="558" y="330" width="215" height="22" rx="4" fill="#21262D"/>
+  <text x="665" y="345" text-anchor="middle" fill="#8B949E" font-size="8">text: markdown, JSON, código…</text>
+
+  <!-- Footer note -->
+  <rect x="30" y="375" width="760" height="62" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="393" text-anchor="middle" fill="#E6EDF3" font-size="10" font-weight="700">Resources vs Tools: diferencia clave</text>
+  <text x="200" y="411" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">Resource</text>
+  <text x="200" y="427" text-anchor="middle" fill="#8B949E" font-size="9">lee datos sin efectos secundarios</text>
+  <text x="410" y="411" text-anchor="middle" fill="#30363D" font-size="14">|</text>
+  <text x="620" y="411" text-anchor="middle" fill="#F0883E" font-size="9" font-weight="600">Tool</text>
+  <text x="620" y="427" text-anchor="middle" fill="#8B949E" font-size="9">ejecuta acciones, puede mutar estado</text>
+</svg>

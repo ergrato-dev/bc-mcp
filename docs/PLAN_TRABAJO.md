@@ -129,28 +129,34 @@
 - [x] Carpetas base
 
 ### Assets Visuales (`0-assets/`)
-- [ ] `tool-execution-flow.svg` — flujo completo de ejecución de un tool
-- [ ] `resource-fetch-flow.svg` — flujo de lectura de un resource
-- [ ] `prompt-flow.svg` — flujo de un prompt
-- [ ] `primitivos-comparativa.svg` — tabla comparativa de los 3 primitivos
+- [x] `01-tool-execution-flow.svg` — flujo completo de ejecución de un tool
+- [x] `02-resource-fetch-flow.svg` — flujo de lectura de un resource
+- [x] `03-prompt-flow.svg` — flujo de un prompt
+- [x] `04-cuando-usar-cada-primitivo.svg` — árbol de decisión: tool vs resource vs prompt
+- [x] `05-primitivos-comparativa.svg` — tabla comparativa de los 3 primitivos
 
 ### Teoría (`1-teoria/`)
-- [ ] `01-tools.md` — definición, schema, input/output, casos de uso
-- [ ] `02-resources.md` — URI scheme, tipos, cuándo usar resources
-- [ ] `03-prompts.md` — arguments, templates, integración con LLM
-- [ ] `04-cuando-usar-cada-primitivo.md` — guía de decisión
+- [x] `01-tools-schema-de-inputs-annotations-execu.md` — inputSchema, annotations, isError
+- [x] `02-resources-uri-scheme-tipos-mime-resource.md` — URI scheme, tipos, templates
+- [x] `03-prompts-argumentos-mensajes-y-role-based.md` — arguments, messages, EmbeddedResource
+- [x] `04-cuando-usar-tool-vs-resource-vs-prompt.md` — guía de decisión y antipatrones
+- [x] `05-diseno-de-interfaces-mcp-buenas-practica.md` — naming, seguridad, capabilities
 
 ### Prácticas (`2-practicas/`)
-- [ ] `01-primer-tool/` — Python + TypeScript
-- [ ] `02-primer-resource/` — Python + TypeScript
-- [ ] `03-primer-prompt/` — Python + TypeScript
-- [ ] `04-combinando-primitivos/` — server con los 3
+- [x] `practica-01/` — Tools: inputSchema, annotations, isError — Python + TypeScript
+- [x] `practica-02/` — Resources: URIs, templates, blob — Python + TypeScript
+- [x] `practica-03/` — Prompts: argumentos, messages, EmbeddedResource — Python + TypeScript
+- [x] `practica-04/` — Los 3 primitivos combinados — Python + TypeScript
 
 ### Proyecto (`3-proyecto/`)
-- [ ] `README.md`, `starter/`, `solution/`
+- [x] `README.md` (actualizado con escenario Knowledge Base)
+- [x] `starter/` — docker-compose, python-server, ts-server, sample-docs
 
 ### Recursos + Glosario
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `4-recursos/webgrafia/README.md`
+- [x] `4-recursos/videografia/README.md`
+- [x] `4-recursos/ebooks-free/README.md`
+- [x] `5-glosario/README.md` — 16 términos clave
 
 ---
 
