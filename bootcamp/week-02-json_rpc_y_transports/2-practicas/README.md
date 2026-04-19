@@ -2,10 +2,11 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Enviar mensajes JSON-RPC manualmente vía stdin
-- [practica-02/](practica-02/) — Inspeccionar el handshake MCP con logs detallados
-- [practica-03/](practica-03/) — Comparar stdio vs HTTP/SSE en ejemplos reales
-- [practica-04/](practica-04/) — Implementar un echo server minimal con JSON-RPC
+| # | Carpeta | Tema | Tiempo |
+|---|---------|------|--------|
+| 01 | [practica-01/](practica-01/) | Construir mensajes JSON-RPC manualmente y enviarlos via MCP Inspector | ~45 min |
+| 02 | [practica-02/](practica-02/) | Implementar un MCP Server con transport stdio (Python + TypeScript) | ~60 min |
+| 03 | [practica-03/](practica-03/) | Implementar el mismo servidor con transport HTTP/SSE | ~60 min |
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
 > El estudiante aprende descomentando las secciones indicadas en el `README.md`

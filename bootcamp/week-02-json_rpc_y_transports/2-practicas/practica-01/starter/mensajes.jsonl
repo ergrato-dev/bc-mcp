@@ -1,0 +1,56 @@
+// Mensajes JSON-RPC 2.0 para enviar a un MCP Server
+// Formato: JSONL — un mensaje por línea
+// Instrucciones: descomentar cada línea cuando llegues a ese paso de la práctica
+//
+// NOTA: este archivo no es JSON válido mientras tenga comentarios //
+// Copia cada mensaje individualmente al campo de MCP Inspector
+
+// ============================================================
+// PASO 2A: Mensaje initialize (handshake inicial)
+// Descomenta la línea siguiente y envíala como primer mensaje:
+// ============================================================
+// {"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"sampling":{}},"clientInfo":{"name":"practica-01","version":"1.0.0"}},"id":1}
+
+// ============================================================
+// PASO 2B: Notification initialized (después del initialize)
+// Sin "id" → no espera respuesta
+// ============================================================
+// {"jsonrpc":"2.0","method":"notifications/initialized"}
+
+// ============================================================
+// PASO 2C: Listar tools disponibles
+// ============================================================
+// {"jsonrpc":"2.0","method":"tools/list","params":{},"id":2}
+
+// ============================================================
+// PASO 2D: Llamar a un tool (ajusta "name" según lo que listó el servidor)
+// ============================================================
+// {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"message":"Hola MCP"}},"id":3}
+
+// ============================================================
+// PASO 2E: Listar resources
+// ============================================================
+// {"jsonrpc":"2.0","method":"resources/list","params":{},"id":4}
+
+// ============================================================
+// PASO 2F: Listar prompts
+// ============================================================
+// {"jsonrpc":"2.0","method":"prompts/list","params":{},"id":5}
+
+// ============================================================
+// PASO 2G: Ping — verificar que el servidor sigue vivo
+// ============================================================
+// {"jsonrpc":"2.0","method":"ping","id":6}
+
+// ============================================================
+// PASO 5: Mensajes con errores deliberados (cópialos y modifícalos)
+// ============================================================
+
+// Error -32601 Method not found:
+// {"jsonrpc":"2.0","method":"tools/listar","params":{},"id":7}
+
+// Error -32602 Invalid params (falta campo requerido):
+// {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{}},"id":8}
+
+// Error -32700 Parse error (JSON inválido — rompe una comilla):
+// {"jsonrpc":"2.0","method":"tools/list","params":{},"id":9

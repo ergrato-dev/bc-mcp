@@ -1,13 +1,33 @@
-# Starter — Semana 02: JSON-RPC 2.0 y Transports
+# Setup — Proyecto Semana 02
 
-## Setup
+## Entorno requerido
+
+- Python 3.13+
+- Docker + Docker Compose
+- Haber completado las prácticas 01, 02 y 03
+
+## Instalar dependencias
 
 ```bash
-# Clonar y navegar al directorio
-cd bootcamp/week-02-json_rpc_y_transports/3-proyecto/starter
+# Con uv (recomendado)
+uv run python session-analyzer.py session-log.jsonl
+```
 
-# Levantar el entorno con Docker
-docker compose up --build
+## Archivos incluidos
+
+- `session-log.jsonl` — sesión de ejemplo con mensajes MCP reales
+- `session-analyzer.py` — script a completar con los TODOs indicados
+
+## Capturar tu propia sesión (opcional)
+
+1. Levanta el servidor stdio de practica-02 y redirige stderr a un archivo
+2. Usa MCP Inspector y guarda la actividad de red como JSONL
+3. Analiza ese JSONL con tu script
+
+## Cómo ejecutar
+
+```bash
+python session-analyzer.py session-log.jsonl
 ```
 
 ## Estructura Esperada

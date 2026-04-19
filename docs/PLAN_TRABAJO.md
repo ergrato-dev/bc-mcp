@@ -91,29 +91,28 @@
 - [x] Carpetas: `0-assets/`, `1-teoria/`, `2-practicas/`, `3-proyecto/`, `4-recursos/`, `5-glosario/`
 
 ### Assets Visuales (`0-assets/`)
-- [ ] `jsonrpc-request-response.svg` — ciclo request/response JSON-RPC
-- [ ] `stdio-transport.svg` — flujo stdin/stdout
-- [ ] `http-sse-transport.svg` — flujo HTTP + SSE
-- [ ] `week-02-header.svg`
+- [x] `01-jsonrpc-request-response.svg` — ciclo request/response JSON-RPC
+- [x] `02-stdio-transport.svg` — flujo stdin/stdout
+- [x] `03-http-sse-transport.svg` — flujo HTTP + SSE
 
 ### Teoría (`1-teoria/`) — mín. 150 líneas por archivo
-- [ ] `01-json-rpc-2.md` — especificación JSON-RPC 2.0
-- [ ] `02-stdio-transport.md` — stdio: cómo funciona, cuándo usarlo
-- [ ] `03-http-sse-transport.md` — HTTP/SSE: setup, diferencias con stdio
-- [ ] `04-websocket-transport.md` — WebSocket: casos de uso avanzados
-- [ ] `05-mensajes-mcp.md` — tipos de mensajes: initialize, request, notification
+- [x] `01-json-rpc-2.md` — especificación JSON-RPC 2.0
+- [x] `02-stdio-transport.md` — stdio: cómo funciona, cuándo usarlo
+- [x] `03-http-sse-transport.md` — HTTP/SSE: setup, diferencias con stdio
+- [x] `04-websocket-transport.md` — WebSocket: casos de uso avanzados
+- [x] `05-mensajes-mcp.md` — tipos de mensajes: initialize, request, notification
 
 ### Prácticas (`2-practicas/`)
-- [ ] `01-jsonrpc-manual/` — construir mensajes JSON-RPC a mano
-- [ ] `02-stdio-server/` — server con stdio transport
-- [ ] `03-sse-server/` — server con HTTP/SSE transport
+- [x] `practica-01/` — construir mensajes JSON-RPC manualmente via MCP Inspector
+- [x] `practica-02/` — server con stdio transport (Python + TypeScript)
+- [x] `practica-03/` — server con HTTP/SSE transport (Python + TypeScript)
 
 ### Proyecto (`3-proyecto/`)
-- [ ] `README.md`, `starter/`, `solution/`
+- [x] `README.md`, `starter/` (session-analyzer.py + session-log.jsonl)
 
 ### Recursos + Glosario
-- [ ] `4-recursos/` — links relevantes
-- [ ] `5-glosario/README.md` — términos JSON-RPC y transports
+- [x] `4-recursos/` — webgrafia, videografia, ebooks-free
+- [x] `5-glosario/README.md` — 15 términos JSON-RPC y transports
 
 ---
 

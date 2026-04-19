@@ -1,0 +1,24 @@
+services:
+  # Servidor MCP Python con stdio
+  # El flag stdin_open: true mantiene stdin abierto para el transport stdio
+  mcp-server-python:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: false
+    restart: unless-stopped
+
+  # MCP Inspector para explorar el servidor
+  mcp-inspector:
+    image: node:22-slim
+    working_dir: /app
+    ports:
+      - "6274:6274"
+    command: >
+      sh -c "npx --yes @modelcontextprotocol/inspector --port 6274"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    depends_on:
+      - mcp-server-python

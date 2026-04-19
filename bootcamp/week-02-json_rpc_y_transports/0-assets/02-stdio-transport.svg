@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="420" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Transport stdio — Comunicación por stdin / stdout</text>
+
+  <!-- Host process box -->
+  <rect x="30" y="55" width="300" height="300" rx="10" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="180" y="80" text-anchor="middle" fill="#BC8CFF" font-size="13" font-weight="700">Proceso Host</text>
+  <text x="180" y="96" text-anchor="middle" fill="#8B949E" font-size="10">Claude Desktop · Cursor · VS Code</text>
+
+  <!-- LLM inside host -->
+  <rect x="50" y="108" width="120" height="50" rx="8" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="110" y="129" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="600">LLM</text>
+  <text x="110" y="147" text-anchor="middle" fill="#8B949E" font-size="9">Claude / GPT</text>
+
+  <!-- MCP Client inside host -->
+  <rect x="190" y="108" width="120" height="50" rx="8" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="250" y="129" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="600">MCP Client</text>
+  <text x="250" y="147" text-anchor="middle" fill="#8B949E" font-size="9">en memoria</text>
+
+  <!-- Host spawns arrow -->
+  <text x="180" y="190" text-anchor="middle" fill="#8B949E" font-size="10">spawn (subprocess)</text>
+  <line x1="180" y1="198" x2="180" y2="218" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="175,218 180,228 185,218" fill="#F0883E"/>
+
+  <!-- stdin/stdout pipes -->
+  <rect x="60" y="238" width="100" height="30" rx="6" fill="#21262D" stroke="#3FB950" stroke-width="1.5"/>
+  <text x="110" y="258" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="600">stdin</text>
+
+  <rect x="175" y="238" width="100" height="30" rx="6" fill="#21262D" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="225" y="258" text-anchor="middle" fill="#58A6FF" font-size="11" font-weight="600">stdout</text>
+
+  <!-- Host note -->
+  <rect x="50" y="295" width="260" height="45" rx="6" fill="#1C2128"/>
+  <text x="180" y="313" text-anchor="middle" fill="#8B949E" font-size="10">Cada mensaje: 1 línea JSON + \n</text>
+  <text x="180" y="329" text-anchor="middle" fill="#8B949E" font-size="10">Proceso hijo vive mientras el Host vive</text>
+
+  <!-- Arrow to server -->
+  <!-- stdin: client → server -->
+  <line x1="330" y1="253" x2="488" y2="253" stroke="#3FB950" stroke-width="2"/>
+  <polygon points="488,248 500,253 488,258" fill="#3FB950"/>
+  <text x="412" y="244" text-anchor="middle" fill="#3FB950" font-size="10">stdin (JSON\n)</text>
+
+  <!-- stdout: server → client -->
+  <line x1="500" y1="275" x2="332" y2="275" stroke="#58A6FF" stroke-width="2"/>
+  <polygon points="332,270 320,275 332,280" fill="#58A6FF"/>
+  <text x="412" y="294" text-anchor="middle" fill="#58A6FF" font-size="10">stdout (JSON\n)</text>
+
+  <!-- stderr note -->
+  <text x="412" y="310" text-anchor="middle" fill="#F0883E" font-size="9">stderr → logs (NO mezclar con stdout)</text>
+
+  <!-- Server process box -->
+  <rect x="500" y="55" width="290" height="300" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="645" y="80" text-anchor="middle" fill="#3FB950" font-size="13" font-weight="700">Proceso MCP Server</text>
+  <text x="645" y="96" text-anchor="middle" fill="#8B949E" font-size="10">hijo del Host (subprocess)</text>
+
+  <!-- Server code snippets -->
+  <rect x="520" y="110" width="250" height="90" rx="6" fill="#1C2128"/>
+  <text x="535" y="128" fill="#8B949E" font-size="9" font-family="monospace"># Python</text>
+  <text x="535" y="143" fill="#58A6FF" font-size="9" font-family="monospace">mcp.run(transport=</text>
+  <text x="535" y="158" fill="#3FB950" font-size="9" font-family="monospace">  StdioServerTransport())</text>
+  <text x="535" y="178" fill="#8B949E" font-size="9" font-family="monospace">// TypeScript</text>
+  <text x="535" y="193" fill="#58A6FF" font-size="9" font-family="monospace">server.connect(new</text>
+  <text x="535" y="193" fill="#3FB950" font-size="9" font-family="monospace"></text>
+
+  <rect x="520" y="210" width="250" height="75" rx="6" fill="#1C2128"/>
+  <text x="535" y="228" fill="#8B949E" font-size="9" font-family="monospace">// TypeScript</text>
+  <text x="535" y="243" fill="#58A6FF" font-size="9" font-family="monospace">import { StdioServerTransport }</text>
+  <text x="535" y="258" fill="#58A6FF" font-size="9" font-family="monospace">  from "@modelcontextprotocol/sdk"</text>
+  <text x="535" y="273" fill="#3FB950" font-size="9" font-family="monospace">server.connect(new StdioServerTransport())</text>
+
+  <rect x="520" y="298" width="250" height="42" rx="6" fill="#21262D"/>
+  <text x="645" y="316" text-anchor="middle" fill="#8B949E" font-size="9">⚠ print() / console.log() rompen stdio</text>
+  <text x="645" y="331" text-anchor="middle" fill="#8B949E" font-size="9">Usar stderr para logging siempre</text>
+
+  <!-- Use cases bottom -->
+  <rect x="30" y="368" width="760" height="40" rx="8" fill="#161B22"/>
+  <text x="410" y="384" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="600">Cuándo usar stdio</text>
+  <text x="410" y="400" text-anchor="middle" fill="#8B949E" font-size="10">✓ Integración con Claude Desktop / Cursor / VS Code   ✓ Desarrollo local   ✓ Herramientas de CLI   ✗ No sirve para HTTP ni múltiples clientes</text>
+</svg>

@@ -1,0 +1,13 @@
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"roots":{"listChanged":true},"sampling":{}},"clientInfo":{"name":"mcp-inspector","version":"0.8.0"}}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":{}}
+{"jsonrpc":"2.0","id":1,"result":{"protocolVersion":"2024-11-05","capabilities":{"tools":{"listChanged":false}},"serverInfo":{"name":"calculadora-stdio","version":"1.0.0"}}}
+{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
+{"jsonrpc":"2.0","id":2,"result":{"tools":[{"name":"calculate","description":"Realiza operaciones matemáticas básicas","inputSchema":{"type":"object","properties":{"a":{"type":"number"},"b":{"type":"number"},"op":{"type":"string","enum":["add","sub","mul","div"]}},"required":["a","b","op"]}}]}}
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"calculate","arguments":{"a":10,"b":5,"op":"add"}}}
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"text","text":"15"}]}}
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"calculate","arguments":{"a":100,"b":4,"op":"div"}}}
+{"jsonrpc":"2.0","id":4,"result":{"content":[{"type":"text","text":"25"}]}}
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"calculate","arguments":{"a":7,"b":0,"op":"div"}}}
+{"jsonrpc":"2.0","id":5,"result":{"content":[{"type":"text","text":"Error: división por cero"}]}}
+{"jsonrpc":"2.0","id":6,"method":"ping","params":{}}
+{"jsonrpc":"2.0","id":6,"result":{}}

@@ -1,31 +1,46 @@
-# Proyecto — Semana 02: JSON-RPC 2.0 y Transports
+# Proyecto Semana 02 — Analizador de Sesiones MCP
 
 ## 🎯 Descripción
 
-Analizador de mensajes MCP que parsea y muestra el ciclo de vida de una sesión
+Construirás un **analizador de sesiones MCP** que:
 
-## 📋 Instrucciones
+1. Captura todos los mensajes JSON-RPC intercambiados en una sesión real
+2. Los parsea e identifica cada tipo (request / response / notification / error)
+3. Genera un reporte que documenta el ciclo de vida completo de la sesión
+4. Compara el comportamiento entre transports stdio y HTTP/SSE
 
-1. Lee el material teórico de [`1-teoria/`](../1-teoria/README.md) antes de comenzar
-2. Completa las prácticas de [`2-practicas/`](../2-practicas/README.md) como preparación
-3. Trabaja en el directorio `starter/` — **no modifiques** archivos fuera de él
-4. Usa Docker para ejecutar tu solución (`docker compose up --build`)
-5. Verifica que todos los entregables estén completos antes de la entrega
+## 📋 Prerrequisitos
+
+- Completar las prácticas 01, 02 y 03 de esta semana
+- Leer el material teórico de `1-teoria/` (especialmente `05-mensajes-mcp.md`)
 
 ## 📌 Entregables
 
-- [ ] Script que captura y analiza mensajes JSON-RPC de una sesión MCP real
-- [ ] Diagrama del ciclo de vida de sesión MCP (initialize / method calls / shutdown)
-- [ ] Comparativa documentada: stdio vs HTTP/SSE
+- [ ] `session-analyzer.py` — script que analiza un archivo `.jsonl` de sesión
+- [ ] `session-stdio.jsonl` — sesión capturada con transport stdio
+- [ ] `session-sse.jsonl` — sesión capturada con transport HTTP/SSE (opcional +10%)
+- [ ] `reporte.md` — análisis documentado con conclusiones
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Estructura
 
 ```
 3-proyecto/
 ├── README.md          # Este archivo
 └── starter/           # Tu código va aquí
-    └── README.md      # Instrucciones de setup
+    ├── README.md      # Instrucciones de setup
+    ├── session-log.jsonl         # Sesión de ejemplo para analizar
+    └── session-analyzer.py      # Script a completar (TODOs)
 ```
+
+## ✅ Criterios de Evaluación
+
+| Criterio | Puntos |
+|----------|--------|
+| El analizador parsea correctamente requests vs responses | 25 |
+| Identifica y muestra el handshake initialize/initialized | 25 |
+| Genera estadísticas (total mensajes, tiempo, métodos llamados) | 25 |
+| Documentación clara en `reporte.md` | 25 |
+| Análisis de sesión SSE (bonus) | +10 |
 
 > ⚠️ La carpeta `solution/` es solo para instructores y está en `.gitignore`.
 

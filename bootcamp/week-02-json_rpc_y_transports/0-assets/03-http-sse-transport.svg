@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 450" width="820" height="450" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="450" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Transport HTTP + SSE — Servidor accesible por red</text>
+
+  <!-- Client box -->
+  <rect x="30" y="55" width="220" height="300" rx="10" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="140" y="80" text-anchor="middle" fill="#BC8CFF" font-size="13" font-weight="700">MCP Client</text>
+  <text x="140" y="96" text-anchor="middle" fill="#8B949E" font-size="10">en el Host</text>
+
+  <!-- Client connects via HTTP POST -->
+  <rect x="50" y="115" width="180" height="38" rx="6" fill="#1C2128" stroke="#F0883E" stroke-width="1"/>
+  <text x="140" y="131" text-anchor="middle" fill="#F0883E" font-size="10" font-weight="600">HTTP POST</text>
+  <text x="140" y="146" text-anchor="middle" fill="#8B949E" font-size="9">/message → envía requests</text>
+
+  <!-- Client receives via SSE -->
+  <rect x="50" y="168" width="180" height="38" rx="6" fill="#1C2128" stroke="#58A6FF" stroke-width="1"/>
+  <text x="140" y="184" text-anchor="middle" fill="#58A6FF" font-size="10" font-weight="600">GET /sse (SSE stream)</text>
+  <text x="140" y="199" text-anchor="middle" fill="#8B949E" font-size="9">conexión persistente → recibe</text>
+
+  <!-- Client note -->
+  <rect x="50" y="220" width="180" height="60" rx="6" fill="#21262D"/>
+  <text x="140" y="238" text-anchor="middle" fill="#8B949E" font-size="9" font-family="monospace">Content-Type:</text>
+  <text x="140" y="252" text-anchor="middle" fill="#3FB950" font-size="9" font-family="monospace">text/event-stream</text>
+  <text x="140" y="268" text-anchor="middle" fill="#8B949E" font-size="9">El servidor empuja eventos</text>
+  <text x="140" y="281" text-anchor="middle" fill="#8B949E" font-size="9">sin que el cliente lo pida</text>
+
+  <!-- Client multiple instances note -->
+  <rect x="50" y="295" width="180" height="45" rx="6" fill="#1C2128"/>
+  <text x="140" y="313" text-anchor="middle" fill="#3FB950" font-size="9">✓ Múltiples clientes simultáneos</text>
+  <text x="140" y="328" text-anchor="middle" fill="#3FB950" font-size="9">✓ Accesible por red (LAN/internet)</text>
+
+  <!-- Arrows -->
+  <!-- POST arrow -->
+  <line x1="250" y1="134" x2="368" y2="134" stroke="#F0883E" stroke-width="2"/>
+  <polygon points="368,129 380,134 368,139" fill="#F0883E"/>
+  <text x="315" y="124" text-anchor="middle" fill="#F0883E" font-size="9">POST /message</text>
+
+  <!-- SSE arrow (back) -->
+  <line x1="380" y1="185" x2="252" y2="185" stroke="#58A6FF" stroke-width="2"/>
+  <polygon points="252,180 240,185 252,190" fill="#58A6FF"/>
+  <text x="315" y="204" text-anchor="middle" fill="#58A6FF" font-size="9">data: {...}\n\n</text>
+
+  <!-- Server box -->
+  <rect x="380" y="55" width="250" height="300" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="505" y="80" text-anchor="middle" fill="#3FB950" font-size="13" font-weight="700">MCP Server HTTP</text>
+  <text x="505" y="96" text-anchor="middle" fill="#8B949E" font-size="10">proceso independiente en red</text>
+
+  <!-- Routes -->
+  <rect x="400" y="112" width="210" height="26" rx="5" fill="#21262D" stroke="#F0883E" stroke-width="1"/>
+  <text x="505" y="129" text-anchor="middle" fill="#E6EDF3" font-size="10" font-family="monospace">POST /message</text>
+
+  <rect x="400" y="148" width="210" height="26" rx="5" fill="#21262D" stroke="#58A6FF" stroke-width="1"/>
+  <text x="505" y="165" text-anchor="middle" fill="#E6EDF3" font-size="10" font-family="monospace">GET  /sse</text>
+
+  <!-- Python code -->
+  <rect x="400" y="188" width="210" height="75" rx="6" fill="#1C2128"/>
+  <text x="410" y="205" fill="#8B949E" font-size="9" font-family="monospace"># Python</text>
+  <text x="410" y="220" fill="#58A6FF" font-size="9" font-family="monospace">from mcp.server.sse import</text>
+  <text x="410" y="234" fill="#58A6FF" font-size="9" font-family="monospace">  SseServerTransport</text>
+  <text x="410" y="249" fill="#3FB950" font-size="9" font-family="monospace">transport = SseServerTransport("/message")</text>
+  <text x="410" y="263" fill="#3FB950" font-size="9" font-family="monospace">app.mount("/sse", transport.handle_sse)</text>
+
+  <!-- TypeScript code -->
+  <rect x="400" y="272" width="210" height="68" rx="6" fill="#1C2128"/>
+  <text x="410" y="289" fill="#8B949E" font-size="9" font-family="monospace">// TypeScript</text>
+  <text x="410" y="304" fill="#58A6FF" font-size="9" font-family="monospace">import { SSEServerTransport }</text>
+  <text x="410" y="318" fill="#58A6FF" font-size="9" font-family="monospace">  from "@modelcontextprotocol/sdk"</text>
+  <text x="410" y="333" fill="#3FB950" font-size="9" font-family="monospace">const t = new SSEServerTransport("/message", res)</text>
+
+  <!-- Docker box -->
+  <rect x="648" y="55" width="152" height="300" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <text x="724" y="80" text-anchor="middle" fill="#F0883E" font-size="12" font-weight="700">Docker</text>
+  <rect x="663" y="100" width="120" height="55" rx="6" fill="#21262D"/>
+  <text x="723" y="118" text-anchor="middle" fill="#8B949E" font-size="9" font-family="monospace">ports:</text>
+  <text x="723" y="133" text-anchor="middle" fill="#3FB950" font-size="9" font-family="monospace">  - "8000:8000"</text>
+  <text x="723" y="148" text-anchor="middle" fill="#8B949E" font-size="9" font-family="monospace"># server HTTP</text>
+
+  <rect x="663" y="168" width="120" height="100" rx="6" fill="#21262D"/>
+  <text x="723" y="186" text-anchor="middle" fill="#8B949E" font-size="9">Ventajas HTTP/SSE:</text>
+  <text x="723" y="201" text-anchor="middle" fill="#3FB950" font-size="9">✓ Múltiples clientes</text>
+  <text x="723" y="216" text-anchor="middle" fill="#3FB950" font-size="9">✓ Despliegue en nube</text>
+  <text x="723" y="231" text-anchor="middle" fill="#3FB950" font-size="9">✓ Load balancing</text>
+  <text x="723" y="246" text-anchor="middle" fill="#3FB950" font-size="9">✓ Monitoreo HTTP</text>
+  <text x="723" y="261" text-anchor="middle" fill="#8B949E" font-size="9">✗ Más complejo</text>
+
+  <rect x="663" y="282" width="120" height="58" rx="6" fill="#1C2128"/>
+  <text x="723" y="300" text-anchor="middle" fill="#8B949E" font-size="9">URL config:</text>
+  <text x="723" y="315" text-anchor="middle" fill="#58A6FF" font-size="9" font-family="monospace">http://localhost</text>
+  <text x="723" y="330" text-anchor="middle" fill="#58A6FF" font-size="9" font-family="monospace">:8000/sse</text>
+
+  <!-- Arrow between server and docker -->
+  <line x1="630" y1="205" x2="660" y2="205" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Bottom comparison -->
+  <rect x="30" y="370" width="760" height="64" rx="8" fill="#161B22"/>
+  <text x="410" y="390" text-anchor="middle" fill="#8B949E" font-size="11" font-weight="600">stdio vs HTTP/SSE</text>
+  <rect x="42" y="398" width="340" height="28" rx="5" fill="#21262D"/>
+  <text x="212" y="415" text-anchor="middle" fill="#8B949E" font-size="10">stdio: simple, 1 cliente, desarrollo local, no requiere puerto</text>
+  <rect x="438" y="398" width="340" height="28" rx="5" fill="#21262D"/>
+  <text x="608" y="415" text-anchor="middle" fill="#8B949E" font-size="10">HTTP/SSE: múltiples clientes, producción, requiere HTTP server</text>
+</svg>
