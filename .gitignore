@@ -1,0 +1,114 @@
+# =============================================================
+# bc-mcp — Bootcamp MCP Zero to Hero
+# =============================================================
+
+# ─── Soluciones (solo para instructores, nunca en el repo) ───
+**/solution/
+**/_solution/
+
+# ─── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# uv
+.uv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.coveragerc
+
+# mypy / pyright
+.mypy_cache/
+.pyright/
+pyrightconfig.json
+
+# ruff
+.ruff_cache/
+
+# ─── Node.js / TypeScript ─────────────────────────────────────
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vitest / coverage
+coverage/
+.vitest/
+
+# ─── Variables de entorno ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ─── Docker ───────────────────────────────────────────────────
+.docker/
+
+# ─── Bases de datos locales ───────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Editores y sistemas operativos ──────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# JetBrains (PyCharm, WebStorm, etc.)
+.idea/
+
+# VS Code (mantener .vscode/settings.json si existe en el repo)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ─── PDFs generados (exportaciones del bootcamp) ─────────────
+**/_pdf/
+*.pdf
+
+# ─── Archivos temporales ─────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
