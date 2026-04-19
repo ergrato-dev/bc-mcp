@@ -1,5 +1,7 @@
 # Tipos de Mensajes MCP: Initialize, Requests y Notifications
 
+![Ciclo de vida completo de una sesión MCP: handshake, operación y cierre](../0-assets/05-mensajes-mcp.svg)
+
 ## 🎯 Objetivos
 
 - Conocer el ciclo de vida completo de una sesión MCP

@@ -1,5 +1,7 @@
 # Transport WebSocket: Comunicación Bidireccional en Tiempo Real
 
+![Transport WebSocket en MCP: comparativa con SSE y árbol de decisión](../0-assets/04-websocket-transport.svg)
+
 ## 🎯 Objetivos
 
 - Entender cuándo WebSocket es preferible a HTTP/SSE en MCP

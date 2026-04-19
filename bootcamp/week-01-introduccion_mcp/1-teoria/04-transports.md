@@ -1,6 +1,6 @@
 # Transports en MCP: stdio, HTTP/SSE y WebSocket
 
-![Arquitectura MCP con detalle de transports](../0-assets/01-mcp-architecture.svg)
+![Comparativa de transports MCP: stdio, HTTP/SSE y WebSocket](../0-assets/04-transports.svg)
 
 ## 🎯 Objetivos
 

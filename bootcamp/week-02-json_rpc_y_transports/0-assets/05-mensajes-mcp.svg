@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="480" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Ciclo de Vida de una Sesión MCP</text>
+  <text x="410" y="52" text-anchor="middle" fill="#8B949E" font-size="11">Fase 1: Handshake · Fase 2: Operación · Fase 3: Cierre</text>
+
+  <!-- Column labels -->
+  <text x="140" y="74" text-anchor="middle" fill="#BC8CFF" font-size="11" font-weight="700">MCP Client</text>
+  <text x="680" y="74" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="700">MCP Server</text>
+
+  <!-- Timeline lines -->
+  <line x1="140" y1="80" x2="140" y2="445" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="680" y1="80" x2="680" y2="445" stroke="#30363D" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ======= PHASE 1: HANDSHAKE ======= -->
+  <rect x="30" y="82" width="760" height="18" rx="4" fill="#21262D"/>
+  <text x="410" y="95" text-anchor="middle" fill="#F0883E" font-size="10" font-weight="700">FASE 1 — Handshake (obligatorio al inicio)</text>
+
+  <!-- 1. initialize request -->
+  <text x="155" y="120" fill="#F0883E" font-size="9" font-weight="600">initialize →</text>
+  <line x1="215" y1="116" x2="660" y2="116" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="658,112 662,116 658,120" fill="#F0883E"/>
+  <rect x="230" y="122" width="360" height="18" rx="3" fill="#1C2128" stroke="#F0883E" stroke-width="1"/>
+  <text x="410" y="135" text-anchor="middle" fill="#E6EDF3" font-size="8" font-family="monospace">protocolVersion, capabilities, clientInfo</text>
+
+  <!-- 2. initialize response -->
+  <line x1="660" y1="152" x2="215" y2="152" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="217,148 213,152 217,156" fill="#58A6FF"/>
+  <text x="625" y="148" text-anchor="end" fill="#58A6FF" font-size="9" font-weight="600">← result</text>
+  <rect x="230" y="158" width="360" height="18" rx="3" fill="#1C2128" stroke="#58A6FF" stroke-width="1"/>
+  <text x="410" y="171" text-anchor="middle" fill="#E6EDF3" font-size="8" font-family="monospace">protocolVersion, capabilities, serverInfo</text>
+
+  <!-- 3. notifications/initialized -->
+  <text x="155" y="194" fill="#BC8CFF" font-size="9" font-weight="600">notifications/initialized →</text>
+  <line x1="310" y1="190" x2="660" y2="190" stroke="#BC8CFF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="658,186 662,190 658,194" fill="#BC8CFF"/>
+  <text x="410" y="206" text-anchor="middle" fill="#8B949E" font-size="8">(sin id — no espera respuesta)</text>
+
+  <!-- ======= PHASE 2: OPERATION ======= -->
+  <rect x="30" y="218" width="760" height="18" rx="4" fill="#21262D"/>
+  <text x="410" y="231" text-anchor="middle" fill="#3FB950" font-size="10" font-weight="700">FASE 2 — Operación (requests normales)</text>
+
+  <!-- tools/list -->
+  <text x="155" y="256" fill="#F0883E" font-size="9">tools/list  id:2 →</text>
+  <line x1="245" y1="252" x2="660" y2="252" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="658,248 662,252 658,256" fill="#F0883E"/>
+  <line x1="660" y1="270" x2="215" y2="270" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="217,266 213,270 217,274" fill="#58A6FF"/>
+  <text x="625" y="266" text-anchor="end" fill="#58A6FF" font-size="9">← result {tools:[...]}  id:2</text>
+
+  <!-- tools/call -->
+  <text x="155" y="294" fill="#F0883E" font-size="9">tools/call  id:3 →</text>
+  <line x1="245" y1="290" x2="660" y2="290" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="658,286 662,290 658,294" fill="#F0883E"/>
+  <line x1="660" y1="308" x2="215" y2="308" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="217,304 213,308 217,312" fill="#58A6FF"/>
+  <text x="625" y="304" text-anchor="end" fill="#58A6FF" font-size="9">← result {content:[...]}  id:3</text>
+
+  <!-- ping -->
+  <text x="155" y="330" fill="#F0883E" font-size="9">ping  id:4 →</text>
+  <line x1="205" y1="326" x2="660" y2="326" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="658,322 662,326 658,330" fill="#F0883E"/>
+  <line x1="660" y1="342" x2="215" y2="342" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="217,338 213,342 217,346" fill="#58A6FF"/>
+  <text x="625" y="338" text-anchor="end" fill="#58A6FF" font-size="9">← result {}  id:4</text>
+
+  <!-- ======= PHASE 3: SHUTDOWN ======= -->
+  <rect x="30" y="358" width="760" height="18" rx="4" fill="#21262D"/>
+  <text x="410" y="371" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="700">FASE 3 — Cierre (graceful shutdown)</text>
+
+  <!-- notifications/cancelled (optional) -->
+  <text x="155" y="394" fill="#BC8CFF" font-size="9">notifications/cancelled →</text>
+  <line x1="300" y1="390" x2="660" y2="390" stroke="#BC8CFF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="658,386 662,390 658,394" fill="#BC8CFF"/>
+  <text x="155" y="408" fill="#8B949E" font-size="8">(opcional)</text>
+
+  <!-- connection close -->
+  <line x1="140" y1="420" x2="680" y2="420" stroke="#30363D" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="410" y="416" text-anchor="middle" fill="#8B949E" font-size="8">cierre de conexión (EOF / socket close)</text>
+
+  <!-- ======= Legend ====== -->
+  <rect x="30" y="435" width="760" height="34" rx="6" fill="#161B22"/>
+  <!-- Row 1 -->
+  <rect x="48" y="445" width="12" height="3" fill="#F0883E" rx="1"/>
+  <text x="66" y="454" fill="#8B949E" font-size="9">Request (con id)</text>
+  <rect x="190" y="445" width="12" height="3" fill="#58A6FF" rx="1"/>
+  <text x="208" y="454" fill="#8B949E" font-size="9">Response (mismo id)</text>
+  <rect x="360" y="445" width="12" height="3" fill="#BC8CFF" rx="1"/>
+  <text x="378" y="454" fill="#8B949E" font-size="9">Notification (sin id)</text>
+  <!-- Row 2 -->
+  <text x="410" y="465" text-anchor="middle" fill="#8B949E" font-size="9">El handshake es obligatorio — cualquier request antes de él es rechazado por el servidor</text>
+</svg>

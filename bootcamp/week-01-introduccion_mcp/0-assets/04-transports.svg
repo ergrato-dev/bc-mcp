@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Transports MCP: stdio, HTTP/SSE y WebSocket</text>
+
+  <!-- ============ stdio ============ -->
+  <rect x="30" y="55" width="230" height="160" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="145" y="78" text-anchor="middle" fill="#3FB950" font-size="12" font-weight="700">stdio</text>
+
+  <!-- host box -->
+  <rect x="44" y="88" width="90" height="40" rx="6" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="89" y="105" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">Host / Client</text>
+  <text x="89" y="119" text-anchor="middle" fill="#8B949E" font-size="8">proceso padre</text>
+
+  <!-- server box -->
+  <rect x="156" y="88" width="90" height="40" rx="6" fill="#21262D" stroke="#3FB950" stroke-width="1"/>
+  <text x="201" y="105" text-anchor="middle" fill="#3FB950" font-size="9" font-weight="600">MCP Server</text>
+  <text x="201" y="119" text-anchor="middle" fill="#8B949E" font-size="8">subproceso</text>
+
+  <!-- stdin arrow → -->
+  <line x1="135" y1="100" x2="155" y2="100" stroke="#3FB950" stroke-width="1.5"/>
+  <polygon points="153,96 157,100 153,104" fill="#3FB950"/>
+  <text x="145" y="95" text-anchor="middle" fill="#3FB950" font-size="7">stdin</text>
+
+  <!-- stdout arrow ← -->
+  <line x1="155" y1="112" x2="135" y2="112" stroke="#58A6FF" stroke-width="1.5"/>
+  <polygon points="137,108 133,112 137,116" fill="#58A6FF"/>
+  <text x="145" y="125" text-anchor="middle" fill="#58A6FF" font-size="7">stdout</text>
+
+  <!-- attributes -->
+  <text x="145" y="152" text-anchor="middle" fill="#8B949E" font-size="9">✓ Simple, sin red</text>
+  <text x="145" y="167" text-anchor="middle" fill="#8B949E" font-size="9">✓ Claude Desktop</text>
+  <text x="145" y="182" text-anchor="middle" fill="#F0883E" font-size="9">✗ Un solo cliente</text>
+
+  <!-- ============ HTTP / SSE ============ -->
+  <rect x="295" y="55" width="230" height="160" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="410" y="78" text-anchor="middle" fill="#58A6FF" font-size="12" font-weight="700">HTTP / SSE</text>
+
+  <!-- client -->
+  <rect x="309" y="88" width="80" height="40" rx="6" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="349" y="105" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">MCP Client</text>
+  <text x="349" y="119" text-anchor="middle" fill="#8B949E" font-size="8">browser / app</text>
+
+  <!-- server -->
+  <rect x="431" y="88" width="80" height="40" rx="6" fill="#21262D" stroke="#58A6FF" stroke-width="1"/>
+  <text x="471" y="105" text-anchor="middle" fill="#58A6FF" font-size="9" font-weight="600">HTTP Server</text>
+  <text x="471" y="119" text-anchor="middle" fill="#8B949E" font-size="8">:8000</text>
+
+  <!-- POST → -->
+  <line x1="390" y1="100" x2="430" y2="100" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="428,96 432,100 428,104" fill="#F0883E"/>
+  <text x="410" y="95" text-anchor="middle" fill="#F0883E" font-size="7">POST /message</text>
+
+  <!-- SSE ← -->
+  <line x1="430" y1="112" x2="390" y2="112" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="392,108 388,112 392,116" fill="#58A6FF"/>
+  <text x="410" y="125" text-anchor="middle" fill="#58A6FF" font-size="7">GET /sse (stream)</text>
+
+  <!-- attributes -->
+  <text x="410" y="152" text-anchor="middle" fill="#8B949E" font-size="9">✓ Múltiples clientes</text>
+  <text x="410" y="167" text-anchor="middle" fill="#8B949E" font-size="9">✓ Debuggeable con curl</text>
+  <text x="410" y="182" text-anchor="middle" fill="#8B949E" font-size="9">✓ Producción / Docker</text>
+
+  <!-- ============ WebSocket ============ -->
+  <rect x="560" y="55" width="230" height="160" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="2"/>
+  <text x="675" y="78" text-anchor="middle" fill="#BC8CFF" font-size="12" font-weight="700">WebSocket</text>
+
+  <!-- client -->
+  <rect x="574" y="88" width="80" height="40" rx="6" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="614" y="105" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">MCP Client</text>
+  <text x="614" y="119" text-anchor="middle" fill="#8B949E" font-size="8">cualquier env.</text>
+
+  <!-- server -->
+  <rect x="696" y="88" width="80" height="40" rx="6" fill="#21262D" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="736" y="105" text-anchor="middle" fill="#BC8CFF" font-size="9" font-weight="600">WS Server</text>
+  <text x="736" y="119" text-anchor="middle" fill="#8B949E" font-size="8">:8080</text>
+
+  <!-- bidirectional arrows -->
+  <line x1="655" y1="100" x2="695" y2="100" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="693,96 697,100 693,104" fill="#BC8CFF"/>
+  <line x1="695" y1="112" x2="655" y2="112" stroke="#BC8CFF" stroke-width="1.5"/>
+  <polygon points="657,108 653,112 657,116" fill="#BC8CFF"/>
+  <text x="675" y="95" text-anchor="middle" fill="#BC8CFF" font-size="7">full-duplex</text>
+
+  <!-- attributes -->
+  <text x="675" y="152" text-anchor="middle" fill="#8B949E" font-size="9">✓ Bidireccional</text>
+  <text x="675" y="167" text-anchor="middle" fill="#8B949E" font-size="9">✓ Baja latencia</text>
+  <text x="675" y="182" text-anchor="middle" fill="#8B949E" font-size="9">~ Más complejo</text>
+
+  <!-- ============ Comparison table ============ -->
+  <rect x="30" y="235" width="760" height="170" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="258" text-anchor="middle" fill="#E6EDF3" font-size="12" font-weight="700">Comparativa de Transports</text>
+
+  <!-- headers -->
+  <text x="100" y="278" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="600">Aspecto</text>
+  <text x="265" y="278" text-anchor="middle" fill="#3FB950" font-size="10" font-weight="600">stdio</text>
+  <text x="455" y="278" text-anchor="middle" fill="#58A6FF" font-size="10" font-weight="600">HTTP/SSE</text>
+  <text x="645" y="278" text-anchor="middle" fill="#BC8CFF" font-size="10" font-weight="600">WebSocket</text>
+  <line x1="44" y1="284" x2="776" y2="284" stroke="#30363D" stroke-width="1"/>
+
+  <!-- rows -->
+  <text x="100" y="300" text-anchor="middle" fill="#8B949E" font-size="9">Clientes simultáneos</text>
+  <text x="265" y="300" text-anchor="middle" fill="#E6EDF3" font-size="9">1</text>
+  <text x="455" y="300" text-anchor="middle" fill="#E6EDF3" font-size="9">N</text>
+  <text x="645" y="300" text-anchor="middle" fill="#E6EDF3" font-size="9">N</text>
+
+  <text x="100" y="318" text-anchor="middle" fill="#8B949E" font-size="9">Requiere red</text>
+  <text x="265" y="318" text-anchor="middle" fill="#3FB950" font-size="9">No</text>
+  <text x="455" y="318" text-anchor="middle" fill="#F0883E" font-size="9">Sí (HTTP)</text>
+  <text x="645" y="318" text-anchor="middle" fill="#F0883E" font-size="9">Sí (TCP)</text>
+
+  <text x="100" y="336" text-anchor="middle" fill="#8B949E" font-size="9">Dirección mensajes</text>
+  <text x="265" y="336" text-anchor="middle" fill="#E6EDF3" font-size="9">Bidireccional</text>
+  <text x="455" y="336" text-anchor="middle" fill="#E6EDF3" font-size="9">POST ↑ + SSE ↓</text>
+  <text x="645" y="336" text-anchor="middle" fill="#E6EDF3" font-size="9">Full-duplex</text>
+
+  <text x="100" y="354" text-anchor="middle" fill="#8B949E" font-size="9">Caso de uso</text>
+  <text x="265" y="354" text-anchor="middle" fill="#E6EDF3" font-size="9">Claude Desktop / local</text>
+  <text x="455" y="354" text-anchor="middle" fill="#E6EDF3" font-size="9">Producción / API</text>
+  <text x="645" y="354" text-anchor="middle" fill="#E6EDF3" font-size="9">Métricas / streaming</text>
+
+  <text x="100" y="372" text-anchor="middle" fill="#8B949E" font-size="9">Soporte MCP SDK</text>
+  <text x="265" y="372" text-anchor="middle" fill="#3FB950" font-size="9">✓ Oficial</text>
+  <text x="455" y="372" text-anchor="middle" fill="#3FB950" font-size="9">✓ Oficial</text>
+  <text x="645" y="372" text-anchor="middle" fill="#3FB950" font-size="9">✓ Oficial</text>
+
+  <text x="100" y="390" text-anchor="middle" fill="#8B949E" font-size="9">Complejidad setup</text>
+  <text x="265" y="390" text-anchor="middle" fill="#3FB950" font-size="9">Baja</text>
+  <text x="455" y="390" text-anchor="middle" fill="#58A6FF" font-size="9">Media</text>
+  <text x="645" y="390" text-anchor="middle" fill="#F0883E" font-size="9">Alta</text>
+
+  <!-- Decision guide footer -->
+  <rect x="30" y="420" width="760" height="30" rx="6" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="432" text-anchor="middle" fill="#8B949E" font-size="9" font-weight="600">Regla de elección:</text>
+  <text x="410" y="445" text-anchor="middle" fill="#8B949E" font-size="9">local → stdio   |   web / multicliente → HTTP/SSE   |   telemetría / eventos frecuentes → WebSocket</text>
+</svg>

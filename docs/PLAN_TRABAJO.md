@@ -49,6 +49,7 @@
 - [x] `01-mcp-architecture.svg` — Host / Client / Server / Primitivos + JSON-RPC
 - [x] `02-primitivos-overview.svg` — Tool · Resource · Prompt comparados
 - [x] `03-mcp-vs-alternativas.svg` — Tabla MCP vs Function Calling vs REST vs Plugins
+- [x] `04-transports.svg` — Comparativa stdio / HTTP/SSE / WebSocket con tabla
 
 ### Teoría (`1-teoria/`) — mín. 150 líneas por archivo
 - [x] `01-que-es-mcp.md` — origen, motivación, casos de uso reales
@@ -91,9 +92,11 @@
 - [x] Carpetas: `0-assets/`, `1-teoria/`, `2-practicas/`, `3-proyecto/`, `4-recursos/`, `5-glosario/`
 
 ### Assets Visuales (`0-assets/`)
-- [x] `01-jsonrpc-request-response.svg` — ciclo request/response JSON-RPC
+- [x] `01-jsonrpc-request-response.svg` — ciclo request/response/notification JSON-RPC
 - [x] `02-stdio-transport.svg` — flujo stdin/stdout
 - [x] `03-http-sse-transport.svg` — flujo HTTP + SSE
+- [x] `04-websocket-transport.svg` — SSE vs WebSocket + árbol de decisión
+- [x] `05-mensajes-mcp.svg` — ciclo de vida completo de sesión MCP (3 fases)
 
 ### Teoría (`1-teoria/`) — mín. 150 líneas por archivo
 - [x] `01-json-rpc-2.md` — especificación JSON-RPC 2.0
@@ -163,7 +166,6 @@
 ### Assets Visuales (`0-assets/`)
 - [ ] `python-server-anatomy.svg` — anatomía de un MCP server en Python
 - [ ] `fastmcp-decorator-flow.svg` — decoradores de FastMCP
-- [ ] `week-04-header.svg`
 
 ### Teoría (`1-teoria/`)
 - [ ] `01-mcp-python-sdk.md` — FastMCP, instalación, estructura
@@ -197,7 +199,6 @@
 ### Assets Visuales (`0-assets/`)
 - [ ] `typescript-server-anatomy.svg` — anatomía de un MCP server en TypeScript
 - [ ] `zod-validation-flow.svg` — validación de inputs con Zod
-- [ ] `week-05-header.svg`
 
 ### Teoría (`1-teoria/`)
 - [ ] `01-mcp-typescript-sdk.md` — @modelcontextprotocol/sdk, pnpm, estructura

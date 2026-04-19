@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 450" width="820" height="450" style="font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Background -->
+  <rect width="820" height="450" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" fill="#E6EDF3" font-size="16" font-weight="700">Transport WebSocket en MCP</text>
+
+  <!-- ====== SSE comparison (left) ====== -->
+  <rect x="30" y="55" width="360" height="200" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="210" y="78" text-anchor="middle" fill="#58A6FF" font-size="12" font-weight="700">HTTP / SSE</text>
+  <text x="210" y="94" text-anchor="middle" fill="#8B949E" font-size="9">(dos canales separados)</text>
+
+  <!-- SSE diagram -->
+  <rect x="50" y="108" width="80" height="32" rx="5" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="90" y="129" text-anchor="middle" fill="#BC8CFF" font-size="9">MCP Client</text>
+
+  <rect x="280" y="108" width="80" height="32" rx="5" fill="#21262D" stroke="#58A6FF" stroke-width="1"/>
+  <text x="320" y="129" text-anchor="middle" fill="#58A6FF" font-size="9">HTTP Server</text>
+
+  <!-- POST arrow -->
+  <line x1="131" y1="118" x2="279" y2="118" stroke="#F0883E" stroke-width="1.5"/>
+  <polygon points="277,114 281,118 277,122" fill="#F0883E"/>
+  <text x="205" y="112" text-anchor="middle" fill="#F0883E" font-size="8">POST /message (requests)</text>
+
+  <!-- SSE arrow -->
+  <line x1="279" y1="132" x2="131" y2="132" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="133,128 129,132 133,136" fill="#58A6FF"/>
+  <text x="205" y="148" text-anchor="middle" fill="#58A6FF" font-size="8">GET /sse stream (responses)</text>
+
+  <!-- labels -->
+  <text x="210" y="172" text-anchor="middle" fill="#8B949E" font-size="9">Canal de subida: HTTP POST</text>
+  <text x="210" y="187" text-anchor="middle" fill="#8B949E" font-size="9">Canal de bajada: SSE (event stream)</text>
+  <text x="210" y="204" text-anchor="middle" fill="#8B949E" font-size="9">Unidireccional servidor → cliente</text>
+  <text x="210" y="219" text-anchor="middle" fill="#F0883E" font-size="9">Latencia: un round-trip HTTP por request</text>
+  <text x="210" y="237" text-anchor="middle" fill="#8B949E" font-size="9">Casos: API, producción, múltiples clientes</text>
+
+  <!-- ====== WebSocket (right) ====== -->
+  <rect x="430" y="55" width="360" height="200" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="2"/>
+  <text x="610" y="78" text-anchor="middle" fill="#BC8CFF" font-size="12" font-weight="700">WebSocket</text>
+  <text x="610" y="94" text-anchor="middle" fill="#8B949E" font-size="9">(canal único bidireccional)</text>
+
+  <!-- WS diagram -->
+  <rect x="450" y="108" width="80" height="32" rx="5" fill="#21262D" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="490" y="129" text-anchor="middle" fill="#BC8CFF" font-size="9">MCP Client</text>
+
+  <rect x="680" y="108" width="80" height="32" rx="5" fill="#21262D" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="720" y="129" text-anchor="middle" fill="#BC8CFF" font-size="9">WS Server</text>
+
+  <!-- bidireccional arrows -->
+  <line x1="531" y1="118" x2="679" y2="118" stroke="#BC8CFF" stroke-width="2"/>
+  <polygon points="677,114 681,118 677,122" fill="#BC8CFF"/>
+  <line x1="679" y1="132" x2="531" y2="132" stroke="#BC8CFF" stroke-width="2"/>
+  <polygon points="533,128 529,132 533,136" fill="#BC8CFF"/>
+  <text x="605" y="112" text-anchor="middle" fill="#BC8CFF" font-size="8">messages (any direction)</text>
+  <text x="605" y="148" text-anchor="middle" fill="#BC8CFF" font-size="8">TCP persistente, sin overhead HTTP</text>
+
+  <!-- labels -->
+  <text x="610" y="172" text-anchor="middle" fill="#8B949E" font-size="9">Un solo canal TCP (full-duplex)</text>
+  <text x="610" y="187" text-anchor="middle" fill="#8B949E" font-size="9">Servidor puede enviar sin esperar request</text>
+  <text x="610" y="204" text-anchor="middle" fill="#3FB950" font-size="9">Latencia mínima (sin round-trip HTTP)</text>
+  <text x="610" y="219" text-anchor="middle" fill="#3FB950" font-size="9">Ideal para eventos frecuentes del servidor</text>
+  <text x="610" y="237" text-anchor="middle" fill="#8B949E" font-size="9">Casos: métricas, DB NOTIFY, streaming</text>
+
+  <!-- ====== When to use WebSocket ====== -->
+  <rect x="30" y="275" width="760" height="90" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="410" y="297" text-anchor="middle" fill="#E6EDF3" font-size="12" font-weight="700">¿Cuándo elegir WebSocket?</text>
+
+  <!-- Grid 2x3 -->
+  <rect x="46" y="308" width="220" height="42" rx="6" fill="#21262D"/>
+  <text x="156" y="326" text-anchor="middle" fill="#3FB950" font-size="10" font-weight="600">Eventos frecuentes del servidor</text>
+  <text x="156" y="342" text-anchor="middle" fill="#8B949E" font-size="9">telemetría, logs, progreso en tiempo real</text>
+
+  <rect x="300" y="308" width="220" height="42" rx="6" fill="#21262D"/>
+  <text x="410" y="326" text-anchor="middle" fill="#3FB950" font-size="10" font-weight="600">DB push notifications</text>
+  <text x="410" y="342" text-anchor="middle" fill="#8B949E" font-size="9">PostgreSQL NOTIFY, Redis pub/sub</text>
+
+  <rect x="554" y="308" width="220" height="42" rx="6" fill="#21262D"/>
+  <text x="664" y="326" text-anchor="middle" fill="#3FB950" font-size="10" font-weight="600">Latencia crítica</text>
+  <text x="664" y="342" text-anchor="middle" fill="#8B949E" font-size="9">gaming, trading, colaboración en vivo</text>
+
+  <!-- ====== Decision tree ====== -->
+  <rect x="30" y="380" width="760" height="55" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="400" text-anchor="middle" fill="#8B949E" font-size="10" font-weight="600">Árbol de decisión</text>
+  <text x="155" y="420" text-anchor="middle" fill="#3FB950" font-size="10">¿Local / Claude Desktop?</text>
+  <text x="155" y="434" text-anchor="middle" fill="#3FB950" font-size="9">→ stdio</text>
+  <text x="410" y="420" text-anchor="middle" fill="#58A6FF" font-size="10">¿Múltiples clientes / prod?</text>
+  <text x="410" y="434" text-anchor="middle" fill="#58A6FF" font-size="9">→ HTTP/SSE</text>
+  <text x="665" y="420" text-anchor="middle" fill="#BC8CFF" font-size="10">¿Eventos frecuentes / baja latencia?</text>
+  <text x="665" y="434" text-anchor="middle" fill="#BC8CFF" font-size="9">→ WebSocket</text>
+</svg>
