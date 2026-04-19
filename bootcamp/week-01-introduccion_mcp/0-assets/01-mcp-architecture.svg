@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <!-- Background -->
+  <rect width="800" height="420" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E6EDF3" text-anchor="middle">Arquitectura MCP</text>
+  <text x="400" y="62" font-family="system-ui, sans-serif" font-size="13" fill="#8B949E" text-anchor="middle">Host · Client · Server · Primitivos</text>
+
+  <!-- ─────────────── HOST BOX ─────────────── -->
+  <rect x="40" y="88" width="720" height="300" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+  <text x="68" y="116" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#8B949E">HOST  (Claude Desktop / Cursor / VS Code)</text>
+
+  <!-- ─────────────── LLM ─────────────── -->
+  <rect x="72" y="132" width="180" height="80" rx="8" fill="#0D1117" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="162" y="168" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#6B4FBB" text-anchor="middle">LLM</text>
+  <text x="162" y="188" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">Claude / GPT / Gemini</text>
+
+  <!-- ─────────────── MCP CLIENT ─────────────── -->
+  <rect x="72" y="244" width="180" height="80" rx="8" fill="#0D1117" stroke="#58A6FF" stroke-width="2"/>
+  <text x="162" y="280" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#58A6FF" text-anchor="middle">MCP Client</text>
+  <text x="162" y="298" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">conexión 1:1 con server</text>
+
+  <!-- Arrow LLM → Client -->
+  <line x1="162" y1="212" x2="162" y2="244" stroke="#8B949E" stroke-width="1.5"/>
+  <polygon points="162,244 157,234 167,234" fill="#8B949E"/>
+
+  <!-- ─────────────── ARROWS Client ↔ Server ─────────────── -->
+  <!-- Request -->
+  <line x1="252" y1="274" x2="390" y2="274" stroke="#3FB950" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <polygon points="390,274 380,269 380,279" fill="#3FB950"/>
+  <text x="321" y="268" font-family="system-ui, sans-serif" font-size="10" fill="#3FB950" text-anchor="middle">request</text>
+
+  <!-- Response -->
+  <line x1="390" y1="290" x2="252" y2="290" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <polygon points="252,290 262,285 262,295" fill="#58A6FF"/>
+  <text x="321" y="304" font-family="system-ui, sans-serif" font-size="10" fill="#58A6FF" text-anchor="middle">response</text>
+
+  <!-- JSON-RPC label -->
+  <rect x="292" y="312" width="86" height="20" rx="4" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="335" y="325" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E" text-anchor="middle">JSON-RPC 2.0</text>
+
+  <!-- ─────────────── MCP SERVER ─────────────── -->
+  <rect x="390" y="132" width="340" height="220" rx="8" fill="#0D1117" stroke="#3FB950" stroke-width="2"/>
+  <text x="560" y="158" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#3FB950" text-anchor="middle">MCP Server</text>
+  <text x="560" y="176" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">expone primitivos al Client</text>
+
+  <!-- Tool -->
+  <rect x="410" y="192" width="90" height="60" rx="6" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="455" y="218" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#F0883E" text-anchor="middle">Tool</text>
+  <text x="455" y="234" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E" text-anchor="middle">acciones</text>
+
+  <!-- Resource -->
+  <rect x="515" y="192" width="90" height="60" rx="6" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="560" y="218" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#58A6FF" text-anchor="middle">Resource</text>
+  <text x="560" y="234" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E" text-anchor="middle">datos</text>
+
+  <!-- Prompt -->
+  <rect x="620" y="192" width="90" height="60" rx="6" fill="#161B22" stroke="#BC8CFF" stroke-width="1.5"/>
+  <text x="665" y="218" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#BC8CFF" text-anchor="middle">Prompt</text>
+  <text x="665" y="234" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E" text-anchor="middle">plantillas</text>
+
+  <!-- Primitives label -->
+  <text x="560" y="278" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">Transport: stdio · HTTP/SSE</text>
+
+  <!-- External data sources -->
+  <rect x="410" y="300" width="300" height="28" rx="6" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="560" y="318" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">BD · APIs externas · Sistema de archivos</text>
+
+  <!-- Arrow Server → External -->
+  <line x1="560" y1="352" x2="560" y2="328" stroke="#30363D" stroke-width="1.5"/>
+  <polygon points="560,328 555,338 565,338" fill="#30363D"/>
+
+  <!-- Legend -->
+  <text x="400" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#6B4FBB" text-anchor="middle">● Host</text>
+  <text x="460" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#58A6FF" text-anchor="middle">● Client</text>
+  <text x="522" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#3FB950" text-anchor="middle">● Server</text>
+  <text x="590" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#F0883E" text-anchor="middle">● Tool</text>
+  <text x="640" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#58A6FF" text-anchor="middle">● Resource</text>
+  <text x="710" y="406" font-family="system-ui, sans-serif" font-size="11" fill="#BC8CFF" text-anchor="middle">● Prompt</text>
+</svg>

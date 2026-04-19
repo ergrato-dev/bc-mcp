@@ -2,10 +2,10 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Configurar el entorno Docker del bootcamp
-- [practica-02/](practica-02/) — Explorar la especificación oficial de MCP
-- [practica-03/](practica-03/) — Instalar MCP Inspector y conectar a un server de ejemplo
-- [practica-04/](practica-04/) — Analizar mensajes MCP con herramientas de debug
+- [practica-01/](practica-01/README.md) — Configurar el entorno Docker y levantar MCP Inspector
+- [practica-02/](practica-02/README.md) — Explorar un MCP Server con MCP Inspector
+- [practica-03/](practica-03/README.md) — Leer e interpretar mensajes JSON-RPC de MCP
+- [practica-04/](practica-04/README.md) — Identificar y clasificar primitivos en servers reales
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
 > El estudiante aprende descomentando las secciones indicadas en el `README.md`

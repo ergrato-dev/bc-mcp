@@ -2,14 +2,14 @@
 
 ## Archivos de Teoría
 
-- [01-que-es-mcp?-historia-y-motivacion.md](01-que-es-mcp?-historia-y-motivacion.md) — ¿Qué es MCP? Historia y motivación
-- [02-arquitectura-mcp-host-client-y-server.md](02-arquitectura-mcp-host-client-y-server.md) — Arquitectura MCP: Host, Client y Server
-- [03-los-tres-primitivos-tools-resources-y-pr.md](03-los-tres-primitivos-tools-resources-y-pr.md) — Los tres primitivos: Tools, Resources y Prompts
-- [04-casos-de-uso-reales-claude-desktop-curso.md](04-casos-de-uso-reales-claude-desktop-curso.md) — Casos de uso reales: Claude Desktop, Cursor, VS Code
-- [05-comparativa-mcp-vs-function-calling-vs-p.md](05-comparativa-mcp-vs-function-calling-vs-p.md) — Comparativa: MCP vs Function Calling vs Plugins
+- [01-que-es-mcp.md](01-que-es-mcp.md) — ¿Qué es MCP? Origen, motivación y casos de uso reales
+- [02-arquitectura.md](02-arquitectura.md) — Host, Client y Server; JSON-RPC 2.0; ciclo completo
+- [03-primitivos.md](03-primitivos.md) — Tools, Resources y Prompts: estructura y guía de decisión
+- [04-transports.md](04-transports.md) — stdio, HTTP/SSE y WebSocket: cuándo usar cada uno
+- [05-mcp-vs-alternativas.md](05-mcp-vs-alternativas.md) — MCP vs Function Calling, REST y Plugins
 
-> 📌 Cada archivo de teoría debe referenciar al menos un SVG de `../0-assets/`
-> para reforzar visualmente el concepto principal.
+> 📌 Cada archivo referencia al menos un SVG de `../0-assets/` para
+> reforzar visualmente el concepto principal.
 
 ---
 

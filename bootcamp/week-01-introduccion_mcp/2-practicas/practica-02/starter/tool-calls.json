@@ -1,0 +1,78 @@
+{
+  "_instrucciones": "Descomenta cada bloque para ver el JSON-RPC crudo de cada llamada",
+
+  "_llamada_1_initialize": {
+    "_descripcion": "Handshake inicial que todo Client envía al conectarse",
+    "_descomenta": true
+  },
+
+  "llamada_1_initialize": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2024-11-05",
+      "capabilities": {
+        "roots": { "listChanged": true },
+        "sampling": {}
+      },
+      "clientInfo": {
+        "name": "mcp-inspector",
+        "version": "1.0.0"
+      }
+    }
+  },
+
+  "_llamada_2_tools_list": {
+    "_descripcion": "Solicitar la lista de tools disponibles",
+    "_descomenta": true
+  },
+
+  "llamada_2_tools_list": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/list",
+    "params": {}
+  },
+
+  "_llamada_3_tool_call": {
+    "_descripcion": "Ejecutar el tool 'echo' con un mensaje",
+    "_descomenta": true
+  },
+
+  "llamada_3_tool_call": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+      "name": "echo",
+      "arguments": {
+        "message": "Hola desde MCP Inspector!"
+      }
+    }
+  },
+
+  "_llamada_4_resources_list": {
+    "_descripcion": "Solicitar la lista de resources disponibles",
+    "_descomenta": true
+  },
+
+  "llamada_4_resources_list": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "method": "resources/list",
+    "params": {}
+  },
+
+  "_llamada_5_prompts_list": {
+    "_descripcion": "Solicitar la lista de prompts disponibles",
+    "_descomenta": true
+  },
+
+  "llamada_5_prompts_list": {
+    "jsonrpc": "2.0",
+    "id": 5,
+    "method": "prompts/list",
+    "params": {}
+  }
+}

@@ -1,22 +1,22 @@
-# Starter — Semana 01: Introducción al Protocolo MCP
+# Proyecto Semana 01 — Starter
 
-## Setup
+## Cómo empezar
 
 ```bash
-# Clonar y navegar al directorio
-cd bootcamp/week-01-introduccion_mcp/3-proyecto/starter
+# 1. Descomentar el docker-compose.yml de este directorio y levantar
+docker compose up
 
-# Levantar el entorno con Docker
-docker compose up --build
+# 2. Abrir http://localhost:6274
 ```
 
-## Estructura Esperada
+## Archivos a completar (en orden)
 
-Implementa el proyecto según las instrucciones en [`../README.md`](../README.md).
-
-## TODO
-
-Implementa los entregables descritos en [`../README.md`](../README.md#-entregables).
+| Archivo | Qué debes hacer |
+|---------|----------------|
+| `docker-compose.yml` | Descomentar el bloque del servicio mcp-inspector |
+| `architecture-diagram.svg` | Crear tu propio diagrama SVG de la arquitectura MCP |
+| `architecture-analysis.md` | Responder las preguntas de análisis |
+| `use-cases.md` | Documentar 3 casos de uso reales de MCP |
 
 ---
 

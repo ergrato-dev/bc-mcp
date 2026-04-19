@@ -46,27 +46,30 @@
 - [x] Carpetas: `0-assets/`, `1-teoria/`, `2-practicas/`, `3-proyecto/`, `4-recursos/`, `5-glosario/`
 
 ### Assets Visuales (`0-assets/`)
-- [ ] `mcp-architecture.svg` — diagrama Host / Client / Server
-- [ ] `mcp-vs-rest.svg` — comparativa MCP vs REST/plugins
-- [ ] `primitivos-overview.svg` — Tools + Resources + Prompts
-- [ ] `week-01-header.svg` — cabecera de semana
+- [x] `01-mcp-architecture.svg` — Host / Client / Server / Primitivos + JSON-RPC
+- [x] `02-primitivos-overview.svg` — Tool · Resource · Prompt comparados
+- [x] `03-mcp-vs-alternativas.svg` — Tabla MCP vs Function Calling vs REST vs Plugins
 
 ### Teoría (`1-teoria/`) — mín. 150 líneas por archivo
-- [ ] `01-que-es-mcp.md` — qué es MCP, historia, motivación
-- [ ] `02-arquitectura.md` — Host, Client, Server; JSON-RPC 2.0
-- [ ] `03-primitivos.md` — Tools, Resources, Prompts (overview)
-- [ ] `04-transports.md` — stdio, HTTP/SSE, WebSocket (intro)
-- [ ] `05-mcp-vs-alternativas.md` — MCP vs REST vs function calling
+- [x] `01-que-es-mcp.md` — origen, motivación, casos de uso reales
+- [x] `02-arquitectura.md` — Host, Client, Server; JSON-RPC 2.0; ciclo completo
+- [x] `03-primitivos.md` — Tools, Resources y Prompts: estructura y guía de decisión
+- [x] `04-transports.md` — stdio, HTTP/SSE y WebSocket: cuándo usar cada uno
+- [x] `05-mcp-vs-alternativas.md` — MCP vs Function Calling, REST y Plugins
 
 ### Prácticas (`2-practicas/`) — formato descomentar
-- [ ] `01-instalar-mcp-inspector/` — setup MCP Inspector con Docker
-- [ ] `02-explorar-server-ejemplo/` — conectar al demo server oficial
-- [ ] `03-identificar-primitivos/` — reconocer tools/resources/prompts en JSON
+- [x] `practica-01/` — Configurar entorno Docker + MCP Inspector
+- [x] `practica-02/` — Explorar server demo con MCP Inspector
+- [x] `practica-03/` — Leer e interpretar mensajes JSON-RPC
+- [x] `practica-04/` — Clasificar primitivos en servers reales + diseño propio
 
 ### Proyecto (`3-proyecto/`) — formato TODOs
-- [ ] `README.md` — instrucciones del proyecto
-- [ ] `starter/` — código inicial con TODOs
-- [ ] `solution/` — solución (gitignored)
+- [x] `README.md` — instrucciones del proyecto
+- [x] `starter/README.md` — guía de setup
+- [x] `starter/docker-compose.yml` — TODO: descomentar mcp-inspector
+- [x] `starter/architecture-diagram.svg` — TODO: crear diagrama propio
+- [x] `starter/architecture-analysis.md` — TODO: análisis del diagrama
+- [x] `starter/use-cases.md` — TODO: 3 casos de uso reales
 
 ### Recursos (`4-recursos/`)
 - [ ] `ebooks-free/` — links a libros relevantes
@@ -74,7 +77,7 @@
 - [ ] `webgrafia/` — links a docs oficiales MCP
 
 ### Glosario (`5-glosario/`)
-- [ ] `README.md` — términos clave de la semana (8–11 entradas)
+- [x] `README.md` — 13 términos clave (Function Calling, Host, JSON-RPC, LLM, MCP, MCP Client, MCP Server, Primitivo, Prompt, Resource, stdio, Tool, Transport)
 
 ---
 

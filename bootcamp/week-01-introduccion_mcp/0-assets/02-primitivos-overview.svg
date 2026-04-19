@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" height="340">
+  <!-- Background -->
+  <rect width="800" height="340" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="400" y="38" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#E6EDF3" text-anchor="middle">Los Tres Primitivos del Protocolo MCP</text>
+  <text x="400" y="58" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">Tools · Resources · Prompts</text>
+
+  <!-- ─── TOOL ─── -->
+  <rect x="40" y="80" width="220" height="220" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <rect x="40" y="80" width="220" height="48" rx="10" fill="#1E1508"/>
+  <rect x="40" y="108" width="220" height="20" fill="#1E1508"/>
+  <text x="150" y="112" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#F0883E" text-anchor="middle">Tool</text>
+
+  <text x="150" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">Acción que ejecuta el LLM</text>
+  <text x="150" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">en nombre del usuario</text>
+
+  <rect x="62" y="192" width="176" height="26" rx="5" fill="#0D1117"/>
+  <text x="150" y="209" font-family="monospace, monospace" font-size="11" fill="#F0883E" text-anchor="middle">@mcp.tool()</text>
+
+  <text x="150" y="244" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">search_files</text>
+  <text x="150" y="260" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">send_email</text>
+  <text x="150" y="276" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">query_database</text>
+
+  <!-- ─── RESOURCE ─── -->
+  <rect x="290" y="80" width="220" height="220" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <rect x="290" y="80" width="220" height="48" rx="10" fill="#080E18"/>
+  <rect x="290" y="108" width="220" height="20" fill="#080E18"/>
+  <text x="400" y="112" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#58A6FF" text-anchor="middle">Resource</text>
+
+  <text x="400" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">Datos que el LLM puede</text>
+  <text x="400" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">leer como contexto</text>
+
+  <rect x="312" y="192" width="176" height="26" rx="5" fill="#0D1117"/>
+  <text x="400" y="209" font-family="monospace, monospace" font-size="11" fill="#58A6FF" text-anchor="middle">@mcp.resource("uri")</text>
+
+  <text x="400" y="244" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">db://schema</text>
+  <text x="400" y="260" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">file://docs</text>
+  <text x="400" y="276" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">api://users</text>
+
+  <!-- ─── PROMPT ─── -->
+  <rect x="540" y="80" width="220" height="220" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="2"/>
+  <rect x="540" y="80" width="220" height="48" rx="10" fill="#100A1C"/>
+  <rect x="540" y="108" width="220" height="20" fill="#100A1C"/>
+  <text x="650" y="112" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#BC8CFF" text-anchor="middle">Prompt</text>
+
+  <text x="650" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">Plantilla reutilizable con</text>
+  <text x="650" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#8B949E" text-anchor="middle">argumentos dinámicos</text>
+
+  <rect x="562" y="192" width="176" height="26" rx="5" fill="#0D1117"/>
+  <text x="650" y="209" font-family="monospace, monospace" font-size="11" fill="#BC8CFF" text-anchor="middle">@mcp.prompt()</text>
+
+  <text x="650" y="244" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">code_review</text>
+  <text x="650" y="260" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">summarize_doc</text>
+  <text x="650" y="276" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E" text-anchor="middle">debug_error</text>
+
+  <!-- Bottom legend -->
+  <text x="150" y="316" font-family="system-ui, sans-serif" font-size="11" fill="#F0883E" text-anchor="middle">Acción → input/output</text>
+  <text x="400" y="316" font-family="system-ui, sans-serif" font-size="11" fill="#58A6FF" text-anchor="middle">Dato → URI scheme</text>
+  <text x="650" y="316" font-family="system-ui, sans-serif" font-size="11" fill="#BC8CFF" text-anchor="middle">Plantilla → argumentos</text>
+</svg>

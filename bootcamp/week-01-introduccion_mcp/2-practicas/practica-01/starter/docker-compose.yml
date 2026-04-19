@@ -1,0 +1,14 @@
+services:
+  # MCP Inspector — interfaz web para explorar MCP Servers
+  # Descomenta el bloque completo:
+
+  # mcp-inspector:
+  #   image: node:22-slim
+  #   working_dir: /app
+  #   ports:
+  #     - "${INSPECTOR_PORT:-6274}:6274"
+  #   command: >
+  #     sh -c "npx --yes @modelcontextprotocol/inspector --port 6274"
+  #   environment:
+  #     - NODE_ENV=development
+  #   restart: unless-stopped
