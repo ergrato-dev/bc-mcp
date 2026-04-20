@@ -138,8 +138,8 @@
   <text x="192" y="438" font-size="9" fill="#58A6FF">server.resource("uri", handler)</text>
   <text x="390" y="438" font-size="9" fill="#8B949E">|</text>
   <text x="406" y="438" font-size="9" fill="#3FB950">@mcp.resource("uri/{x}")</text>
-  <text x="555" y="438" font-size="9" fill="#8B949E">↔</text>
-  <text x="571" y="438" font-size="9" fill="#58A6FF">server.resource("uri/{x}", {x: z.string()}, handler)</text>
+  <text x="547" y="438" font-size="9" fill="#8B949E">↔</text>
+  <text x="560" y="438" font-size="9" fill="#58A6FF">server.resource("uri/{x}", {x:z.string()}, fn)</text>
   <text x="40" y="456" font-size="9" fill="#3FB950">@mcp.prompt()</text>
   <text x="116" y="456" font-size="9" fill="#8B949E">↔</text>
   <text x="132" y="456" font-size="9" fill="#58A6FF">server.prompt("name", args, handler)</text>
