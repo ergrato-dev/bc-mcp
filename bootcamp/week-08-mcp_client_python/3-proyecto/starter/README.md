@@ -1,22 +1,54 @@
-# Starter — Semana 08: MCP Client en Python
+# Library CLI — Starter
 
-## Setup
+## Requisitos
+
+- Python 3.13+ y `uv` instalado, O Docker + Docker Compose
+- Week-07 Library Manager Server (starter o solution)
+
+## Setup local (sin Docker)
 
 ```bash
-# Clonar y navegar al directorio
-cd bootcamp/week-08-mcp_client_python/3-proyecto/starter
+# 1. Copiar variables de entorno
+cp .env.example .env
 
-# Levantar el entorno con Docker
-docker compose up --build
+# 2. Editar .env — ajustar SERVER_PATH a tu ruta del server semana 07
+#    SERVER_PATH=../../../week-07-servers_bd_apis_externas/3-proyecto/starter/python-server/src/server.py
+
+# 3. Instalar dependencias del client
+cd python-client
+uv sync
+
+# 4. Ejecutar el CLI
+uv run python src/client.py
 ```
 
-## Estructura Esperada
+## Setup con Docker
 
-Implementa el proyecto según las instrucciones en [`../README.md`](../README.md).
+```bash
+# 1. Copiar variables de entorno
+cp .env.example .env
 
-## TODO
+# 2. Construir y ejecutar (modo interactivo)
+docker compose run --rm library-client
+```
 
-Implementa los entregables descritos en [`../README.md`](../README.md#-entregables).
+## Verificar que funciona
+
+Al ejecutar correctamente verás:
+
+```
+Library CLI — MCP Client
+Conectando a Library Manager MCP Server...
+✓ Conectado — 7 tools disponibles
+
+Comandos: search | add | openlibrary | tools | stats | quit
+>> 
+```
+
+## Implementar los TODOs
+
+Abre `python-client/src/client.py` y completa las 6 funciones marcadas con `TODO`.
+Implementa en orden — cada función usa la anterior.
 
 ---
 

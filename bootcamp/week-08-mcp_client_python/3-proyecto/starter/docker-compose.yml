@@ -1,0 +1,25 @@
+services:
+  library-client:
+    build:
+      context: ./python-client
+      dockerfile: Dockerfile.python
+    image: bc-mcp-week08-library-client
+    container_name: library-client
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+    volumes:
+      # Mount client source for live editing (development)
+      - ./python-client/src:/app/src:ro
+      # Mount the week-07 server source so the client can launch it
+      - ../../../week-07-servers_bd_apis_externas/3-proyecto/starter/python-server:/week07-server:ro
+      # Persistent SQLite database
+      - library_data:/app/data
+    environment:
+      - SERVER_COMMAND=python
+      - SERVER_PATH=/week07-server/src/server.py
+      - DB_PATH=/app/data/library.db
+
+volumes:
+  library_data:

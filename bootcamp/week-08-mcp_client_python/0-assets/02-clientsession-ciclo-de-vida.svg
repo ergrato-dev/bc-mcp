@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="420" fill="#0D1117"/>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#58A6FF"/>
+    </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF7B72"/>
+    </marker>
+    <marker id="arr-muted" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#30363D"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="410" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">ClientSession — Ciclo de Vida (State Machine)</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#8B949E">Estados por los que pasa una sesion MCP desde la conexion hasta el cierre</text>
+
+  <!-- ====== STATE NODES (horizontal) ====== -->
+  <!-- State 1: DISCONNECTED (start) -->
+  <ellipse cx="80" cy="220" rx="60" ry="36" fill="#21262D" stroke="#8B949E" stroke-width="2"/>
+  <text x="80" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#8B949E">DISCON-</text>
+  <text x="80" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#8B949E">NECTED</text>
+  <!-- start dot -->
+  <circle cx="80" cy="170" r="8" fill="#8B949E"/>
+  <line x1="80" y1="178" x2="80" y2="184" stroke="#8B949E" stroke-width="2" marker-end="url(#arr-muted)"/>
+
+  <!-- State 2: CONNECTING -->
+  <ellipse cx="240" cy="220" rx="62" ry="36" fill="#BC8CFF" fill-opacity="0.12" stroke="#BC8CFF" stroke-width="2"/>
+  <text x="240" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">CONNECT-</text>
+  <text x="240" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">ING</text>
+
+  <!-- State 3: INITIALIZING -->
+  <ellipse cx="410" cy="220" rx="62" ry="36" fill="#F0883E" fill-opacity="0.12" stroke="#F0883E" stroke-width="2"/>
+  <text x="410" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#F0883E">INITIAL-</text>
+  <text x="410" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#F0883E">IZING</text>
+
+  <!-- State 4: READY -->
+  <ellipse cx="580" cy="220" rx="60" ry="36" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-width="2.5"/>
+  <text x="580" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#3FB950">READY</text>
+
+  <!-- State 5: ERROR (below) -->
+  <ellipse cx="580" cy="355" rx="58" ry="34" fill="#FF7B72" fill-opacity="0.12" stroke="#FF7B72" stroke-width="2"/>
+  <text x="580" y="358" text-anchor="middle" font-size="10" font-weight="700" fill="#FF7B72">ERROR</text>
+
+  <!-- State 4b: CALLING (above READY) -->
+  <ellipse cx="580" cy="100" rx="60" ry="34" fill="#58A6FF" fill-opacity="0.12" stroke="#58A6FF" stroke-width="2"/>
+  <text x="580" y="103" text-anchor="middle" font-size="10" font-weight="700" fill="#58A6FF">CALLING</text>
+
+  <!-- ====== TRANSITIONS ====== -->
+  <!-- DISCONNECTED → CONNECTING -->
+  <line x1="140" y1="220" x2="178" y2="220" stroke="#BC8CFF" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+  <rect x="143" y="206" width="33" height="12" rx="2" fill="#0D1117"/>
+  <text x="160" y="216" text-anchor="middle" font-size="8.5" fill="#BC8CFF">connect()</text>
+
+  <!-- CONNECTING → INITIALIZING -->
+  <line x1="302" y1="220" x2="348" y2="220" stroke="#F0883E" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+  <rect x="305" y="206" width="41" height="12" rx="2" fill="#0D1117"/>
+  <text x="325" y="216" text-anchor="middle" font-size="8.5" fill="#F0883E">transport ok</text>
+
+  <!-- INITIALIZING → READY -->
+  <line x1="472" y1="220" x2="520" y2="220" stroke="#3FB950" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+  <rect x="475" y="206" width="43" height="12" rx="2" fill="#0D1117"/>
+  <text x="496" y="216" text-anchor="middle" font-size="8.5" fill="#3FB950">initialized</text>
+
+  <!-- READY → CALLING (up) -->
+  <line x1="580" y1="184" x2="580" y2="134" stroke="#58A6FF" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+  <rect x="586" y="152" width="55" height="12" rx="2" fill="#0D1117"/>
+  <text x="614" y="162" font-size="8.5" fill="#58A6FF">call_tool()</text>
+
+  <!-- CALLING → READY (back, right side) -->
+  <path d="M 640 100 Q 700 100 700 220 Q 700 220 640 220" fill="none" stroke="#3FB950" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+  <rect x="703" y="152" width="50" height="12" rx="2" fill="#0D1117"/>
+  <text x="728" y="162" font-size="8.5" fill="#3FB950">response</text>
+
+  <!-- READY → ERROR (down) -->
+  <line x1="580" y1="256" x2="580" y2="321" stroke="#FF7B72" stroke-width="1.8" marker-end="url(#arr-red)"/>
+  <rect x="587" y="282" width="45" height="12" rx="2" fill="#0D1117"/>
+  <text x="609" y="292" font-size="8.5" fill="#FF7B72">McpError</text>
+
+  <!-- ERROR → DISCONNECTED (curved bottom) -->
+  <path d="M 522 355 Q 80 420 80 256" fill="none" stroke="#8B949E" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-muted)"/>
+  <text x="280" y="408" text-anchor="middle" font-size="8.5" fill="#8B949E">aclose() / reconectar</text>
+
+  <!-- READY → DISCONNECTED (curved bottom close) -->
+  <path d="M 520 240 Q 410 310 140 240" fill="none" stroke="#8B949E" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-muted)"/>
+  <text x="320" y="298" text-anchor="middle" font-size="8.5" fill="#8B949E">aclose() normal</text>
+
+  <!-- ====== CODE CALLOUTS ====== -->
+  <rect x="20" y="295" width="200" height="95" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="30" y="312" font-size="9" font-weight="700" fill="#8B949E">Patrón de uso:</text>
+  <text x="30" y="328" font-size="8.5" fill="#BC8CFF">async with </text>
+  <text x="84" y="328" font-size="8.5" fill="#E6EDF3">stdio_client(params)</text>
+  <text x="30" y="341" font-size="8.5" fill="#E6EDF3">  as (read, write):</text>
+  <text x="30" y="354" font-size="8.5" fill="#BC8CFF">  async with </text>
+  <text x="90" y="354" font-size="8.5" fill="#58A6FF">ClientSession</text>
+  <text x="30" y="367" font-size="8.5" fill="#E6EDF3">    (read, write) as s:</text>
+  <text x="30" y="380" font-size="8.5" fill="#F0883E">    await s.initialize()</text>
+</svg>

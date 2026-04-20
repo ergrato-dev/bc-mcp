@@ -58,15 +58,16 @@ week-08-mcp_client_python/
 
 ### 💻 Prácticas ([2-practicas/](2-practicas/README.md))
 
-1. Crear un client Python que se conecte al server de semana 07
-2. Listar todos los tools disponibles con list_tools()
-3. Invocar un tool y procesar su respuesta
-4. Listar resources y leer su contenido
-5. Construir un CLI que use el client como interfaz
+1. [Primer client](2-practicas/practica-01-primer-client/) — Conectar al server de semana 07 e imprimir serverInfo
+2. [Descubrir capacidades](2-practicas/practica-02-descubrir-capacidades/) — list_tools, list_resources, list_prompts con schema completo
+3. [Invocar tools](2-practicas/practica-03-invocar-tools/) — call_tool, TextContent JSON, isError, read_resource
+4. [CLI interactivo](2-practicas/practica-04-cli-interactivo/) — Sesión única, bucle run_in_executor, comandos search/stats/quit
 
 ### 🏗️ Proyecto ([3-proyecto/](3-proyecto/README.md))
 
-MCP Client Python con CLI interactivo que se conecta al server de semana 07
+**Library CLI** — MCP Client Python con CLI interactivo que se conecta al Library Manager
+MCP Server de la semana 07. Permite buscar libros, agregar títulos, consultar la API de
+Open Library y ver estadísticas, todo desde una sesión MCP única.
 
 ---
 
@@ -74,18 +75,20 @@ MCP Client Python con CLI interactivo que se conecta al server de semana 07
 
 | Actividad | Tiempo | Descripción |
 |-----------|--------|-------------|
-| Teoría | 1.5–2h | Lectura y comprensión del material teórico |
-| Prácticas | 3–3.5h | Ejercicios guiados con código a descomentar |
-| Proyecto | 2–2.5h | Implementación del proyecto integrador |
+| Teoría | 1.5–2h | 5 archivos: arquitectura, ClientSession, flujo, content types, errores |
+| Prácticas | 3–3.5h | 4 ejercicios guiados (descomentar código, verificar output) |
+| Proyecto | 2–2.5h | Library CLI — 6 TODOs en `src/client.py` |
 
 ---
 
 ## 📌 Entregables
 
-- [ ] MCP Client Python funcional con conexión a server stdio
-- [ ] CLI que permite invocar cualquier tool del server
-- [ ] Tests del client con servidor de prueba en memoria
-- [ ] README con instrucciones y ejemplos de uso
+- [ ] `connect_to_server()` implementado con StdioServerParameters + ClientSession
+- [ ] `list_available_tools()` lista tools con nombre y descripción
+- [ ] `search_books()` llama al tool y deserializa TextContent JSON
+- [ ] `add_book()` agrega libro y verifica isError
+- [ ] `search_openlibrary()` consulta API externa via tool
+- [ ] `interactive_loop()` CLI con search, add, openlibrary, tools, stats, quit
 
 ---
 

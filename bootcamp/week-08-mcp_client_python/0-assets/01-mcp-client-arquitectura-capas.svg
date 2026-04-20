@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">MCP Client — Arquitectura en Capas</text>
+  <text x="410" y="52" text-anchor="middle" font-size="12" fill="#8B949E">Tu código orquesta el SDK, el SDK maneja el protocolo</text>
+
+  <!-- ====== CONCENTRIC RINGS ====== -->
+  <!-- Outer ring: Tu Aplicacion -->
+  <ellipse cx="260" cy="270" rx="230" ry="155" fill="#BC8CFF" fill-opacity="0.08" stroke="#BC8CFF" stroke-width="2" stroke-dasharray="6,3"/>
+  <!-- Ring 2: ClientSession -->
+  <ellipse cx="260" cy="270" rx="170" ry="112" fill="#58A6FF" fill-opacity="0.10" stroke="#58A6FF" stroke-width="2"/>
+  <!-- Ring 3: Transport -->
+  <ellipse cx="260" cy="270" rx="108" ry="70" fill="#F0883E" fill-opacity="0.14" stroke="#F0883E" stroke-width="2"/>
+  <!-- Center: Server Process -->
+  <ellipse cx="260" cy="270" rx="55" ry="38" fill="#3FB950" fill-opacity="0.18" stroke="#3FB950" stroke-width="2"/>
+
+  <!-- Center label -->
+  <text x="260" y="266" text-anchor="middle" font-size="9.5" font-weight="700" fill="#3FB950">MCP Server</text>
+  <text x="260" y="280" text-anchor="middle" font-size="8.5" fill="#3FB950">Process</text>
+
+  <!-- Ring 3 label: Transport -->
+  <text x="260" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="#F0883E">StdioTransport</text>
+  <text x="260" y="226" text-anchor="middle" font-size="8.5" fill="#8B949E">stdin / stdout</text>
+  <text x="260" y="335" text-anchor="middle" font-size="9" fill="#F0883E">JSON-RPC 2.0</text>
+
+  <!-- Ring 2 label: ClientSession -->
+  <text x="260" y="168" text-anchor="middle" font-size="10.5" font-weight="700" fill="#58A6FF">ClientSession</text>
+  <text x="260" y="183" text-anchor="middle" font-size="8.5" fill="#8B949E">MCP SDK</text>
+  <text x="260" y="368" text-anchor="middle" font-size="8.5" fill="#58A6FF">list_tools / call_tool</text>
+  <text x="260" y="381" text-anchor="middle" font-size="8.5" fill="#58A6FF">list_resources / read_resource</text>
+
+  <!-- Outer ring label: Tu app -->
+  <text x="260" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#BC8CFF">Tu Aplicación Python</text>
+  <text x="260" y="140" text-anchor="middle" font-size="8.5" fill="#8B949E">lógica de negocio / CLI / agente</text>
+  <text x="260" y="410" text-anchor="middle" font-size="8.5" fill="#BC8CFF">orquesta tools y procesa resultados</text>
+
+  <!-- ====== RIGHT SIDE: LEGEND / DETAIL ====== -->
+  <rect x="540" y="75" width="255" height="350" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+  <text x="667" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#E6EDF3">Responsabilidades por capa</text>
+
+  <!-- Layer rows -->
+  <!-- 1 -->
+  <rect x="555" y="112" width="12" height="12" rx="2" fill="#BC8CFF"/>
+  <text x="575" y="122" font-size="10" font-weight="700" fill="#BC8CFF">Tu Aplicación</text>
+  <text x="575" y="135" font-size="9" fill="#8B949E">– Decide qué tools llamar</text>
+  <text x="575" y="147" font-size="9" fill="#8B949E">– Procesa y muestra resultados</text>
+  <text x="575" y="159" font-size="9" fill="#8B949E">– Maneja lógica del agente</text>
+
+  <!-- 2 -->
+  <rect x="555" y="175" width="12" height="12" rx="2" fill="#58A6FF"/>
+  <text x="575" y="185" font-size="10" font-weight="700" fill="#58A6FF">ClientSession (SDK)</text>
+  <text x="575" y="198" font-size="9" fill="#8B949E">– Implementa protocolo MCP</text>
+  <text x="575" y="210" font-size="9" fill="#8B949E">– Serializacion / deserializacion</text>
+  <text x="575" y="222" font-size="9" fill="#8B949E">– Manejo de request IDs</text>
+
+  <!-- 3 -->
+  <rect x="555" y="238" width="12" height="12" rx="2" fill="#F0883E"/>
+  <text x="575" y="248" font-size="10" font-weight="700" fill="#F0883E">StdioTransport</text>
+  <text x="575" y="261" font-size="9" fill="#8B949E">– Escribe en stdin del servidor</text>
+  <text x="575" y="273" font-size="9" fill="#8B949E">– Lee de stdout del servidor</text>
+  <text x="575" y="285" font-size="9" fill="#8B949E">– Framing: newline-delimited JSON</text>
+
+  <!-- 4 -->
+  <rect x="555" y="301" width="12" height="12" rx="2" fill="#3FB950"/>
+  <text x="575" y="311" font-size="10" font-weight="700" fill="#3FB950">MCP Server Process</text>
+  <text x="575" y="324" font-size="9" fill="#8B949E">– Proceso hijo (subprocess)</text>
+  <text x="575" y="336" font-size="9" fill="#8B949E">– Se inicia con stdio_server()</text>
+  <text x="575" y="348" font-size="9" fill="#8B949E">– Expone tools / resources</text>
+
+  <!-- Separator -->
+  <line x1="555" y1="365" x2="780" y2="365" stroke="#30363D" stroke-width="1"/>
+  <text x="667" y="383" text-anchor="middle" font-size="9" fill="#8B949E">Cada capa solo conoce la inmediatamente inferior</text>
+  <text x="667" y="397" text-anchor="middle" font-size="9" fill="#8B949E">→ separacion de responsabilidades</text>
+
+  <!-- Arrow from outer to inner on left side -->
+  <text x="36" y="270" text-anchor="middle" font-size="8.5" fill="#8B949E" transform="rotate(-90, 36, 270)">usa ↓</text>
+  <text x="96" y="270" text-anchor="middle" font-size="8.5" fill="#8B949E" transform="rotate(-90, 96, 270)">usa ↓</text>
+  <text x="155" y="270" text-anchor="middle" font-size="8.5" fill="#8B949E" transform="rotate(-90, 155, 270)">usa ↓</text>
+</svg>

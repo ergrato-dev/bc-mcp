@@ -282,11 +282,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — diagrama client-server communication
-- [ ] `1-teoria/` — MCP Client Python SDK, llamadas a tools, listing
-- [ ] `2-practicas/` — client que conecta a server de semana 04
-- [ ] `3-proyecto/` — CLI client con múltiples servers
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — 5 SVGs: anillos concéntricos, máquina de estados, pipes, swimlanes, card grid
+- [x] `1-teoria/` — arquitectura, ClientSession, flujo, content types, manejo de errores
+- [x] `2-practicas/` — 4 prácticas (primer client, descubrir, invocar, CLI interactivo)
+- [x] `3-proyecto/` — Library CLI (6 TODOs): connect, list_tools, search, add, openlibrary, loop
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

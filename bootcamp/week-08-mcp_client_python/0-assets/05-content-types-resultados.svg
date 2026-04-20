@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#E6EDF3">Tipos de Contenido — CallToolResult.content</text>
+  <text x="410" y="47" text-anchor="middle" font-size="11" fill="#8B949E">Cada item en result.content puede ser uno de estos tipos</text>
+
+  <!-- ====== CARD GRID: 2x2 + bottom row ====== -->
+
+  <!-- Card 1: TextContent -->
+  <rect x="20" y="62" width="375" height="160" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <!-- Color band top -->
+  <rect x="20" y="62" width="375" height="8" rx="10" fill="#3FB950"/>
+  <rect x="20" y="68" width="375" height="2" fill="#3FB950"/>
+  <!-- Icon area -->
+  <rect x="35" y="82" width="40" height="40" rx="8" fill="#3FB950" fill-opacity="0.15"/>
+  <text x="55" y="109" text-anchor="middle" font-size="22" fill="#3FB950">T</text>
+  <!-- Content -->
+  <text x="90" y="100" font-size="12" font-weight="700" fill="#3FB950">TextContent</text>
+  <text x="90" y="116" font-size="9" fill="#8B949E">type: "text"</text>
+  <text x="35" y="145" font-size="9" fill="#E6EDF3">item.text → str</text>
+  <text x="35" y="158" font-size="8.5" fill="#8B949E">El caso mas comun. Texto plano o JSON string.</text>
+  <text x="35" y="172" font-size="8.5" fill="#8B949E">Siempre verificar: isinstance(item, TextContent)</text>
+  <rect x="35" y="182" width="345" height="28" rx="5" fill="#0D1117"/>
+  <text x="45" y="195" font-size="8.5" fill="#BC8CFF">if </text>
+  <text x="60" y="195" font-size="8.5" fill="#E6EDF3">isinstance(item, </text>
+  <text x="152" y="195" font-size="8.5" fill="#3FB950">TextContent</text>
+  <text x="218" y="195" font-size="8.5" fill="#E6EDF3">):</text>
+  <text x="45" y="207" font-size="8.5" fill="#E6EDF3">    data = json.loads(item.text)  </text>
+  <text x="245" y="207" font-size="8.5" fill="#8B949E"># si es JSON</text>
+
+  <!-- Card 2: ImageContent -->
+  <rect x="425" y="62" width="375" height="160" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <rect x="425" y="62" width="375" height="8" rx="10" fill="#58A6FF"/>
+  <rect x="425" y="68" width="375" height="2" fill="#58A6FF"/>
+  <rect x="440" y="82" width="40" height="40" rx="8" fill="#58A6FF" fill-opacity="0.15"/>
+  <text x="460" y="109" text-anchor="middle" font-size="20" fill="#58A6FF">🖼</text>
+  <text x="495" y="100" font-size="12" font-weight="700" fill="#58A6FF">ImageContent</text>
+  <text x="495" y="116" font-size="9" fill="#8B949E">type: "image"</text>
+  <text x="440" y="145" font-size="9" fill="#E6EDF3">item.data → str (base64) · item.mimeType → str</text>
+  <text x="440" y="158" font-size="8.5" fill="#8B949E">Imagenes en base64 (PNG, JPEG, GIF, WebP).</text>
+  <text x="440" y="172" font-size="8.5" fill="#8B949E">Descodificar con base64.b64decode(item.data)</text>
+  <rect x="440" y="182" width="345" height="28" rx="5" fill="#0D1117"/>
+  <text x="450" y="195" font-size="8.5" fill="#BC8CFF">if </text>
+  <text x="465" y="195" font-size="8.5" fill="#E6EDF3">isinstance(item, </text>
+  <text x="557" y="195" font-size="8.5" fill="#58A6FF">ImageContent</text>
+  <text x="626" y="195" font-size="8.5" fill="#E6EDF3">):</text>
+  <text x="450" y="207" font-size="8.5" fill="#E6EDF3">    raw = base64.b64decode(item.data)</text>
+
+  <!-- Card 3: EmbeddedResource -->
+  <rect x="20" y="242" width="375" height="160" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="2"/>
+  <rect x="20" y="242" width="375" height="8" rx="10" fill="#F0883E"/>
+  <rect x="20" y="248" width="375" height="2" fill="#F0883E"/>
+  <rect x="35" y="262" width="40" height="40" rx="8" fill="#F0883E" fill-opacity="0.15"/>
+  <text x="55" y="289" text-anchor="middle" font-size="20" fill="#F0883E">📄</text>
+  <text x="90" y="280" font-size="12" font-weight="700" fill="#F0883E">EmbeddedResource</text>
+  <text x="90" y="296" font-size="9" fill="#8B949E">type: "resource"</text>
+  <text x="35" y="325" font-size="9" fill="#E6EDF3">item.resource.text → str · item.resource.uri → str</text>
+  <text x="35" y="338" font-size="8.5" fill="#8B949E">Resource incrustado directamente en la respuesta.</text>
+  <text x="35" y="352" font-size="8.5" fill="#8B949E">Menos comun. Util cuando el tool retorna un doc completo.</text>
+  <rect x="35" y="362" width="345" height="28" rx="5" fill="#0D1117"/>
+  <text x="45" y="375" font-size="8.5" fill="#BC8CFF">if </text>
+  <text x="60" y="375" font-size="8.5" fill="#E6EDF3">isinstance(item, </text>
+  <text x="152" y="375" font-size="8.5" fill="#F0883E">EmbeddedResource</text>
+  <text x="243" y="375" font-size="8.5" fill="#E6EDF3">):</text>
+  <text x="45" y="387" font-size="8.5" fill="#E6EDF3">    print(item.resource.text)</text>
+
+  <!-- Card 4: isError -->
+  <rect x="425" y="242" width="375" height="160" rx="10" fill="#161B22" stroke="#FF7B72" stroke-width="2"/>
+  <rect x="425" y="242" width="375" height="8" rx="10" fill="#FF7B72"/>
+  <rect x="425" y="248" width="375" height="2" fill="#FF7B72"/>
+  <rect x="440" y="262" width="40" height="40" rx="8" fill="#FF7B72" fill-opacity="0.15"/>
+  <text x="460" y="289" text-anchor="middle" font-size="20" fill="#FF7B72">⚠</text>
+  <text x="495" y="280" font-size="12" font-weight="700" fill="#FF7B72">Error de Dominio</text>
+  <text x="495" y="296" font-size="9" fill="#8B949E">result.isError == True</text>
+  <text x="440" y="325" font-size="9" fill="#E6EDF3">El tool retornó un error manejado, NO una excepción</text>
+  <text x="440" y="338" font-size="8.5" fill="#8B949E">content[0].text contiene el mensaje de error.</text>
+  <text x="440" y="352" font-size="8.5" fill="#8B949E">No lanza excepcion — hay que chequearlo manualmente.</text>
+  <rect x="440" y="362" width="345" height="28" rx="5" fill="#0D1117"/>
+  <text x="450" y="375" font-size="8.5" fill="#BC8CFF">if </text>
+  <text x="465" y="375" font-size="8.5" fill="#E6EDF3">result.isError:</text>
+  <text x="450" y="387" font-size="8.5" fill="#E6EDF3">    err = result.content[0].text</text>
+
+  <!-- Bottom: imports -->
+  <rect x="20" y="420" width="780" height="30" rx="6" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="30" y="432" font-size="8.5" fill="#BC8CFF">from </text>
+  <text x="56" y="432" font-size="8.5" fill="#E6EDF3">mcp.types </text>
+  <text x="105" y="432" font-size="8.5" fill="#BC8CFF">import </text>
+  <text x="138" y="432" font-size="8.5" fill="#3FB950">TextContent</text>
+  <text x="196" y="432" font-size="8.5" fill="#E6EDF3">, </text>
+  <text x="204" y="432" font-size="8.5" fill="#58A6FF">ImageContent</text>
+  <text x="264" y="432" font-size="8.5" fill="#E6EDF3">, </text>
+  <text x="272" y="432" font-size="8.5" fill="#F0883E">EmbeddedResource</text>
+  <text x="362" y="432" font-size="8.5" fill="#8B949E"> · CallToolResult ya tiene .isError como atributo</text>
+  <text x="30" y="444" font-size="8.5" fill="#8B949E">Importaciones desde el paquete mcp.types del SDK oficial</text>
+</svg>

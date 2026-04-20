@@ -1,0 +1,9 @@
+[project]
+name = "library-cli"
+version = "0.1.0"
+requires-python = ">=3.13"
+description = "MCP Client CLI — Library Manager (Week 08)"
+dependencies = [
+    "mcp==1.9.0",
+    "python-dotenv==1.0.1",
+]
