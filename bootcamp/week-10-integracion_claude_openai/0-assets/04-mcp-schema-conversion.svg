@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="system-ui, -apple-system, Roboto, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="450" y="30" font-size="19" font-weight="bold" fill="#f9fafb" text-anchor="middle">Conversión de MCP Tool Schema a formato LLM</text>
+  <text x="450" y="50" font-size="11" fill="#6b7280" text-anchor="middle">El mismo JSON Schema se adapta al formato de cada proveedor</text>
+
+  <!-- Arrowheads -->
+  <defs>
+    <marker id="convArr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- ══════════════ COLUMN HEADERS ══════════════ -->
+  <!-- Column 1: MCP Tool Schema -->
+  <rect x="10" y="65" width="268" height="28" rx="6" fill="#1e3a8a"/>
+  <text x="144" y="83" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">MCP Tool Schema</text>
+  <!-- Column 2: Anthropic -->
+  <rect x="316" y="65" width="268" height="28" rx="6" fill="#3b0764"/>
+  <text x="450" y="83" font-size="12" font-weight="bold" fill="#c084fc" text-anchor="middle">Anthropic (tool definition)</text>
+  <!-- Column 3: OpenAI -->
+  <rect x="622" y="65" width="268" height="28" rx="6" fill="#14532d"/>
+  <text x="756" y="83" font-size="12" font-weight="bold" fill="#86efac" text-anchor="middle">OpenAI (function definition)</text>
+
+  <!-- Arrows between columns -->
+  <line x1="278" y1="270" x2="314" y2="270" stroke="#6b7280" stroke-width="2" marker-end="url(#convArr)"/>
+  <text x="296" y="262" font-size="9" fill="#4b5563" text-anchor="middle">map()</text>
+  <line x1="584" y1="270" x2="620" y2="270" stroke="#6b7280" stroke-width="2" marker-end="url(#convArr)"/>
+  <text x="602" y="262" font-size="9" fill="#4b5563" text-anchor="middle">map()</text>
+
+  <!-- ══════════════ COLUMN 1: MCP Tool Schema ══════════════ -->
+  <rect x="10" y="100" width="268" height="310" rx="6" fill="#1e3a8a" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+
+  <!-- Tool name label -->
+  <rect x="18" y="108" width="180" height="20" rx="3" fill="#1e3a8a"/>
+  <text x="108" y="121" font-size="10" font-weight="bold" fill="#60a5fa" text-anchor="middle">session.list_tools()</text>
+
+  <text x="18" y="148" font-size="10" fill="#4b5563">{</text>
+  <text x="30" y="165" font-size="10" fill="#93c5fd">name:</text>
+  <text x="70" y="165" font-size="10" fill="#fde68a">"search_books"</text>
+  <text x="30" y="183" font-size="10" fill="#93c5fd">description:</text>
+  <text x="107" y="183" font-size="10" fill="#d1d5db">"Busca libros"</text>
+  <text x="30" y="201" font-size="10" fill="#93c5fd">inputSchema:</text>
+  <text x="30" y="219" font-size="10" fill="#6b7280">{</text>
+  <text x="42" y="237" font-size="10" fill="#a78bfa">type:</text>
+  <text x="72" y="237" font-size="10" fill="#fde68a">"object"</text>
+  <text x="42" y="255" font-size="10" fill="#a78bfa">properties:</text>
+  <text x="42" y="273" font-size="10" fill="#6b7280">{</text>
+  <text x="54" y="291" font-size="10" fill="#67e8f9">query:</text>
+  <text x="94" y="291" font-size="10" fill="#d1d5db">{type: "string"}</text>
+  <text x="54" y="309" font-size="10" fill="#67e8f9">limit:</text>
+  <text x="94" y="309" font-size="10" fill="#d1d5db">{type: "integer"}</text>
+  <text x="42" y="327" font-size="10" fill="#6b7280">}</text>
+  <text x="42" y="345" font-size="10" fill="#a78bfa">required:</text>
+  <text x="100" y="345" font-size="10" fill="#d1d5db">["query"]</text>
+  <text x="30" y="363" font-size="10" fill="#6b7280">}</text>
+  <text x="18" y="381" font-size="10" fill="#4b5563">}</text>
+
+  <!-- ══════════════ COLUMN 2: Anthropic ══════════════ -->
+  <rect x="316" y="100" width="268" height="310" rx="6" fill="#3b0764" fill-opacity="0.20" stroke="#a855f7" stroke-width="1"/>
+
+  <rect x="324" y="108" width="200" height="20" rx="3" fill="#3b0764"/>
+  <text x="424" y="121" font-size="10" font-weight="bold" fill="#c084fc" text-anchor="middle">tool definition para API</text>
+
+  <text x="324" y="148" font-size="10" fill="#4b5563">{</text>
+  <text x="336" y="165" font-size="10" fill="#c084fc">name:</text>
+  <text x="375" y="165" font-size="10" fill="#fde68a">"search_books"</text>
+  <text x="336" y="183" font-size="10" fill="#c084fc">description:</text>
+  <text x="413" y="183" font-size="10" fill="#d1d5db">"Busca libros"</text>
+  <text x="336" y="201" font-size="10" fill="#f59e0b" font-weight="bold">input_schema:</text>
+  <text x="336" y="219" font-size="10" fill="#6b7280">{</text>
+  <text x="348" y="237" font-size="10" fill="#a78bfa">type:</text>
+  <text x="378" y="237" font-size="10" fill="#fde68a">"object"</text>
+  <text x="348" y="255" font-size="10" fill="#a78bfa">properties:</text>
+  <text x="348" y="273" font-size="10" fill="#6b7280">{</text>
+  <text x="360" y="291" font-size="10" fill="#67e8f9">query:</text>
+  <text x="400" y="291" font-size="10" fill="#d1d5db">{type: "string"}</text>
+  <text x="360" y="309" font-size="10" fill="#67e8f9">limit:</text>
+  <text x="400" y="309" font-size="10" fill="#d1d5db">{type: "integer"}</text>
+  <text x="348" y="327" font-size="10" fill="#6b7280">}</text>
+  <text x="348" y="345" font-size="10" fill="#a78bfa">required:</text>
+  <text x="406" y="345" font-size="10" fill="#d1d5db">["query"]</text>
+  <text x="336" y="363" font-size="10" fill="#6b7280">}</text>
+  <text x="324" y="381" font-size="10" fill="#4b5563">}</text>
+
+  <!-- Highlight: key difference Anthropic -->
+  <rect x="324" y="193" width="252" height="20" rx="3" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
+
+  <!-- ══════════════ COLUMN 3: OpenAI ══════════════ -->
+  <rect x="622" y="100" width="268" height="310" rx="6" fill="#14532d" fill-opacity="0.20" stroke="#22c55e" stroke-width="1"/>
+
+  <rect x="630" y="108" width="200" height="20" rx="3" fill="#14532d"/>
+  <text x="730" y="121" font-size="10" font-weight="bold" fill="#86efac" text-anchor="middle">tool definition para API</text>
+
+  <text x="630" y="148" font-size="10" fill="#4b5563">{</text>
+  <text x="642" y="165" font-size="10" fill="#86efac">type:</text>
+  <text x="680" y="165" font-size="10" fill="#fde68a">"function"</text>
+  <text x="642" y="183" font-size="10" fill="#22d3ee" font-weight="bold">function:</text>
+  <text x="642" y="201" font-size="10" fill="#6b7280">{</text>
+  <text x="654" y="219" font-size="10" fill="#86efac">name:</text>
+  <text x="690" y="219" font-size="10" fill="#fde68a">"search_books"</text>
+  <text x="654" y="237" font-size="10" fill="#86efac">description:</text>
+  <text x="734" y="237" font-size="10" fill="#d1d5db">"Busca libros"</text>
+  <text x="654" y="255" font-size="10" fill="#f59e0b" font-weight="bold">parameters:</text>
+  <text x="654" y="273" font-size="10" fill="#6b7280">{</text>
+  <text x="666" y="291" font-size="10" fill="#a78bfa">type:</text>
+  <text x="696" y="291" font-size="10" fill="#fde68a">"object"</text>
+  <text x="666" y="309" font-size="10" fill="#a78bfa">properties:</text>
+  <text x="666" y="327" font-size="10" fill="#6b7280">{ query, limit... }</text>
+  <text x="666" y="345" font-size="10" fill="#a78bfa">required:</text>
+  <text x="724" y="345" font-size="10" fill="#d1d5db">["query"]</text>
+  <text x="654" y="363" font-size="10" fill="#6b7280">}</text>
+  <text x="642" y="381" font-size="10" fill="#6b7280">}</text>
+  <text x="630" y="399" font-size="10" fill="#4b5563">}</text>
+
+  <!-- Highlight: key differences OpenAI -->
+  <rect x="630" y="175" width="252" height="20" rx="3" fill="#22c55e" fill-opacity="0.10" stroke="#22c55e" stroke-width="0.5"/>
+  <rect x="630" y="247" width="252" height="20" rx="3" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
+
+  <!-- ══════════════ FOOTER — KEY DIFFERENCES ══════════════ -->
+  <line x1="10" y1="422" x2="890" y2="422" stroke="#1f2937" stroke-width="1"/>
+  <text x="20" y="440" font-size="11" font-weight="bold" fill="#9ca3af">Diferencias clave al convertir:</text>
+  <text x="20" y="458" font-size="10" fill="#f59e0b">●  Anthropic usa "input_schema"</text>
+  <text x="200" y="458" font-size="10" fill="#22c55e">●  OpenAI usa "parameters" y requiere envolver en {type:"function", function:{...}}</text>
+  <text x="20" y="476" font-size="10" fill="#9ca3af">El contenido JSON Schema (type, properties, required) es idéntico en ambos proveedores</text>
+  <text x="20" y="494" font-size="10" fill="#9ca3af">Basta con mapear: tool.inputSchema → input_schema  ó  parameters, según el proveedor</text>
+
+</svg>

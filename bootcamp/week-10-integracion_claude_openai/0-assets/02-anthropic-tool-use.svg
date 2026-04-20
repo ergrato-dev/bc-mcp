@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" width="820" height="620" font-family="system-ui, -apple-system, Roboto, sans-serif">
+
+  <!-- Background -->
+  <rect width="820" height="620" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="410" y="30" font-size="19" font-weight="bold" fill="#f9fafb" text-anchor="middle">Anthropic API — Ciclo tool_use / tool_result</text>
+  <text x="410" y="50" font-size="11" fill="#6b7280" text-anchor="middle">Multi-turn conversation con herramientas MCP</text>
+
+  <!-- Vertical timeline line -->
+  <line x1="112" y1="68" x2="112" y2="520" stroke="#1f2937" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- ══════════════ TURN 1: user ══════════════ -->
+  <!-- Role pill -->
+  <rect x="62" y="70" width="100" height="24" rx="12" fill="#1e3a8a"/>
+  <text x="112" y="86" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">user</text>
+
+  <!-- Content box -->
+  <rect x="130" y="65" width="658" height="50" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+  <text x="148" y="84" font-size="12" font-weight="bold" fill="#9ca3af">content:</text>
+  <text x="230" y="84" font-size="12" fill="#f3f4f6">"Busca los libros de machine learning más populares"</text>
+  <text x="148" y="103" font-size="10" fill="#4b5563">Turno 1 — mensaje inicial del usuario</text>
+
+  <!-- ── arrow ── -->
+  <line x1="112" y1="115" x2="112" y2="142" stroke="#374151" stroke-width="1.5" marker-end="url(#timarr)"/>
+
+  <!-- ══════════════ TURN 2: assistant → tool_use ══════════════ -->
+  <!-- stop_reason badge -->
+  <rect x="15" y="144" width="195" height="22" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="112" y="158" font-size="10" fill="#fde68a" text-anchor="middle">stop_reason: "tool_use"</text>
+  <!-- Role pill -->
+  <rect x="62" y="168" width="100" height="24" rx="12" fill="#3b0764"/>
+  <text x="112" y="184" font-size="11" font-weight="bold" fill="#c084fc" text-anchor="middle">assistant</text>
+
+  <!-- Content box -->
+  <rect x="130" y="163" width="658" height="110" rx="6" fill="#1f2937" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="148" y="182" font-size="11" font-weight="bold" fill="#a78bfa">content[0]:</text>
+  <text x="226" y="182" font-size="11" fill="#c4b5fd">type: "tool_use"</text>
+  <text x="148" y="200" font-size="11" fill="#6b7280">id:</text>
+  <text x="175" y="200" font-size="11" fill="#d1d5db">"toolu_01XYZabc123"</text>
+  <text x="148" y="218" font-size="11" fill="#6b7280">name:</text>
+  <text x="190" y="218" font-size="11" fill="#86efac">"search_books"</text>
+  <text x="148" y="236" font-size="11" fill="#6b7280">input:</text>
+  <text x="190" y="236" font-size="11" fill="#d1d5db">{"query": "machine learning", "limit": 5}</text>
+  <text x="148" y="258" font-size="10" fill="#4b5563">Turno 2 — LLM decide llamar a una herramienta MCP</text>
+
+  <!-- ── arrow ── -->
+  <line x1="112" y1="274" x2="112" y2="302" stroke="#374151" stroke-width="1.5" marker-end="url(#timarr)"/>
+
+  <!-- MCP callTool callout -->
+  <rect x="300" y="278" width="220" height="26" rx="6" fill="#14532d" stroke="#22c55e" stroke-width="1"/>
+  <text x="410" y="295" font-size="11" fill="#86efac" text-anchor="middle">MCP: session.call_tool("search_books", ...)</text>
+
+  <!-- ══════════════ TURN 3: user → tool_result ══════════════ -->
+  <!-- Role pill -->
+  <rect x="62" y="305" width="100" height="24" rx="12" fill="#1e3a8a"/>
+  <text x="112" y="321" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">user</text>
+
+  <!-- Content box -->
+  <rect x="130" y="300" width="658" height="100" rx="6" fill="#1f2937" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="148" y="320" font-size="11" font-weight="bold" fill="#67e8f9">content[0]:</text>
+  <text x="230" y="320" font-size="11" fill="#a5f3fc">type: "tool_result"</text>
+  <text x="148" y="338" font-size="11" fill="#6b7280">tool_use_id:</text>
+  <text x="228" y="338" font-size="11" fill="#d1d5db">"toolu_01XYZabc123"</text>
+  <text x="148" y="356" font-size="11" fill="#6b7280">content:</text>
+  <text x="200" y="356" font-size="11" fill="#d1d5db">"[{title: 'Hands-On ML', author: 'Géron', year: 2022}, ...]"</text>
+  <text x="148" y="384" font-size="10" fill="#4b5563">Turno 3 — resultado de la herramienta devuelto al LLM</text>
+
+  <!-- ── arrow ── -->
+  <line x1="112" y1="401" x2="112" y2="429" stroke="#374151" stroke-width="1.5" marker-end="url(#timarr)"/>
+
+  <!-- ══════════════ TURN 4: assistant → end_turn ══════════════ -->
+  <!-- stop_reason badge -->
+  <rect x="15" y="431" width="195" height="22" rx="4" fill="#052e16" stroke="#22c55e" stroke-width="1"/>
+  <text x="112" y="445" font-size="10" fill="#86efac" text-anchor="middle">stop_reason: "end_turn"  ✓</text>
+  <!-- Role pill -->
+  <rect x="62" y="455" width="100" height="24" rx="12" fill="#3b0764"/>
+  <text x="112" y="471" font-size="11" font-weight="bold" fill="#c084fc" text-anchor="middle">assistant</text>
+
+  <!-- Content box -->
+  <rect x="130" y="450" width="658" height="66" rx="6" fill="#1f2937" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="148" y="469" font-size="11" font-weight="bold" fill="#a78bfa">content[0]:</text>
+  <text x="226" y="469" font-size="11" fill="#d1d5db">type: "text"</text>
+  <text x="148" y="488" font-size="11" fill="#6b7280">text:</text>
+  <text x="178" y="488" font-size="11" fill="#f3f4f6">"Encontré 5 libros destacados de machine learning: ..."</text>
+  <text x="148" y="506" font-size="10" fill="#4b5563">Turno 4 — respuesta final del agente al usuario</text>
+
+  <!-- Arrowhead marker for timeline -->
+  <defs>
+    <marker id="timarr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- ═══ LEGEND / FOOTER ═══ -->
+  <line x1="40" y1="540" x2="780" y2="540" stroke="#1f2937" stroke-width="1"/>
+  <rect x="40" y="550" width="12" height="12" rx="6" fill="#1e3a8a"/>
+  <text x="57" y="560" font-size="10" fill="#9ca3af">role: user</text>
+  <rect x="140" y="550" width="12" height="12" rx="6" fill="#3b0764"/>
+  <text x="157" y="560" font-size="10" fill="#9ca3af">role: assistant</text>
+  <rect x="255" y="550" width="12" height="12" rx="2" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="272" y="560" font-size="10" fill="#9ca3af">tool_use → loop</text>
+  <rect x="370" y="550" width="12" height="12" rx="2" fill="#052e16" stroke="#22c55e" stroke-width="1"/>
+  <text x="387" y="560" font-size="10" fill="#9ca3af">end_turn → respuesta</text>
+  <rect x="500" y="550" width="12" height="12" rx="2" fill="#1f2937" stroke="#22d3ee" stroke-width="1"/>
+  <text x="517" y="560" font-size="10" fill="#9ca3af">tool_result</text>
+
+  <text x="410" y="590" font-size="10" fill="#4b5563" text-anchor="middle">El id del tool_use (toolu_…) vincula cada llamada con su resultado correspondiente</text>
+  <text x="410" y="608" font-size="10" fill="#4b5563" text-anchor="middle">Anthropic requiere que el role "user" contenga el tool_result, no "tool"</text>
+
+</svg>

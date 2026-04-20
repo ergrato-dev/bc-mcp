@@ -2,10 +2,10 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Conectar Claude a un MCP Server y ejecutar tool calls
-- [practica-02/](practica-02/) — Implementar el loop completo con Anthropic SDK
-- [practica-03/](practica-03/) — Replicar con OpenAI SDK (function calling)
-- [practica-04/](practica-04/) — Orquestar 2 servers desde un agente Claude
+- [practica-01-claude-primer-tool-call/](practica-01-claude-primer-tool-call/) — Conectar Claude a un MCP Server y ejecutar tool calls
+- [practica-02-agentic-loop-completo/](practica-02-agentic-loop-completo/) — Implementar el loop completo con Anthropic SDK
+- [practica-03-openai-function-calling/](practica-03-openai-function-calling/) — Replicar con OpenAI SDK (function calling)
+- [practica-04-multi-server-orquestacion/](practica-04-multi-server-orquestacion/) — Orquestar 2 servers desde un agente Claude
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
 > El estudiante aprende descomentando las secciones indicadas en el `README.md`

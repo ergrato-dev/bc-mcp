@@ -316,11 +316,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — agentic loop diagram, tool selection flow
-- [ ] `1-teoria/` — Anthropic API, OpenAI API, agentic loop, orquestación
-- [ ] `2-practicas/` — chatbot con Claude + MCP tools, ídem OpenAI
-- [ ] `3-proyecto/` — asistente inteligente con múltiples MCP servers
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — agentic loop diagram, tool selection flow
+- [x] `1-teoria/` — Anthropic API, OpenAI API, agentic loop, orquestación
+- [x] `2-practicas/` — chatbot con Claude + MCP tools, ídem OpenAI
+- [x] `3-proyecto/` — asistente inteligente con múltiples MCP servers
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

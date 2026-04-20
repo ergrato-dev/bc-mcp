@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 600" width="820" height="600" font-family="system-ui, -apple-system, Roboto, sans-serif">
+
+  <!-- Background -->
+  <rect width="820" height="600" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="410" y="30" font-size="19" font-weight="bold" fill="#f9fafb" text-anchor="middle">OpenAI API — Function Calling</text>
+  <text x="410" y="50" font-size="11" fill="#6b7280" text-anchor="middle">El array messages evoluciona en cada turno del loop</text>
+
+  <!-- Arrowhead -->
+  <defs>
+    <marker id="oaiarr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+    <marker id="oaiarr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4b5563"/>
+    </marker>
+  </defs>
+
+  <!-- ══════════════ COLUMN HEADERS ══════════════ -->
+  <!-- Left: messages array (builds up) -->
+  <text x="210" y="76" font-size="13" font-weight="bold" fill="#9ca3af" text-anchor="middle">messages[ ] — acumulación por turno</text>
+  <!-- Right: API response -->
+  <text x="620" y="76" font-size="13" font-weight="bold" fill="#9ca3af" text-anchor="middle">Respuesta de la API</text>
+
+  <!-- Vertical divider -->
+  <line x1="420" y1="68" x2="420" y2="500" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- ══════════════ TURNO 1 ══════════════ -->
+  <!-- Label -->
+  <text x="20" y="102" font-size="11" font-weight="bold" fill="#4b5563">TURNO 1</text>
+  <line x1="20" y1="105" x2="820" y2="105" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- user message -->
+  <rect x="20" y="110" width="380" height="40" rx="5" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="35" y="125" font-size="10" font-weight="bold" fill="#60a5fa">role: "user"</text>
+  <text x="35" y="143" font-size="10" fill="#bfdbfe">content: "Busca libros de Python"</text>
+
+  <!-- API call arrow -->
+  <text x="420" y="125" font-size="9" fill="#4b5563" text-anchor="middle">chat.completions</text>
+  <text x="420" y="137" font-size="9" fill="#4b5563" text-anchor="middle">.create(tools=[...])</text>
+  <line x1="400" y1="130" x2="438" y2="130" stroke="#4b5563" stroke-width="1.5" marker-end="url(#oaiarr2)"/>
+
+  <!-- finish_reason badge -->
+  <rect x="436" y="110" width="180" height="22" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="526" y="124" font-size="10" fill="#fde68a" text-anchor="middle">finish_reason: "tool_calls"</text>
+  <!-- assistant with tool_calls -->
+  <rect x="436" y="134" width="364" height="50" rx="5" fill="#1f2937" stroke="#7c3aed" stroke-width="1"/>
+  <text x="452" y="150" font-size="10" font-weight="bold" fill="#a78bfa">role: "assistant"</text>
+  <text x="452" y="165" font-size="10" fill="#d1d5db">tool_calls[0].function.name: "search_books"</text>
+  <text x="452" y="179" font-size="10" fill="#d1d5db">tool_calls[0].function.arguments: '{"query":"Python"}'</text>
+
+  <!-- ══════════════ TURNO 2 ══════════════ -->
+  <text x="20" y="204" font-size="11" font-weight="bold" fill="#4b5563">TURNO 2</text>
+  <line x1="20" y1="208" x2="820" y2="208" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- user message (same) -->
+  <rect x="20" y="213" width="380" height="28" rx="5" fill="#1e3a5f" stroke="#374151" stroke-width="1"/>
+  <text x="35" y="228" font-size="9" fill="#4b5563">role: "user"  — (igual que turno 1)</text>
+  <text x="35" y="240" font-size="9" fill="#374151">content: "Busca libros de Python"</text>
+
+  <!-- assistant with tool_calls (same) -->
+  <rect x="20" y="244" width="380" height="40" rx="5" fill="#1f2937" stroke="#4b5563" stroke-width="1"/>
+  <text x="35" y="259" font-size="9" fill="#6b7280">role: "assistant"  — (igual que turno 1, se añade)</text>
+  <text x="35" y="273" font-size="9" fill="#374151">tool_calls[0]: {name: "search_books", ...}</text>
+  <text x="35" y="284" font-size="9" fill="#374151">content: null</text>
+
+  <!-- NEW: tool result message -->
+  <rect x="20" y="287" width="380" height="50" rx="5" fill="#164e63" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="35" y="303" font-size="10" font-weight="bold" fill="#67e8f9">role: "tool"</text>
+  <text x="35" y="318" font-size="10" fill="#a5f3fc">tool_call_id: "call_abc123"</text>
+  <text x="35" y="333" font-size="10" fill="#a5f3fc">content: "[{title: 'Python Cookbook', ...}]"</text>
+
+  <!-- API call arrow -->
+  <line x1="400" y1="315" x2="438" y2="315" stroke="#4b5563" stroke-width="1.5" marker-end="url(#oaiarr2)"/>
+
+  <!-- finish_reason: stop -->
+  <rect x="436" y="295" width="180" height="22" rx="4" fill="#052e16" stroke="#22c55e" stroke-width="1"/>
+  <text x="526" y="309" font-size="10" fill="#86efac" text-anchor="middle">finish_reason: "stop"  ✓</text>
+  <!-- Final answer -->
+  <rect x="436" y="319" width="364" height="40" rx="5" fill="#1f2937" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="452" y="335" font-size="10" font-weight="bold" fill="#a78bfa">role: "assistant"</text>
+  <text x="452" y="350" font-size="10" fill="#d1d5db">content: "Encontré 5 libros de Python: ..."</text>
+  <text x="452" y="355" font-size="9" fill="#4b5563">(respuesta de texto final, sin tool_calls)</text>
+
+  <!-- ══════════════ LEGEND / NOTES ══════════════ -->
+  <line x1="20" y1="380" x2="800" y2="380" stroke="#1f2937" stroke-width="1"/>
+  <text x="20" y="396" font-size="12" font-weight="bold" fill="#9ca3af">Diferencias clave vs Anthropic:</text>
+
+  <!-- Comparison table -->
+  <rect x="20" y="406" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="30" y="422" font-size="11" font-weight="bold" fill="#f59e0b">OpenAI</text>
+  <text x="80" y="422" font-size="11" fill="#9ca3af">role: "tool" con tool_call_id</text>
+  <rect x="420" y="406" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="430" y="422" font-size="11" font-weight="bold" fill="#a855f7">Anthropic</text>
+  <text x="495" y="422" font-size="11" fill="#9ca3af">role: "user" con type: "tool_result"</text>
+
+  <rect x="20" y="436" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="30" y="452" font-size="11" font-weight="bold" fill="#f59e0b">OpenAI</text>
+  <text x="80" y="452" font-size="11" fill="#9ca3af">finish_reason: "tool_calls"</text>
+  <rect x="420" y="436" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="430" y="452" font-size="11" font-weight="bold" fill="#a855f7">Anthropic</text>
+  <text x="495" y="452" font-size="11" fill="#9ca3af">stop_reason: "tool_use"</text>
+
+  <rect x="20" y="466" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="30" y="482" font-size="11" font-weight="bold" fill="#f59e0b">OpenAI</text>
+  <text x="80" y="482" font-size="11" fill="#9ca3af">parámetro: "parameters" (JSON Schema)</text>
+  <rect x="420" y="466" width="380" height="26" rx="4" fill="#1f2937"/>
+  <text x="430" y="482" font-size="11" font-weight="bold" fill="#a855f7">Anthropic</text>
+  <text x="495" y="482" font-size="11" fill="#9ca3af">parámetro: "input_schema" (JSON Schema)</text>
+
+  <!-- Footer -->
+  <text x="410" y="528" font-size="10" fill="#4b5563" text-anchor="middle">El array messages crece en cada turno: user → assistant+tool_calls → tool → assistant</text>
+  <text x="410" y="546" font-size="10" fill="#4b5563" text-anchor="middle">tool_call_id vincula la llamada de la herramienta con su respuesta (similar a tool_use_id en Anthropic)</text>
+
+</svg>

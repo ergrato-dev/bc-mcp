@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" font-family="system-ui, -apple-system, Roboto, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="450" y="32" font-size="20" font-weight="bold" fill="#f9fafb" text-anchor="middle">Agentic Loop</text>
+  <text x="450" y="52" font-size="12" fill="#6b7280" text-anchor="middle">El patrón while-loop de un agente LLM</text>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4b5563"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- ═══ 1. USER BOX (center-x=450) ═══ -->
+  <rect x="330" y="68" width="240" height="52" rx="8" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="450" y="89" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Prompt del Usuario</text>
+  <text x="450" y="108" font-size="10" fill="#bfdbfe" text-anchor="middle">{"role": "user", "content": "..."}</text>
+
+  <!-- Arrow 1: User → LLM -->
+  <line x1="450" y1="120" x2="450" y2="148" stroke="#4b5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ═══ 2. LLM BOX ═══ -->
+  <rect x="315" y="150" width="270" height="60" rx="8" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="450" y="173" font-size="13" font-weight="bold" fill="#c084fc" text-anchor="middle">LLM — Claude / GPT-4o</text>
+  <text x="450" y="195" font-size="10" fill="#d8b4fe" text-anchor="middle">messages.create()  ·  chat.completions.create()</text>
+
+  <!-- Arrow 2: LLM → Decision -->
+  <line x1="450" y1="210" x2="450" y2="252" stroke="#4b5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ═══ 3. DECISION DIAMOND (center=450,290; half-w=110, half-h=34) ═══ -->
+  <polygon points="450,256 560,290 450,324 340,290" fill="#451a03" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="450" y="285" font-size="13" font-weight="bold" fill="#fcd34d" text-anchor="middle">stop_reason?</text>
+  <text x="450" y="305" font-size="10" fill="#fde68a" text-anchor="middle">finish_reason?</text>
+
+  <!-- Branch labels -->
+  <text x="332" y="282" font-size="11" fill="#f59e0b" text-anchor="end">tool_use</text>
+  <text x="568" y="282" font-size="11" fill="#34d399" text-anchor="start">end_turn</text>
+
+  <!-- Arrow LEFT: Decision left→ MCP (via bend at x=210) -->
+  <polyline points="340,290 210,290 210,358" fill="none" stroke="#4b5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ═══ 4. MCP callTool BOX (center-x=210) ═══ -->
+  <rect x="90" y="360" width="240" height="58" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="210" y="382" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">MCP callTool()</text>
+  <text x="210" y="402" font-size="10" fill="#bbf7d0" text-anchor="middle">session.call_tool(name, args)</text>
+
+  <!-- Arrow: MCP → ToolResult -->
+  <line x1="210" y1="418" x2="210" y2="455" stroke="#4b5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ═══ 5. TOOL RESULT BOX (center-x=210) ═══ -->
+  <rect x="90" y="457" width="240" height="52" rx="8" fill="#164e63" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="210" y="478" font-size="13" font-weight="bold" fill="#67e8f9" text-anchor="middle">tool_result</text>
+  <text x="210" y="498" font-size="10" fill="#a5f3fc" text-anchor="middle">respuesta de la herramienta MCP</text>
+
+  <!-- Loop back arrow: right edge of ToolResult → right of LLM -->
+  <!-- Starts at (330, 483), curves far right (860), back up to (585, 180) -->
+  <path d="M 330 483 C 860 483 860 180 585 180" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arr-green)"/>
+  <text x="875" y="340" font-size="10" fill="#22c55e" text-anchor="middle" transform="rotate(-90, 875, 340)">siguiente turno</text>
+
+  <!-- Arrow RIGHT: Decision right → FinalAnswer (via bend at x=650) -->
+  <polyline points="560,290 650,290 650,358" fill="none" stroke="#4b5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ═══ 6. FINAL ANSWER BOX (center-x=650) ═══ -->
+  <rect x="530" y="360" width="240" height="58" rx="8" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="650" y="382" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Respuesta Final</text>
+  <text x="650" y="402" font-size="10" fill="#bfdbfe" text-anchor="middle">stop_reason == "end_turn"</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <line x1="40" y1="536" x2="860" y2="536" stroke="#1f2937" stroke-width="1"/>
+  <rect x="40" y="547" width="12" height="12" rx="2" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="57" y="557" font-size="10" fill="#9ca3af">Usuario</text>
+  <rect x="110" y="547" width="12" height="12" rx="2" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+  <text x="127" y="557" font-size="10" fill="#9ca3af">LLM</text>
+  <rect x="165" y="547" width="12" height="12" rx="2" fill="#14532d" stroke="#22c55e" stroke-width="1"/>
+  <text x="182" y="557" font-size="10" fill="#9ca3af">MCP Tool</text>
+  <rect x="252" y="547" width="12" height="12" rx="2" fill="#164e63" stroke="#22d3ee" stroke-width="1"/>
+  <text x="269" y="557" font-size="10" fill="#9ca3af">Tool Result</text>
+  <rect x="352" y="547" width="12" height="12" rx="2" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="369" y="557" font-size="10" fill="#9ca3af">Decisión</text>
+  <line x1="680" y1="547" x2="700" y2="547" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="705" y="557" font-size="10" fill="#9ca3af">Loop back (tool → LLM)</text>
+
+  <!-- Footer note -->
+  <text x="450" y="576" font-size="10" fill="#4b5563" text-anchor="middle">while stop_reason == "tool_use": ejecutar herramientas y continuar el loop</text>
+
+</svg>
