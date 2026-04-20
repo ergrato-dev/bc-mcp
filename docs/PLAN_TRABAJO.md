@@ -299,11 +299,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — diagramas client TypeScript
-- [ ] `1-teoria/` — MCP Client TypeScript SDK, tipos, manejo de errores
-- [ ] `2-practicas/` — client que conecta a server de semana 05
-- [ ] `3-proyecto/` — web client con Express + MCP
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — 5 SVGs: capas SDK, Client API, StdioClientTransport, ciclo de vida, comparativa Python/TS
+- [x] `1-teoria/` — 5 archivos: arquitectura, StdioClientTransport, discover/tools/resources/prompts, tipado, errores
+- [x] `2-practicas/` — 4 prácticas: primer-client, descubrir-capacidades, invocar-tools, cli-interactivo
+- [x] `3-proyecto/` — Library CLI TypeScript con 6 TODOs (connectToServer, listTools, search, add, openLibrary, interactive)
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

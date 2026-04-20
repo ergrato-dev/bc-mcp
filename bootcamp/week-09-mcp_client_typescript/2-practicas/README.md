@@ -2,15 +2,14 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Crear un client TypeScript que se conecte al server de semana 07
-- [practica-02/](practica-02/) — Listar tools con client.listTools()
-- [practica-03/](practica-03/) — Invocar tools con client.callTool() y tipar resultados
-- [practica-04/](practica-04/) — Listar y leer resources con client.listResources()
-- [practica-05/](practica-05/) — Construir un CLI TypeScript equivalente al de semana 08
+- [practica-01-primer-client/](practica-01-primer-client/) — Primer client TypeScript: conectar e imprimir metadatos del servidor
+- [practica-02-descubrir-capacidades/](practica-02-descubrir-capacidades/) — Discovery: `listTools()`, `listResources()`, `listPrompts()`
+- [practica-03-invocar-tools/](practica-03-invocar-tools/) — `callTool()`, `isError`, `readResource()` con tipos
+- [practica-04-cli-interactivo/](practica-04-cli-interactivo/) — CLI interactivo con `node:readline/promises`
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
-> El estudiante aprende descomentando las secciones indicadas en el `README.md`
-> de cada práctica y verificando que el código funcione correctamente.
+> El estudiante aprende descomentando las secciones PASO N en `starter/src/client.ts`
+> y verificando que el código funcione correctamente.
 
 ---
 

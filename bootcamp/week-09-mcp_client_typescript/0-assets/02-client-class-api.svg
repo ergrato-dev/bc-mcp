@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" width="860" height="580" font-family="Inter, Roboto, sans-serif">
+  <!-- Background -->
+  <rect width="860" height="580" fill="#0f0f17" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="36" text-anchor="middle" fill="#e2e8f0" font-size="17" font-weight="700">Client Class — Referencia de Métodos</text>
+  <text x="430" y="54" text-anchor="middle" fill="#94a3b8" font-size="11">@modelcontextprotocol/sdk/client/index.js</text>
+
+  <!-- Table Header -->
+  <rect x="30" y="68" width="800" height="32" fill="#1e293b" rx="4"/>
+  <text x="90" y="89" fill="#94a3b8" font-size="11" font-weight="700">Método</text>
+  <text x="320" y="89" fill="#94a3b8" font-size="11" font-weight="700">Parámetros</text>
+  <text x="540" y="89" fill="#94a3b8" font-size="11" font-weight="700">Retorna</text>
+  <text x="710" y="89" fill="#94a3b8" font-size="11" font-weight="700">Fase</text>
+  <!-- column dividers -->
+  <line x1="290" y1="68" x2="290" y2="568" stroke="#1e293b" stroke-width="1"/>
+  <line x1="520" y1="68" x2="520" y2="568" stroke="#1e293b" stroke-width="1"/>
+  <line x1="690" y1="68" x2="690" y2="568" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 1: new Client() -->
+  <rect x="30" y="100" width="800" height="52" fill="#0f172a" rx="0"/>
+  <rect x="30" y="100" width="4" height="52" fill="#6366f1" rx="2"/>
+  <text x="90" y="121" fill="#a5b4fc" font-size="12" font-weight="700">new Client()</text>
+  <text x="90" y="139" fill="#64748b" font-size="10">Constructor</text>
+  <text x="320" y="121" fill="#e2e8f0" font-size="11">{ name: string,</text>
+  <text x="320" y="137" fill="#e2e8f0" font-size="11">  version: string }</text>
+  <text x="540" y="129" fill="#86efac" font-size="11">Client</text>
+  <text x="710" y="129" fill="#c084fc" font-size="11">setup</text>
+
+  <!-- Row 2: connect() -->
+  <rect x="30" y="152" width="800" height="52" fill="#111827" rx="0"/>
+  <rect x="30" y="152" width="4" height="52" fill="#3b82f6" rx="2"/>
+  <text x="90" y="173" fill="#93c5fd" font-size="12" font-weight="700">connect()</text>
+  <text x="90" y="191" fill="#64748b" font-size="10">Conectar + handshake</text>
+  <text x="320" y="173" fill="#e2e8f0" font-size="11">transport:</text>
+  <text x="320" y="189" fill="#e2e8f0" font-size="11">StdioClientTransport</text>
+  <text x="540" y="181" fill="#86efac" font-size="11">Promise&lt;void&gt;</text>
+  <text x="710" y="181" fill="#38bdf8" font-size="11">connect</text>
+
+  <!-- Row 3: listTools() -->
+  <rect x="30" y="204" width="800" height="52" fill="#0f172a" rx="0"/>
+  <rect x="30" y="204" width="4" height="52" fill="#22c55e" rx="2"/>
+  <text x="90" y="225" fill="#86efac" font-size="12" font-weight="700">listTools()</text>
+  <text x="90" y="243" fill="#64748b" font-size="10">Descubrir tools</text>
+  <text x="320" y="233" fill="#64748b" font-size="11">—</text>
+  <text x="540" y="225" fill="#86efac" font-size="11">Promise&lt;</text>
+  <text x="540" y="241" fill="#86efac" font-size="11">ListToolsResult&gt;</text>
+  <text x="710" y="233" fill="#22c55e" font-size="11">discover</text>
+
+  <!-- Row 4: callTool() -->
+  <rect x="30" y="256" width="800" height="52" fill="#111827" rx="0"/>
+  <rect x="30" y="256" width="4" height="52" fill="#22c55e" rx="2"/>
+  <text x="90" y="277" fill="#86efac" font-size="12" font-weight="700">callTool()</text>
+  <text x="90" y="295" fill="#64748b" font-size="10">Ejecutar tool</text>
+  <text x="320" y="277" fill="#e2e8f0" font-size="11">{ name: string,</text>
+  <text x="320" y="293" fill="#e2e8f0" font-size="11">  arguments?: object }</text>
+  <text x="540" y="277" fill="#86efac" font-size="11">Promise&lt;</text>
+  <text x="540" y="293" fill="#86efac" font-size="11">CallToolResult&gt;</text>
+  <text x="710" y="285" fill="#22c55e" font-size="11">invoke</text>
+
+  <!-- Row 5: listResources() -->
+  <rect x="30" y="308" width="800" height="52" fill="#0f172a" rx="0"/>
+  <rect x="30" y="308" width="4" height="52" fill="#f59e0b" rx="2"/>
+  <text x="90" y="329" fill="#fcd34d" font-size="12" font-weight="700">listResources()</text>
+  <text x="90" y="347" fill="#64748b" font-size="10">Descubrir resources</text>
+  <text x="320" y="337" fill="#64748b" font-size="11">—</text>
+  <text x="540" y="329" fill="#fcd34d" font-size="11">Promise&lt;</text>
+  <text x="540" y="345" fill="#fcd34d" font-size="11">ListResourcesResult&gt;</text>
+  <text x="710" y="337" fill="#f59e0b" font-size="11">discover</text>
+
+  <!-- Row 6: readResource() -->
+  <rect x="30" y="360" width="800" height="52" fill="#111827" rx="0"/>
+  <rect x="30" y="360" width="4" height="52" fill="#f59e0b" rx="2"/>
+  <text x="90" y="381" fill="#fcd34d" font-size="12" font-weight="700">readResource()</text>
+  <text x="90" y="399" fill="#64748b" font-size="10">Leer resource</text>
+  <text x="320" y="381" fill="#e2e8f0" font-size="11">{ uri: string }</text>
+  <text x="320" y="397" fill="#64748b" font-size="11">URI del resource</text>
+  <text x="540" y="381" fill="#fcd34d" font-size="11">Promise&lt;</text>
+  <text x="540" y="397" fill="#fcd34d" font-size="11">ReadResourceResult&gt;</text>
+  <text x="710" y="389" fill="#f59e0b" font-size="11">invoke</text>
+
+  <!-- Row 7: listPrompts() -->
+  <rect x="30" y="412" width="800" height="52" fill="#0f172a" rx="0"/>
+  <rect x="30" y="412" width="4" height="52" fill="#ec4899" rx="2"/>
+  <text x="90" y="433" fill="#f9a8d4" font-size="12" font-weight="700">listPrompts()</text>
+  <text x="90" y="451" fill="#64748b" font-size="10">Descubrir prompts</text>
+  <text x="320" y="441" fill="#64748b" font-size="11">—</text>
+  <text x="540" y="433" fill="#f9a8d4" font-size="11">Promise&lt;</text>
+  <text x="540" y="449" fill="#f9a8d4" font-size="11">ListPromptsResult&gt;</text>
+  <text x="710" y="441" fill="#ec4899" font-size="11">discover</text>
+
+  <!-- Row 8: close() -->
+  <rect x="30" y="464" width="800" height="52" fill="#111827" rx="0"/>
+  <rect x="30" y="464" width="4" height="52" fill="#ef4444" rx="2"/>
+  <text x="90" y="485" fill="#fca5a5" font-size="12" font-weight="700">close()</text>
+  <text x="90" y="503" fill="#64748b" font-size="10">Cerrar conexión</text>
+  <text x="320" y="493" fill="#64748b" font-size="11">—</text>
+  <text x="540" y="493" fill="#fca5a5" font-size="11">Promise&lt;void&gt;</text>
+  <text x="710" y="493" fill="#ef4444" font-size="11">teardown</text>
+
+  <!-- Table border -->
+  <rect x="30" y="68" width="800" height="448" fill="none" rx="4" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="430" y="568" text-anchor="middle" fill="#475569" font-size="10">Todos los métodos son async — usar await para obtener el resultado</text>
+</svg>

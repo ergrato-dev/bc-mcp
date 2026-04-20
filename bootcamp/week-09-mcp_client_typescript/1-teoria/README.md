@@ -2,14 +2,14 @@
 
 ## Archivos de Teoría
 
-- [01-client-class-del-sdk-typescript-de-mcp.md](01-client-class-del-sdk-typescript-de-mcp.md) — Client class del SDK TypeScript de MCP
-- [02-stdioclienttransport-configuracion-y-con.md](02-stdioclienttransport-configuracion-y-con.md) — StdioClientTransport: configuración y conexión
-- [03-tipado-de-resultados-con-interfaces-type.md](03-tipado-de-resultados-con-interfaces-type.md) — Tipado de resultados con interfaces TypeScript
-- [04-manejo-de-errores-y-timeouts-en-el-clien.md](04-manejo-de-errores-y-timeouts-en-el-clien.md) — Manejo de errores y timeouts en el client TS
-- [05-comparativa-python-sdk-vs-typescript-sdk.md](05-comparativa-python-sdk-vs-typescript-sdk.md) — Comparativa Python SDK vs TypeScript SDK
+- [01-sdk-typescript-arquitectura-y-client-class.md](01-sdk-typescript-arquitectura-y-client-class.md) — SDK TypeScript: arquitectura y clase Client
+- [02-stdioclienttransport-y-conexion.md](02-stdioclienttransport-y-conexion.md) — StdioClientTransport: configuración y conexión
+- [03-discover-y-llamar-tools-resources-prompts.md](03-discover-y-llamar-tools-resources-prompts.md) — Descubrir y llamar tools, resources y prompts
+- [04-tipado-y-procesamiento-de-resultados.md](04-tipado-y-procesamiento-de-resultados.md) — Tipado y procesamiento de resultados
+- [05-manejo-errores-y-comparativa-python-ts.md](05-manejo-errores-y-comparativa-python-ts.md) — Manejo de errores y comparativa Python vs TypeScript
 
-> 📌 Cada archivo de teoría debe referenciar al menos un SVG de `../0-assets/`
-> para reforzar visualmente el concepto principal.
+> 📌 Cada archivo de teoría referencia su SVG de `../0-assets/` para reforzar
+> visualmente el concepto principal.
 
 ---
 

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="Inter, Roboto, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="520" fill="#0f0f17" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" fill="#e2e8f0" font-size="17" font-weight="700">Python SDK vs TypeScript SDK — Comparativa</text>
+  <text x="450" y="54" text-anchor="middle" fill="#94a3b8" font-size="11">Mismos conceptos, dos ecosistemas · semana 08 vs semana 09</text>
+
+  <!-- Divider line -->
+  <line x1="450" y1="68" x2="450" y2="500" stroke="#334155" stroke-width="2"/>
+
+  <!-- Python header -->
+  <rect x="30" y="68" width="400" height="36" fill="#172554" rx="0"/>
+  <text x="230" y="91" text-anchor="middle" fill="#93c5fd" font-size="14" font-weight="700">🐍  Python SDK (semana 08)</text>
+
+  <!-- TypeScript header -->
+  <rect x="450" y="68" width="420" height="36" fill="#1e1b4b" rx="0"/>
+  <text x="660" y="91" text-anchor="middle" fill="#a5b4fc" font-size="14" font-weight="700">⚡  TypeScript SDK (semana 09)</text>
+
+  <!-- Row 1: Package -->
+  <rect x="30" y="104" width="840" height="30" fill="#0f172a" rx="0"/>
+  <text x="30" y="116" fill="#475569" font-size="9" font-weight="700">  PAQUETE</text>
+  <text x="230" y="124" text-anchor="middle" fill="#64748b" font-size="11">mcp==1.9.0  (uv)</text>
+  <text x="660" y="124" text-anchor="middle" fill="#64748b" font-size="11">@modelcontextprotocol/sdk==1.10.2  (pnpm)</text>
+
+  <!-- Row 2: Import -->
+  <rect x="30" y="134" width="840" height="44" fill="#111827" rx="0"/>
+  <text x="30" y="146" fill="#475569" font-size="9" font-weight="700">  IMPORT</text>
+  <text x="230" y="152" text-anchor="middle" fill="#86efac" font-size="10">from mcp import ClientSession</text>
+  <text x="230" y="168" text-anchor="middle" fill="#86efac" font-size="10">from mcp.client.stdio import stdio_client</text>
+  <text x="660" y="152" text-anchor="middle" fill="#a5b4fc" font-size="10">import { Client } from "...sdk/client/index.js"</text>
+  <text x="660" y="168" text-anchor="middle" fill="#a5b4fc" font-size="10">import { StdioClientTransport } from "...sdk/client/stdio.js"</text>
+
+  <!-- Row 3: Connection -->
+  <rect x="30" y="178" width="840" height="54" fill="#0f172a" rx="0"/>
+  <text x="30" y="190" fill="#475569" font-size="9" font-weight="700">  CONEXIÓN</text>
+  <text x="230" y="198" text-anchor="middle" fill="#86efac" font-size="10">async with stdio_client(params) as (r,w):</text>
+  <text x="230" y="214" text-anchor="middle" fill="#86efac" font-size="10">  async with ClientSession(r,w) as session:</text>
+  <text x="230" y="230" text-anchor="middle" fill="#86efac" font-size="10">    await session.initialize()</text>
+  <text x="660" y="198" text-anchor="middle" fill="#a5b4fc" font-size="10">const transport = new StdioClientTransport({...})</text>
+  <text x="660" y="214" text-anchor="middle" fill="#a5b4fc" font-size="10">const client = new Client({name, version})</text>
+  <text x="660" y="230" text-anchor="middle" fill="#a5b4fc" font-size="10">await client.connect(transport)  // initialize automático</text>
+
+  <!-- Row 4: listTools -->
+  <rect x="30" y="232" width="840" height="38" fill="#111827" rx="0"/>
+  <text x="30" y="244" fill="#475569" font-size="9" font-weight="700">  LIST TOOLS</text>
+  <text x="230" y="256" text-anchor="middle" fill="#fcd34d" font-size="10">result = await session.list_tools()  # snake_case</text>
+  <text x="660" y="256" text-anchor="middle" fill="#fcd34d" font-size="10">const result = await client.listTools()  // camelCase</text>
+
+  <!-- Row 5: callTool -->
+  <rect x="30" y="270" width="840" height="38" fill="#0f172a" rx="0"/>
+  <text x="30" y="282" fill="#475569" font-size="9" font-weight="700">  CALL TOOL</text>
+  <text x="230" y="292" text-anchor="middle" fill="#fcd34d" font-size="10">r = await session.call_tool("name", {"k":"v"})</text>
+  <text x="660" y="292" text-anchor="middle" fill="#fcd34d" font-size="10">const r = await client.callTool({ name, arguments:{k:"v"} })</text>
+
+  <!-- Row 6: isError -->
+  <rect x="30" y="308" width="840" height="38" fill="#111827" rx="0"/>
+  <text x="30" y="320" fill="#475569" font-size="9" font-weight="700">  IS ERROR</text>
+  <text x="230" y="332" text-anchor="middle" fill="#f87171" font-size="10">if r.isError:  result.content[0].text</text>
+  <text x="660" y="332" text-anchor="middle" fill="#f87171" font-size="10">if (r.isError)  (r.content[0] as TextContent).text</text>
+
+  <!-- Row 7: content type -->
+  <rect x="30" y="346" width="840" height="38" fill="#0f172a" rx="0"/>
+  <text x="30" y="358" fill="#475569" font-size="9" font-weight="700">  CONTENT TYPE</text>
+  <text x="230" y="368" text-anchor="middle" fill="#cbd5e1" font-size="10">isinstance(item, TextContent)  → item.text</text>
+  <text x="660" y="368" text-anchor="middle" fill="#cbd5e1" font-size="10">item.type === "text"  → (item as TextContent).text</text>
+
+  <!-- Row 8: close -->
+  <rect x="30" y="384" width="840" height="38" fill="#111827" rx="0"/>
+  <text x="30" y="396" fill="#475569" font-size="9" font-weight="700">  CERRAR</text>
+  <text x="230" y="406" text-anchor="middle" fill="#94a3b8" font-size="10">async with cierra automáticamente (context mgr)</text>
+  <text x="660" y="406" text-anchor="middle" fill="#94a3b8" font-size="10">await client.close()  en bloque finally</text>
+
+  <!-- Row 9: error handling -->
+  <rect x="30" y="422" width="840" height="38" fill="#0f172a" rx="0"/>
+  <text x="30" y="434" fill="#475569" font-size="9" font-weight="700">  EXCEPCIONES</text>
+  <text x="230" y="444" text-anchor="middle" fill="#f87171" font-size="10">McpError, BrokenPipeError, asyncio.TimeoutError</text>
+  <text x="660" y="444" text-anchor="middle" fill="#f87171" font-size="10">McpError, Error (BrokenPipe as ENOENT/EPIPE)</text>
+
+  <!-- Table border -->
+  <rect x="30" y="68" width="840" height="392" fill="none" rx="0" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="450" y="512" text-anchor="middle" fill="#475569" font-size="10">El SDK TypeScript usa camelCase · el de Python usa snake_case — la semántica del protocolo es idéntica</text>
+</svg>

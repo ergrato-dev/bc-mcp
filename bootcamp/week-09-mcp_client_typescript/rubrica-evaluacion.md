@@ -25,21 +25,44 @@ con mínimo **21 pts** en cada tipo de evidencia.
 
 ## 💪 Desempeño (40 pts)
 
-| Criterio | Excelente (40) | Satisfactorio (28) | Insuficiente (<28) |
+### Prácticas (20 pts — 5 pts cada una)
+
+| Práctica | 5 pts (excelente) | 3-4 pts (satisfactorio) | 0-2 pts (insuficiente) |
+|----------|-------------------|-------------------------|------------------------|
+| P01 — Primer client | Descomenta y ejecuta los 4 PASOs. El server conecta e imprime nombre y versión | Completa 3 de 4 PASOs. El client conecta | No conecta o menos de 3 PASOs |
+| P02 — Descubrir capacidades | Imprime tools (con params requeridos marcados), resources y prompts | Imprime tools y resources. Prompts incompleto | Solo imprime tools |
+| P03 — Invocar tools | Completa los 5 PASOs: search, isError, add, readResource | 3-4 PASOs completos | Menos de 3 PASOs |
+| P04 — CLI interactivo | Bucle readline funcional con search, tools, stats y quit | search y stats funcionan. quit funciona | Solo se conecta |
+
+### Calidad del código (20 pts)
+
+| Criterio | Excelente (20) | Satisfactorio (14) | Insuficiente (<14) |
 |----------|---------------|--------------------|--------------------|
-| Ejercicios completados | Completa todos los ejercicios correctamente | Completa 70%+ de los ejercicios | Completa menos del 70% |
-| Calidad del código | Código limpio, type hints, async correcto, sin warnings | Código funcional con mejoras menores posibles | Código con errores o malas prácticas |
-| Comprensión del proceso | Puede explicar cada paso que realizó | Puede explicar la mayoría de los pasos | No puede explicar lo que hizo |
+| Tipado TypeScript | Discriminated unions correctas, sin `any`, tipos inferidos | Usa types en la mayoría de casos, `any` mínimo | Uso frecuente de `any`, tipos incorrectos |
+| `isError` handling | Siempre verifica `isError` antes de parsear content | Verifica en la mayoría de los casos | No verifica `isError` — posibles crashes |
+| Async/await | Correcto uso de `await`, try/finally con `client.close()` | Await presente pero falta finally en algún caso | Mezcla sync/async o falta cierre del client |
 
 ---
 
 ## 📦 Producto (30 pts)
 
-| Criterio | Excelente (30) | Satisfactorio (21) | Insuficiente (<21) |
+### TODOs del proyecto (18 pts — 3 pts cada TODO)
+
+| TODO | 3 pts | 1-2 pts | 0 pts |
+|------|-------|---------|-------|
+| TODO 1 — `connectToServer()` | Crea transport con `...process.env`, conecta y retorna client | Conecta pero sin env o sin try/finally | No implementado o no conecta |
+| TODO 2 — `listAvailableTools()` | Lista nombre + descripción de todos los tools | Lista solo nombres | No implementado |
+| TODO 3 — `searchBooks()` | `callTool` → `isError` check → `JSON.parse as Book[]` | Parsea pero sin verificar `isError` | No implementado |
+| TODO 4 — `addBook()` | `callTool` → `isError` → parsea Book con id asignado | Llama al tool pero no parsea correctamente | No implementado |
+| TODO 5 — `searchOpenLibrary()` | `callTool` → parsea `OpenLibraryResult[]` | Llama al tool pero retorna `any[]` | No implementado |
+| TODO 6 — `interactiveLoop()` | Bucle con search/add/ol/stats/quit. readline cerrado en finally | Al menos 4 comandos funcionan | Menos de 4 comandos |
+
+### Calidad general del producto (12 pts)
+
+| Criterio | Excelente (12) | Satisfactorio (8) | Insuficiente (<8) |
 |----------|---------------|--------------------|--------------------|
-| Funcionalidad | Todos los entregables funcionan correctamente con Docker | Los entregables principales funcionan | Los entregables no funcionan o están incompletos |
-| Documentación | README claro con instrucciones completas y ejemplos | README básico con instrucciones de setup | Sin README o instrucciones insuficientes |
-| Entregables completos | Todos los ítems del checklist marcados | 70%+ de los ítems completados | Menos del 70% completado |
+| Funcionalidad end-to-end | El CLI se conecta al server de semana 07 y ejecuta todos los comandos | Los comandos principales (search, stats) funcionan | No conecta o crashes frecuentes |
+| Entregables completos | Todos los TODOs marcados como implementados | 4-5 TODOs implementados | Menos de 4 TODOs |
 
 ---
 

@@ -1,0 +1,11 @@
+services:
+  library-cli:
+    build:
+      context: ./typescript-client
+      dockerfile: Dockerfile.node
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    stdin_open: true
+    tty: true

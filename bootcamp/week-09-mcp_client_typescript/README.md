@@ -58,15 +58,14 @@ week-09-mcp_client_typescript/
 
 ### 💻 Prácticas ([2-practicas/](2-practicas/README.md))
 
-1. Crear un client TypeScript que se conecte al server de semana 07
-2. Listar tools con client.listTools()
-3. Invocar tools con client.callTool() y tipar resultados
-4. Listar y leer resources con client.listResources()
-5. Construir un CLI TypeScript equivalente al de semana 08
+1. [practica-01-primer-client](2-practicas/practica-01-primer-client/) — Conectar e imprimir metadatos del servidor
+2. [practica-02-descubrir-capacidades](2-practicas/practica-02-descubrir-capacidades/) — `listTools()`, `listResources()`, `listPrompts()`
+3. [practica-03-invocar-tools](2-practicas/practica-03-invocar-tools/) — `callTool()`, `isError`, `readResource()` tipado
+4. [practica-04-cli-interactivo](2-practicas/practica-04-cli-interactivo/) — CLI interactivo con `node:readline/promises`
 
 ### 🏗️ Proyecto ([3-proyecto/](3-proyecto/README.md))
 
-MCP Client TypeScript con CLI que se conecta al server de semana 07
+**Library CLI TypeScript** — CLI TypeScript completo con 6 TODOs que replica el proyecto de semana 08 en TypeScript: `connectToServer()`, `listAvailableTools()`, `searchBooks()`, `addBook()`, `searchOpenLibrary()`, `interactiveLoop()`.
 
 ---
 
@@ -82,10 +81,12 @@ MCP Client TypeScript con CLI que se conecta al server de semana 07
 
 ## 📌 Entregables
 
-- [ ] MCP Client TypeScript funcional con conexión a server stdio
-- [ ] CLI TypeScript que permite invocar cualquier tool del server
-- [ ] Tests del client con InMemoryTransport
-- [ ] README con comparativa Python vs TypeScript client
+- [ ] **TODO 1** — `connectToServer()`: `StdioClientTransport` + `Client` + `connect()`
+- [ ] **TODO 2** — `listAvailableTools()`: lista tools con nombre y descripción
+- [ ] **TODO 3** — `searchBooks()`: `callTool` + `isError` + `JSON.parse` → `Book[]`
+- [ ] **TODO 4** — `addBook()`: `callTool` + `isError` + JSON → `Book | null`
+- [ ] **TODO 5** — `searchOpenLibrary()`: `callTool` → `OpenLibraryResult[]`
+- [ ] **TODO 6** — `interactiveLoop()`: readline + dispatch de comandos (search/add/ol/stats/quit)
 
 ---
 
