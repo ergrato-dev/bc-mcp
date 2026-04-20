@@ -1,0 +1,11 @@
+# docker-compose.yml — Orquestar el Library Server con volumen para la DB
+
+# TODO 1: Definir el servicio python-server
+# - build: context=. dockerfile=Dockerfile.python
+# - environment: DB_PATH=/data/library.db y OPENLIBRARY_URL
+# - volumes: montar library-data en /data
+# - restart: unless-stopped
+
+# TODO 2: Definir el volumen library-data
+# - driver: local
+# - Permite persistir la DB entre reinicios del contenedor

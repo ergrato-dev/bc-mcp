@@ -1,0 +1,90 @@
+<svg viewBox="0 0 860 500"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, Roboto, sans-serif">
+  <rect width="860" height="500" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="430" y="36" text-anchor="middle" fill="#f9fafb" font-size="19" font-weight="700">Validación de Inputs: Pydantic (Python) · Zod (TypeScript)</text>
+  <text x="430" y="56" text-anchor="middle" fill="#9ca3af" font-size="12">Defense in depth: validar en la capa MCP antes de tocar la base de datos</text>
+
+  <!-- Flow: LLM → Tool boundary → Validated → DB -->
+  <!-- LLM box -->
+  <rect x="30" y="100" width="130" height="60" rx="8" fill="#3b0764" stroke="#a855f7" stroke-width="2"/>
+  <text x="95" y="126" text-anchor="middle" fill="#e9d5ff" font-size="13" font-weight="700">LLM</text>
+  <text x="95" y="146" text-anchor="middle" fill="#d8b4fe" font-size="11">(Claude / GPT)</text>
+
+  <!-- Arrow LLM → Tool -->
+  <line x1="160" y1="130" x2="210" y2="130" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="185" y="122" text-anchor="middle" fill="#9ca3af" font-size="10">args</text>
+
+  <!-- Tool boundary box -->
+  <rect x="210" y="76" width="200" height="110" rx="8" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+  <text x="310" y="100" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">Tool boundary</text>
+  <text x="310" y="118" text-anchor="middle" fill="#fcd34d" font-size="11">@mcp.tool() / server.tool()</text>
+  <rect x="225" y="126" width="170" height="48" rx="4" fill="#1f2937" stroke="#374151"/>
+  <text x="240" y="143" fill="#f87171" font-size="11" font-weight="600">❌ SIN validación:</text>
+  <text x="240" y="157" fill="#9ca3af" font-size="10">año = -999 → INSERT a DB</text>
+  <text x="240" y="169" fill="#9ca3af" font-size="10">query = "'; DROP TABLE--"</text>
+
+  <!-- Arrow Tool → Validator -->
+  <line x1="410" y1="130" x2="460" y2="130" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Validation layer -->
+  <rect x="460" y="76" width="200" height="110" rx="8" fill="#1a2e1a" stroke="#22c55e" stroke-width="2"/>
+  <text x="560" y="100" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">Validation Layer</text>
+  <text x="560" y="118" text-anchor="middle" fill="#86efac" font-size="11">Pydantic / Zod</text>
+  <rect x="475" y="126" width="170" height="48" rx="4" fill="#1f2937" stroke="#374151"/>
+  <text x="490" y="143" fill="#4ade80" font-size="11" font-weight="600">✅ CON validación:</text>
+  <text x="490" y="157" fill="#9ca3af" font-size="10">year: 1000 &lt; x &lt; 2100</text>
+  <text x="490" y="169" fill="#9ca3af" font-size="10">query: strip, max_length=200</text>
+
+  <!-- Arrow Validator → DB -->
+  <line x1="660" y1="130" x2="710" y2="130" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="685" y="122" text-anchor="middle" fill="#9ca3af" font-size="10">clean</text>
+
+  <!-- DB box -->
+  <rect x="710" y="100" width="130" height="60" rx="8" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2"/>
+  <text x="775" y="126" text-anchor="middle" fill="#bfdbfe" font-size="13" font-weight="700">SQLite</text>
+  <text x="775" y="146" text-anchor="middle" fill="#93c5fd" font-size="11">datos limpios</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Python Pydantic example -->
+  <rect x="30" y="220" width="390" height="240" rx="8" fill="#0f1f10" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="225" y="244" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Python — Pydantic</text>
+  <rect x="48" y="256" width="354" height="190" rx="5" fill="#1f2937" stroke="#374151"/>
+  <text x="64" y="275" fill="#86efac" font-size="11">from pydantic import BaseModel, Field, field_validator</text>
+  <text x="64" y="291" fill="#d1d5db" font-size="11"></text>
+  <text x="64" y="307" fill="#60a5fa" font-size="11">class AddBookInput(BaseModel):</text>
+  <text x="64" y="323" fill="#d1d5db" font-size="11">    title: str = Field(min_length=1, max_length=300)</text>
+  <text x="64" y="339" fill="#d1d5db" font-size="11">    author: str = Field(min_length=1, max_length=200)</text>
+  <text x="64" y="355" fill="#d1d5db" font-size="11">    year: int = Field(ge=1000, le=2100)</text>
+  <text x="64" y="371" fill="#d1d5db" font-size="11">    isbn: str = Field(default="", max_length=20)</text>
+  <text x="64" y="387" fill="#d1d5db" font-size="11"></text>
+  <text x="64" y="403" fill="#60a5fa" font-size="11">    @field_validator("title", "author")</text>
+  <text x="64" y="419" fill="#d1d5db" font-size="11">    def strip_whitespace(cls, v): return v.strip()</text>
+  <text x="64" y="435" fill="#f87171" font-size="11">    # Pydantic lanza ValidationError si falla</text>
+
+  <!-- TypeScript Zod example -->
+  <rect x="440" y="220" width="390" height="240" rx="8" fill="#0a1630" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="635" y="244" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">TypeScript — Zod</text>
+  <rect x="458" y="256" width="354" height="190" rx="5" fill="#1f2937" stroke="#374151"/>
+  <text x="474" y="275" fill="#67e8f9" font-size="11">import {"{"} z {"}"} from "zod"</text>
+  <text x="474" y="291" fill="#d1d5db" font-size="11"></text>
+  <text x="474" y="307" fill="#60a5fa" font-size="11">const AddBookSchema = z.object({"{"}</text>
+  <text x="474" y="323" fill="#d1d5db" font-size="11">  title: z.string().min(1).max(300).trim(),</text>
+  <text x="474" y="339" fill="#d1d5db" font-size="11">  author: z.string().min(1).max(200).trim(),</text>
+  <text x="474" y="355" fill="#d1d5db" font-size="11">  year: z.number().int().gte(1000).lte(2100),</text>
+  <text x="474" y="371" fill="#d1d5db" font-size="11">  isbn: z.string().max(20).optional(),</text>
+  <text x="474" y="387" fill="#d1d5db" font-size="11">{"}"} )</text>
+  <text x="474" y="403" fill="#d1d5db" font-size="11"></text>
+  <text x="474" y="419" fill="#60a5fa" font-size="11">// En la tool — MCP ya pasa los args validados</text>
+  <text x="474" y="435" fill="#f87171" font-size="11">// Zod lanza ZodError si falla el parse</text>
+
+  <!-- Bottom label -->
+  <text x="430" y="476" text-anchor="middle" fill="#6b7280" font-size="11">Validar SIEMPRE en el boundary — nunca confiar en que el LLM manda datos correctos</text>
+</svg>

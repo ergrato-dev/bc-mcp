@@ -1,0 +1,57 @@
+# ============================================================
+# PASO 1: Stage builder — instalar dependencias con uv
+# ============================================================
+# Este stage instala SOLO las dependencias de producción.
+# No instala dev deps (pytest, linters) para mantener la imagen pequeña.
+#
+# Descomenta las siguientes líneas:
+# FROM python:3.13-slim AS builder
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     UV_SYSTEM_PYTHON=1
+#
+# RUN pip install --no-cache-dir uv==0.6.14
+#
+# WORKDIR /app
+#
+# # Copiar archivos de dependencias (capa de cache estable)
+# COPY pyproject.toml uv.lock* ./
+#
+# # Instalar solo dependencias de producción
+# RUN uv sync --frozen --no-dev
+
+
+# ============================================================
+# PASO 2: Stage runtime — imagen final minimalista
+# ============================================================
+# Copia solo site-packages del builder, sin el resto de herramientas.
+# Crea usuario no-root mcpuser para seguridad.
+#
+# Descomenta las siguientes líneas:
+# FROM python:3.13-slim
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1
+#
+# # Copiar dependencias instaladas desde el builder
+# COPY --from=builder /usr/local/lib/python3.13/site-packages/ \
+#      /usr/local/lib/python3.13/site-packages/
+# COPY --from=builder /usr/local/bin/ /usr/local/bin/
+#
+# # Crear usuario no-root para seguridad
+# RUN useradd --system --no-create-home --shell /bin/false mcpuser
+#
+# WORKDIR /app
+#
+# # Copiar solo el código fuente
+# COPY src/ ./src/
+#
+# # Cambiar al usuario no-root
+# USER mcpuser
+#
+# # Health check
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+#     CMD python -c "import mcp; print('ok')" || exit 1
+#
+# CMD ["python", "src/server.py"]

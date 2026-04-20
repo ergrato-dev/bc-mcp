@@ -1,0 +1,98 @@
+<svg viewBox="0 0 880 540"
+  xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, Roboto, sans-serif">
+  <rect width="880" height="540" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="440" y="36" text-anchor="middle" fill="#f9fafb" font-size="19" font-weight="700">Dockerfile Multi-stage para MCP Servers en Producción</text>
+  <text x="440" y="56" text-anchor="middle" fill="#9ca3af" font-size="12">Imagen pequeña · sin deps de build en prod · usuario no root · uv / pnpm</text>
+
+  <!-- === PYTHON SIDE === -->
+  <rect x="30" y="72" width="390" height="420" rx="8" fill="#0f1f0f" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="225" y="96" text-anchor="middle" fill="#4ade80" font-size="15" font-weight="700">Python — uv · Dockerfile.python</text>
+
+  <!-- Stage 1 builder -->
+  <rect x="48" y="108" width="354" height="130" rx="6" fill="#1f2937" stroke="#374151"/>
+  <rect x="48" y="108" width="354" height="24" rx="6" fill="#166534"/>
+  <rect x="48" y="120" width="354" height="12" fill="#166534"/>
+  <text x="225" y="124" text-anchor="middle" fill="#bbf7d0" font-size="12" font-weight="600">STAGE 1: builder</text>
+  <text x="64" y="150" fill="#86efac" font-size="11">FROM python:3.13-slim AS builder</text>
+  <text x="64" y="165" fill="#9ca3af" font-size="10">ENV UV_SYSTEM_PYTHON=1 \</text>
+  <text x="64" y="179" fill="#9ca3af" font-size="10">    PYTHONDONTWRITEBYTECODE=1</text>
+  <text x="64" y="193" fill="#9ca3af" font-size="10">RUN pip install --no-cache-dir uv==0.6.14</text>
+  <text x="64" y="207" fill="#9ca3af" font-size="10">COPY pyproject.toml uv.lock ./</text>
+  <text x="64" y="221" fill="#9ca3af" font-size="10">RUN uv sync --frozen --no-dev</text>
+
+  <!-- Arrow down -->
+  <line x1="225" y1="238" x2="225" y2="258" stroke="#6b7280" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="260" y="250" fill="#6b7280" font-size="10">solo /usr/local/lib/</text>
+
+  <!-- Stage 2 runtime -->
+  <rect x="48" y="260" width="354" height="150" rx="6" fill="#1f2937" stroke="#374151"/>
+  <rect x="48" y="260" width="354" height="24" rx="6" fill="#1e3a5f"/>
+  <rect x="48" y="272" width="354" height="12" fill="#1e3a5f"/>
+  <text x="225" y="276" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="600">STAGE 2: runtime (imagen final)</text>
+  <text x="64" y="302" fill="#60a5fa" font-size="11">FROM python:3.13-slim</text>
+  <text x="64" y="317" fill="#9ca3af" font-size="10">COPY --from=builder /usr/local/lib/ /usr/local/lib/</text>
+  <text x="64" y="331" fill="#9ca3af" font-size="10">RUN useradd -r -s /bin/false mcpuser</text>
+  <text x="64" y="345" fill="#9ca3af" font-size="10">WORKDIR /app</text>
+  <text x="64" y="359" fill="#9ca3af" font-size="10">COPY src/ ./src/</text>
+  <text x="64" y="373" fill="#9ca3af" font-size="10">USER mcpuser  # ← no root</text>
+  <text x="64" y="387" fill="#9ca3af" font-size="10">CMD ["python", "src/server.py"]</text>
+  <text x="64" y="401" fill="#9ca3af" font-size="10">HEALTHCHECK --interval=30s CMD python -c "import mcp"</text>
+
+  <!-- Benefits -->
+  <rect x="48" y="420" width="354" height="56" rx="5" fill="#0a2010" stroke="#22c55e"/>
+  <text x="64" y="438" fill="#4ade80" font-size="11" font-weight="600">Ventajas del multi-stage Python:</text>
+  <text x="64" y="454" fill="#9ca3af" font-size="10">✓ Solo dependencias runtime  ✓ Sin pip/uv en prod</text>
+  <text x="64" y="466" fill="#9ca3af" font-size="10">✓ Usuario no-root            ✓ Imagen ≈ 200 MB vs 600 MB</text>
+
+  <!-- === TYPESCRIPT SIDE === -->
+  <rect x="440" y="72" width="410" height="420" rx="8" fill="#0a1628" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="645" y="96" text-anchor="middle" fill="#67e8f9" font-size="15" font-weight="700">TypeScript — pnpm · Dockerfile.node</text>
+
+  <!-- Stage 1 builder TS -->
+  <rect x="458" y="108" width="374" height="130" rx="6" fill="#1f2937" stroke="#374151"/>
+  <rect x="458" y="108" width="374" height="24" rx="6" fill="#0c4a6e"/>
+  <rect x="458" y="120" width="374" height="12" fill="#0c4a6e"/>
+  <text x="645" y="124" text-anchor="middle" fill="#bae6fd" font-size="12" font-weight="600">STAGE 1: builder</text>
+  <text x="474" y="150" fill="#67e8f9" font-size="11">FROM node:22-slim AS builder</text>
+  <text x="474" y="165" fill="#9ca3af" font-size="10">RUN corepack enable &amp;&amp; corepack prepare pnpm@10.10.0 --activate</text>
+  <text x="474" y="179" fill="#9ca3af" font-size="10">WORKDIR /app</text>
+  <text x="474" y="193" fill="#9ca3af" font-size="10">COPY package.json pnpm-lock.yaml ./</text>
+  <text x="474" y="207" fill="#9ca3af" font-size="10">RUN pnpm install --frozen-lockfile</text>
+  <text x="474" y="221" fill="#9ca3af" font-size="10">COPY src/ ./src/ &amp;&amp; COPY tsconfig.json . &amp;&amp; RUN pnpm build</text>
+
+  <!-- Arrow down TS -->
+  <line x1="645" y1="238" x2="645" y2="258" stroke="#6b7280" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="680" y="250" fill="#6b7280" font-size="10">solo dist/ compilado</text>
+
+  <!-- Stage 2 runtime TS -->
+  <rect x="458" y="260" width="374" height="150" rx="6" fill="#1f2937" stroke="#374151"/>
+  <rect x="458" y="260" width="374" height="24" rx="6" fill="#1e3a5f"/>
+  <rect x="458" y="272" width="374" height="12" fill="#1e3a5f"/>
+  <text x="645" y="276" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="600">STAGE 2: runtime (imagen final)</text>
+  <text x="474" y="302" fill="#60a5fa" font-size="11">FROM node:22-slim</text>
+  <text x="474" y="317" fill="#9ca3af" font-size="10">RUN corepack enable &amp;&amp; corepack prepare pnpm@10.10.0 --activate</text>
+  <text x="474" y="331" fill="#9ca3af" font-size="10">WORKDIR /app</text>
+  <text x="474" y="345" fill="#9ca3af" font-size="10">COPY --from=builder /app/dist ./dist</text>
+  <text x="474" y="359" fill="#9ca3af" font-size="10">COPY package.json pnpm-lock.yaml ./</text>
+  <text x="474" y="373" fill="#9ca3af" font-size="10">RUN pnpm install --frozen-lockfile --prod</text>
+  <text x="474" y="387" fill="#9ca3af" font-size="10">USER node  # ← no root</text>
+  <text x="474" y="401" fill="#9ca3af" font-size="10">CMD ["node", "dist/index.js"]</text>
+
+  <!-- Benefits TS -->
+  <rect x="458" y="420" width="374" height="56" rx="5" fill="#061628" stroke="#22d3ee"/>
+  <text x="474" y="438" fill="#67e8f9" font-size="11" font-weight="600">Ventajas del multi-stage TypeScript:</text>
+  <text x="474" y="454" fill="#9ca3af" font-size="10">✓ Solo dist/ + node_modules prod   ✓ Sin TypeScript en runtime</text>
+  <text x="474" y="466" fill="#9ca3af" font-size="10">✓ Usuario node no-root             ✓ Imagen ≈ 300 MB vs 800 MB</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Bottom -->
+  <text x="440" y="510" text-anchor="middle" fill="#6b7280" font-size="11">docker compose up --build  ·  docker scout  ·  .dockerignore con node_modules, __pycache__, .env</text>
+</svg>

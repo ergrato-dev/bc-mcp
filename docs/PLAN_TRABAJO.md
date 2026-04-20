@@ -333,11 +333,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — test pyramid MCP, security checklist diagram
-- [ ] `1-teoria/` — pytest avanzado, vitest, OWASP + MCP, Docker multi-stage
-- [ ] `2-practicas/` — suite de tests completa, hardening de server
-- [ ] `3-proyecto/` — refactorizar server de semana 07 con tests + Docker prod
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — test pyramid MCP, security checklist diagram
+- [x] `1-teoria/` — pytest avanzado, vitest, OWASP + MCP, Docker multi-stage
+- [x] `2-practicas/` — suite de tests completa, hardening de server
+- [x] `3-proyecto/` — refactorizar server de semana 07 con tests + Docker prod
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

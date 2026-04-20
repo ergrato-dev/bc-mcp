@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────
+# TODO 1: Stage builder — instalar dependencias
+# ─────────────────────────────────────────────
+# Implementa el stage builder:
+# - Base image: python:3.13-slim
+# - Variables: PYTHONDONTWRITEBYTECODE=1, PYTHONUNBUFFERED=1, UV_SYSTEM_PYTHON=1
+# - Instalar uv: pip install --no-cache-dir uv==0.6.14
+# - WORKDIR /app
+# - Copiar pyproject.toml y uv.lock* (para aprovechar cache de Docker)
+# - Instalar deps de producción: uv sync --frozen --no-dev
+
+
+# ─────────────────────────────────────────────
+# TODO 2: Stage runtime — imagen final
+# ─────────────────────────────────────────────
+# Implementa el stage runtime:
+# - Base image: python:3.13-slim
+# - Copiar site-packages desde builder con COPY --from=builder
+# - Copiar /usr/local/bin/ desde builder
+# - Crear usuario no-root: useradd --system --no-create-home --shell /bin/false mcpuser
+# - WORKDIR /app
+# - Copiar src/ desde el contexto
+# - USER mcpuser
+# - HEALTHCHECK: python -c "import mcp; print('ok')"
+# - CMD: python src/server.py

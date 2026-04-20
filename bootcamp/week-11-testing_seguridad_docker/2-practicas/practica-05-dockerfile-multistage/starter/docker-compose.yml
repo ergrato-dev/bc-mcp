@@ -1,0 +1,21 @@
+# ============================================================
+# PASO 4: docker-compose.yml — orquestar el servicio
+# ============================================================
+# Descomenta el siguiente bloque completo:
+#
+# services:
+#   python-server:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.python
+#     environment:
+#       - DB_PATH=/data/library.db
+#       - OPENLIBRARY_URL=https://openlibrary.org/search.json
+#     volumes:
+#       # Volumen nombrado para persistir la DB entre reinicios
+#       - library-data:/data
+#     restart: unless-stopped
+#
+# volumes:
+#   library-data:
+#     driver: local

@@ -1,0 +1,26 @@
+.git
+.github
+*.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+dist/
+*.egg-info/
+
+# Secretos — NUNCA en la imagen
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Tests
+tests/
+test/
+*_test.py
