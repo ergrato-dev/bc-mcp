@@ -19,7 +19,7 @@
   <text x="170" y="193" font-size="10" fill="#F0883E">z</text>
   <text x="177" y="193" font-size="10" fill="#E6EDF3">.string()</text>
   <text x="125" y="209" font-size="10" fill="#8B949E">  .describe(</text>
-  <text x="189" y="209" font-size="10" fill="#3FB950">"text to search"</text>
+  <text x="189" y="209" font-size="10" fill="#3FB950">"query"</text>
   <text x="113" y="225" font-size="10" fill="#E6EDF3">},</text>
   <text x="113" y="241" font-size="10" fill="#BC8CFF">async</text>
   <text x="140" y="241" font-size="10" fill="#E6EDF3">({ query }) </text>

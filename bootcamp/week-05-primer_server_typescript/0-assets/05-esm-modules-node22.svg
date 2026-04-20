@@ -67,20 +67,20 @@
   <text x="600" y="287" text-anchor="middle" font-size="12" font-weight="700" fill="#F0883E">Extensión .js en imports TypeScript</text>
   <text x="600" y="305" text-anchor="middle" font-size="10" fill="#8B949E">con module: "Node16"</text>
 
-  <text x="426" y="332" font-size="10" fill="#8B949E">// ❌ INCORRECTO (falla en Node16)</text>
-  <text x="426" y="349" font-size="10" fill="#BC8CFF">import</text>
-  <text x="454" y="349" font-size="10" fill="#E6EDF3">{ util } </text>
-  <text x="490" y="349" font-size="10" fill="#BC8CFF">from</text>
-  <text x="513" y="349" font-size="10" fill="#F0883E">"./util"</text>
-  <text x="548" y="349" font-size="10" fill="#E6EDF3">;</text>
+  <text x="426" y="323" font-size="10" fill="#8B949E">// ❌ INCORRECTO (falla en Node16)</text>
+  <text x="426" y="340" font-size="10" fill="#BC8CFF">import</text>
+  <text x="454" y="340" font-size="10" fill="#E6EDF3">{ util } </text>
+  <text x="490" y="340" font-size="10" fill="#BC8CFF">from</text>
+  <text x="513" y="340" font-size="10" fill="#F0883E">"./util"</text>
+  <text x="548" y="340" font-size="10" fill="#E6EDF3">;</text>
 
-  <text x="426" y="373" font-size="10" fill="#8B949E">// ✅ CORRECTO (extensión .js)</text>
-  <text x="426" y="390" font-size="10" fill="#BC8CFF">import</text>
-  <text x="454" y="390" font-size="10" fill="#E6EDF3">{ util } </text>
-  <text x="490" y="390" font-size="10" fill="#BC8CFF">from</text>
-  <text x="513" y="390" font-size="10" fill="#3FB950">"./util.js"</text>
-  <text x="559" y="390" font-size="10" fill="#E6EDF3">;</text>
+  <text x="426" y="357" font-size="10" fill="#8B949E">// ✅ CORRECTO (extensión .js)</text>
+  <text x="426" y="373" font-size="10" fill="#BC8CFF">import</text>
+  <text x="454" y="373" font-size="10" fill="#E6EDF3">{ util } </text>
+  <text x="490" y="373" font-size="10" fill="#BC8CFF">from</text>
+  <text x="513" y="373" font-size="10" fill="#3FB950">"./util.js"</text>
+  <text x="559" y="373" font-size="10" fill="#E6EDF3">;</text>
 
-  <text x="426" y="410" font-size="10" fill="#8B949E">// TypeScript compila .ts → .js</text>
-  <text x="426" y="426" font-size="10" fill="#8B949E">// pero los imports ya referencian .js</text>
+  <text x="426" y="392" font-size="10" fill="#8B949E">// TypeScript compila .ts → .js</text>
+  <text x="426" y="408" font-size="10" fill="#8B949E">// pero los imports ya referencian .js</text>
 </svg>
