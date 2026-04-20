@@ -1,22 +1,46 @@
-# Starter — Semana 04: Primer MCP Server en Python
+# Starter — Semana 04: Utility MCP Server
 
-## Setup
+Tu punto de partida para el proyecto de la semana.
+
+## Setup y ejecución
 
 ```bash
-# Clonar y navegar al directorio
+# Posicionarse en este directorio
 cd bootcamp/week-04-primer_server_python/3-proyecto/starter
 
-# Levantar el entorno con Docker
+# Construir y levantar el server
 docker compose up --build
+
+# Probar con MCP Inspector (en otra terminal)
+npx @modelcontextprotocol/inspector uv run python src/server.py
 ```
 
-## Estructura Esperada
+## Archivos que debes editar
 
-Implementa el proyecto según las instrucciones en [`../README.md`](../README.md).
+```
+starter/
+└── src/
+    └── server.py    ← ⭐ ESTE es el único archivo que debes modificar
+```
 
-## TODO
+## Qué implementar
 
-Implementa los entregables descritos en [`../README.md`](../README.md#-entregables).
+En `src/server.py` encontrarás 3 tools con sus firmas y docstrings completos.
+Cada tool tiene comentarios `# TODO` que describen exactamente qué implementar:
+
+1. **`calculate`** — operaciones matemáticas: add, subtract, multiply, divide
+2. **`transform_text`** — transformaciones: upper, lower, reverse, title, word_count
+3. **`date_info`** — información de una fecha: weekday, days_until, is_weekend, etc.
+
+## Verificación
+
+Tu implementación es correcta cuando:
+- `docker compose up --build` no produce errores
+- El MCP Inspector muestra los 3 tools con sus schemas
+- Cada tool retorna el resultado esperado con inputs válidos
+- Los tools retornan errores descriptivos con inputs inválidos
+
+Consulta las instrucciones completas en [../README.md](../README.md).
 
 ---
 

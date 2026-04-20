@@ -1,0 +1,8 @@
+services:
+  server:
+    build: .
+    container_name: week04-practice04
+    stdin_open: true
+    tty: true
+    environment:
+      - MCP_LOG_LEVEL=debug

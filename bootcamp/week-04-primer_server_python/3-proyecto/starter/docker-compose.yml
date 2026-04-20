@@ -1,0 +1,8 @@
+services:
+  server:
+    build: .
+    container_name: week04-project
+    stdin_open: true
+    tty: true
+    environment:
+      - MCP_LOG_LEVEL=warning

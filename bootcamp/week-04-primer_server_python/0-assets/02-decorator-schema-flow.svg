@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480">
+  <rect width="820" height="480" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E6EDF3">@mcp.tool() → JSON Schema automático</text>
+  <line x1="60" y1="48" x2="760" y2="48" stroke="#30363D" stroke-width="1"/>
+
+  <!-- Left: Python function -->
+  <text x="190" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#8B949E">FUNCIÓN PYTHON</text>
+  <rect x="40" y="88" width="300" height="260" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+
+  <text x="60" y="116" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#BC8CFF">@mcp.tool()</text>
+  <text x="60" y="136" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#58A6FF">async def</text>
+  <text x="118" y="136" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3"> search(</text>
+  <text x="60" y="156" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#F0883E">    query</text>
+  <text x="130" y="156" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">: </text>
+  <text x="142" y="156" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#3FB950">str</text>
+  <text x="163" y="156" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#8B949E">,</text>
+  <text x="60" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#F0883E">    limit</text>
+  <text x="120" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">: </text>
+  <text x="132" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#3FB950">int</text>
+  <text x="152" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3"> = </text>
+  <text x="168" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#F0883E">10</text>
+  <text x="181" y="176" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#8B949E">,</text>
+  <text x="60" y="196" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">) -></text>
+  <text x="92" y="196" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#3FB950">list</text>
+  <text x="116" y="196" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">[</text>
+  <text x="123" y="196" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#3FB950">str</text>
+  <text x="143" y="196" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">]:</text>
+  <text x="60" y="220" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#8B949E">    """Search items</text>
+  <text x="60" y="236" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#8B949E">    by query text."""</text>
+  <text x="60" y="260" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">    results = db.</text>
+  <text x="155" y="260" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#58A6FF">search</text>
+  <text x="200" y="260" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">(</text>
+  <text x="60" y="280" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3">        query, limit)</text>
+  <text x="60" y="304" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#58A6FF">    return</text>
+  <text x="106" y="304" font-family="Menlo, monospace, sans-serif" font-size="12" fill="#E6EDF3"> results</text>
+
+  <!-- Legend annotations on left side -->
+  <rect x="40" y="108" width="8" height="16" fill="#BC8CFF" rx="2" opacity="0.6"/>
+  <rect x="40" y="148" width="8" height="52" fill="#F0883E" rx="2" opacity="0.6"/>
+  <rect x="40" y="212" width="8" height="32" fill="#8B949E" rx="2" opacity="0.6"/>
+  <rect x="40" y="188" width="8" height="16" fill="#3FB950" rx="2" opacity="0.6"/>
+
+  <!-- Center: FastMCP transform -->
+  <text x="410" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#6B4FBB">⚙</text>
+  <text x="410" y="198" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#BC8CFF">FastMCP</text>
+  <text x="410" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">introspección</text>
+
+  <line x1="342" y1="218" x2="376" y2="218" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="444" y1="218" x2="478" y2="218" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Right: JSON Schema -->
+  <text x="630" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#8B949E">JSON SCHEMA GENERADO</text>
+  <rect x="480" y="88" width="300" height="260" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+
+  <text x="500" y="116" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">{</text>
+  <text x="515" y="136" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">  "name"</text>
+  <text x="575" y="136" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">: </text>
+  <text x="586" y="136" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#3FB950">"search"</text>
+  <text x="515" y="156" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">  "description"</text>
+  <text x="625" y="156" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">:</text>
+  <text x="515" y="172" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#3FB950">    "Search items by...</text>
+  <text x="515" y="196" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">  "inputSchema"</text>
+  <text x="615" y="196" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">: {</text>
+  <text x="515" y="214" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">    "properties": {</text>
+  <text x="515" y="232" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">      "query"</text>
+  <text x="575" y="232" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">: {</text>
+  <text x="515" y="248" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">        "type": </text>
+  <text x="594" y="248" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#3FB950">"string"</text>
+  <text x="515" y="264" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">      "limit"</text>
+  <text x="572" y="264" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">: {</text>
+  <text x="515" y="280" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">        "type": </text>
+  <text x="594" y="280" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#3FB950">"integer"</text>
+  <text x="515" y="296" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">    "required": [</text>
+  <text x="618" y="296" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#3FB950">"query"</text>
+  <text x="670" y="296" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">]</text>
+  <text x="500" y="316" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">}</text>
+
+  <!-- Annotation boxes below -->
+  <rect x="40" y="372" width="160" height="52" rx="6" fill="#0E1A10" stroke="#3FB950" stroke-width="1"/>
+  <text x="120" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#3FB950">Return type</text>
+  <text x="120" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">list[str] → array</text>
+  <text x="120" y="424" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">of strings</text>
+
+  <rect x="220" y="372" width="160" height="52" rx="6" fill="#0D2030" stroke="#58A6FF" stroke-width="1"/>
+  <text x="300" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#58A6FF">Default value</text>
+  <text x="300" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">limit=10 → campo</text>
+  <text x="300" y="424" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">no requerido</text>
+
+  <rect x="400" y="372" width="160" height="52" rx="6" fill="#140E1E" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="480" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#BC8CFF">Docstring</text>
+  <text x="480" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">→ "description"</text>
+  <text x="480" y="424" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">en el schema</text>
+
+  <rect x="580" y="372" width="200" height="52" rx="6" fill="#1A1008" stroke="#F0883E" stroke-width="1"/>
+  <text x="680" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#F0883E">Sin inputSchema manual</text>
+  <text x="680" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">FastMCP lo genera</text>
+  <text x="680" y="424" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">automáticamente</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6B4FBB"/>
+    </marker>
+  </defs>
+</svg>

@@ -170,26 +170,32 @@
 - [x] Carpetas base
 
 ### Assets Visuales (`0-assets/`)
-- [ ] `python-server-anatomy.svg` — anatomía de un MCP server en Python
-- [ ] `fastmcp-decorator-flow.svg` — decoradores de FastMCP
+- [x] `01-fastmcp-anatomy.svg` — anatomía de un MCP server en Python
+- [x] `02-decorator-schema-flow.svg` — decoradores FastMCP → JSON Schema
+- [x] `03-server-lifecycle.svg` — ciclo de vida del server
+- [x] `04-pyproject-uv-flow.svg` — flujo uv + pyproject.toml
+- [x] `05-debugging-logging.svg` — canales stdout/stderr/ctx
 
 ### Teoría (`1-teoria/`)
-- [ ] `01-mcp-python-sdk.md` — FastMCP, instalación, estructura
-- [ ] `02-definir-tools-python.md` — decoradores, type hints, Pydantic
-- [ ] `03-stdio-en-python.md` — transport stdio con Python SDK
-- [ ] `04-testing-basico.md` — pytest + create_connected_server_and_client_session
+- [x] `01-fastmcp-el-sdk-de-python-para-mcp.md`
+- [x] `02-decorador-@mcp.tool-schema-automatico-co.md`
+- [x] `03-ciclo-de-vida-del-server-startup-handlin.md`
+- [x] `04-pyproject.toml-y-gestion-de-dependencias.md`
+- [x] `05-debugging-de-servers-python-con-logging.md`
 
 ### Prácticas (`2-practicas/`)
-- [ ] `01-setup-entorno-python/` — pyproject.toml, uv, Docker
-- [ ] `02-tool-calculadora/` — tool con operaciones básicas
-- [ ] `03-tool-filesystem/` — tool para leer archivos
-- [ ] `04-multiple-tools/` — server con 3+ tools
+- [x] `practica-01/` — FastMCP básico, tool `add`
+- [x] `practica-02/` — Type hints y schema automático
+- [x] `practica-03/` — Dependencias externas con uv + httpx
+- [x] `practica-04/` — Context y lifespan
+- [x] `practica-05/` — Múltiples tools
 
 ### Proyecto (`3-proyecto/`)
-- [ ] `README.md`, `starter/`, `solution/`
+- [x] `README.md`, `starter/` (server.py con 3 tools: calculate, transform_text, date_info)
 
 ### Recursos + Glosario
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `4-recursos/webgrafia/`, `videografia/`, `ebooks-free/`
+- [x] `5-glosario/README.md` (~14 términos)
 
 ---
 

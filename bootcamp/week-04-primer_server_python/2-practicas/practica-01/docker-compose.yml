@@ -1,0 +1,6 @@
+services:
+  server:
+    build: .
+    container_name: week04-practice01
+    stdin_open: true
+    tty: true

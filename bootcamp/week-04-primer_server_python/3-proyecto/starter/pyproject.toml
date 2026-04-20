@@ -1,0 +1,12 @@
+[project]
+name = "week04-project-utility-server"
+version = "1.0.0"
+description = "Week 04 — Project: Python Utility MCP Server"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp==1.9.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460">
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E6EDF3">Ciclo de Vida de un MCP Server (FastMCP)</text>
+  <line x1="60" y1="48" x2="760" y2="48" stroke="#30363D" stroke-width="1"/>
+
+  <!-- Phase boxes (horizontal flow) -->
+  <!-- 1. Init -->
+  <rect x="40" y="90" width="130" height="100" rx="8" fill="#0E1A10" stroke="#3FB950" stroke-width="2"/>
+  <text x="105" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3FB950">① INIT</text>
+  <text x="105" y="136" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">FastMCP(</text>
+  <text x="105" y="152" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">  "my-server"</text>
+  <text x="105" y="168" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">)</text>
+  <text x="105" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Registra tools</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="170" y1="140" x2="198" y2="140" stroke="#3FB950" stroke-width="2" marker-end="url(#arrowG)"/>
+
+  <!-- 2. Lifespan startup -->
+  <rect x="200" y="90" width="140" height="100" rx="8" fill="#0E1A10" stroke="#3FB950" stroke-width="2"/>
+  <text x="270" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3FB950">② STARTUP</text>
+  <text x="270" y="136" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">lifespan()</text>
+  <text x="270" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Conectar DB</text>
+  <text x="270" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Cargar config</text>
+  <text x="270" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">yield context</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="340" y1="140" x2="368" y2="140" stroke="#3FB950" stroke-width="2" marker-end="url(#arrowG)"/>
+
+  <!-- 3. Initialize handshake -->
+  <rect x="370" y="90" width="150" height="100" rx="8" fill="#0D2030" stroke="#58A6FF" stroke-width="2"/>
+  <text x="445" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#58A6FF">③ HANDSHAKE</text>
+  <text x="445" y="134" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">initialize</text>
+  <text x="445" y="150" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">initialized</text>
+  <text x="445" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Negocia versión</text>
+  <text x="445" y="186" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">e intercambia caps</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="520" y1="140" x2="548" y2="140" stroke="#58A6FF" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- 4. Request loop -->
+  <rect x="550" y="70" width="150" height="140" rx="8" fill="#140E1E" stroke="#BC8CFF" stroke-width="2"/>
+  <text x="625" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#BC8CFF">④ REQUEST LOOP</text>
+  <text x="625" y="114" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">tools/list</text>
+  <text x="625" y="130" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">tools/call</text>
+  <text x="625" y="146" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">resources/read</text>
+  <text x="625" y="162" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">prompts/get</text>
+  <text x="625" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Maneja cada request</text>
+  <text x="625" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">retorna resultado</text>
+
+  <!-- Self-loop arrow on request loop -->
+  <path d="M700 100 Q740 80 740 140 Q740 200 700 190" stroke="#BC8CFF" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowP)"/>
+  <text x="748" y="136" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">loop</text>
+
+  <!-- Arrow 4→5 (shutdown, going down) -->
+  <line x1="625" y1="210" x2="625" y2="246" stroke="#F0883E" stroke-width="2" marker-end="url(#arrowO)"/>
+  <text x="635" y="233" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">stdin cerrado</text>
+
+  <!-- 5. Shutdown -->
+  <rect x="550" y="250" width="150" height="80" rx="8" fill="#1A1008" stroke="#F0883E" stroke-width="2"/>
+  <text x="625" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F0883E">⑤ SHUTDOWN</text>
+  <text x="625" y="294" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">lifespan() continúa</text>
+  <text x="625" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">después del yield</text>
+  <text x="625" y="322" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Cierra DB, limpia</text>
+
+  <!-- Lifespan bracket -->
+  <line x1="194" y1="76" x2="194" y2="396" stroke="#3FB950" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="170" y="400" font-family="system-ui, sans-serif" font-size="10" fill="#3FB950">lifespan context</text>
+
+  <!-- mcp.run() label -->
+  <rect x="40" y="252" width="130" height="40" rx="6" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="105" y="268" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#F0883E">mcp.run()</text>
+  <text x="105" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">inicia todo el ciclo</text>
+
+  <!-- Code example at bottom -->
+  <rect x="40" y="340" width="490" height="100" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="60" y="362" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#8B949E"># Patrón completo con lifespan</text>
+  <text x="60" y="380" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#8B949E">@asynccontextmanager</text>
+  <text x="60" y="396" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#58A6FF">async def</text>
+  <text x="118" y="396" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3"> lifespan(server: FastMCP):</text>
+  <text x="60" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">    db = </text>
+  <text x="96" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#58A6FF">await</text>
+  <text x="128" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3"> connect();  </text>
+  <text x="238" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#58A6FF">yield</text>
+  <text x="264" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3"> {"db": db};  </text>
+  <text x="358" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#58A6FF">await</text>
+  <text x="390" y="412" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3"> db.close()</text>
+  <text x="60" y="428" font-family="Menlo, monospace, sans-serif" font-size="11" fill="#E6EDF3">mcp = FastMCP("server", lifespan=lifespan);  mcp.run()</text>
+
+  <defs>
+    <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3FB950"/>
+    </marker>
+    <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#58A6FF"/>
+    </marker>
+    <marker id="arrowP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#BC8CFF"/>
+    </marker>
+    <marker id="arrowO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F0883E"/>
+    </marker>
+  </defs>
+</svg>

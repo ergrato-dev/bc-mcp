@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440">
+  <rect width="820" height="440" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E6EDF3">pyproject.toml + uv: Flujo de Trabajo</text>
+  <line x1="60" y1="48" x2="760" y2="48" stroke="#30363D" stroke-width="1"/>
+
+  <!-- Step 1: pyproject.toml -->
+  <rect x="40" y="72" width="180" height="160" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="130" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F0883E">pyproject.toml</text>
+  <text x="55" y="116" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#8B949E">[project]</text>
+  <text x="55" y="132" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">name</text>
+  <text x="88" y="132" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3"> = "my-server"</text>
+  <text x="55" y="148" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">requires-python</text>
+  <text x="55" y="164" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950"> = ">=3.13"</text>
+  <text x="55" y="180" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">dependencies</text>
+  <text x="55" y="196" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3"> = [</text>
+  <text x="55" y="212" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">  "mcp==1.9.0"</text>
+  <text x="55" y="228" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3"> ]</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="222" y1="152" x2="258" y2="152" stroke="#F0883E" stroke-width="2" marker-end="url(#arrowO)"/>
+  <text x="237" y="146" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">uv add</text>
+  <text x="237" y="168" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">pkg@x.y.z</text>
+
+  <!-- Step 2: uv.lock -->
+  <rect x="260" y="72" width="180" height="160" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="350" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#58A6FF">uv.lock</text>
+  <text x="275" y="116" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#8B949E">[[package]]</text>
+  <text x="275" y="132" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">name</text>
+  <text x="308" y="132" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3"> = "mcp"</text>
+  <text x="275" y="148" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">version</text>
+  <text x="318" y="148" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3"> = "1.9.0"</text>
+  <text x="275" y="164" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">hash</text>
+  <text x="302" y="164" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#8B949E"> = "sha256:..."</text>
+  <text x="275" y="200" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Generado por uv.</text>
+  <text x="275" y="216" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">NO editar a mano.</text>
+  <text x="275" y="232" font-family="system-ui, sans-serif" font-size="10" fill="#58A6FF">Commitear al repo.</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="442" y1="152" x2="478" y2="152" stroke="#58A6FF" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="457" y="146" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">uv sync</text>
+  <text x="457" y="168" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">--frozen</text>
+
+  <!-- Step 3: Virtual env -->
+  <rect x="480" y="72" width="180" height="160" rx="8" fill="#161B22" stroke="#6B4FBB" stroke-width="1.5"/>
+  <text x="570" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#BC8CFF">Entorno virtual</text>
+  <text x="495" y="116" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">.venv/</text>
+  <text x="495" y="132" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">  lib/python3.13/</text>
+  <text x="495" y="148" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">    mcp 1.9.0 ✓</text>
+  <text x="495" y="164" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">    httpx 0.28.1 ✓</text>
+  <text x="495" y="200" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">Versiones exactas,</text>
+  <text x="495" y="216" font-family="system-ui, sans-serif" font-size="10" fill="#8B949E">sin ^ ni ~.</text>
+  <text x="495" y="232" font-family="system-ui, sans-serif" font-size="10" fill="#3FB950">Reproducible.</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="662" y1="152" x2="698" y2="152" stroke="#BC8CFF" stroke-width="2" marker-end="url(#arrowP)"/>
+  <text x="677" y="146" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">uv run</text>
+  <text x="677" y="168" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="9" fill="#8B949E">python</text>
+
+  <!-- Step 4: Run -->
+  <rect x="700" y="96" width="100" height="112" rx="8" fill="#0E1A10" stroke="#3FB950" stroke-width="1.5"/>
+  <text x="750" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3FB950">SERVER</text>
+  <text x="750" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#3FB950">running</text>
+  <text x="750" y="170" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">src/</text>
+  <text x="750" y="186" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">server.py</text>
+
+  <!-- Docker flow at bottom -->
+  <rect x="40" y="268" width="740" height="140" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="60" y="292" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#8B949E">DOCKERFILE — flujo equivalente en contenedor</text>
+  <line x1="60" y1="300" x2="760" y2="300" stroke="#30363D" stroke-width="1"/>
+
+  <!-- Docker steps -->
+  <rect x="60" y="310" width="130" height="76" rx="6" fill="#0D1117" stroke="#F0883E" stroke-width="1"/>
+  <text x="125" y="330" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#F0883E">COPY</text>
+  <text x="125" y="346" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">pyproject.toml</text>
+  <text x="125" y="362" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">uv.lock ./</text>
+  <text x="125" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">Docker cache layer</text>
+
+  <line x1="192" y1="348" x2="210" y2="348" stroke="#F0883E" stroke-width="1.5" marker-end="url(#arrowO)"/>
+
+  <rect x="212" y="310" width="160" height="76" rx="6" fill="#0D1117" stroke="#58A6FF" stroke-width="1"/>
+  <text x="292" y="330" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#58A6FF">RUN uv sync</text>
+  <text x="292" y="346" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">--frozen</text>
+  <text x="292" y="362" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#E6EDF3">--no-dev</text>
+  <text x="292" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">Instala exacto del lock</text>
+
+  <line x1="374" y1="348" x2="392" y2="348" stroke="#58A6FF" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+  <rect x="394" y="310" width="130" height="76" rx="6" fill="#0D1117" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="459" y="330" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#BC8CFF">COPY . .</text>
+  <text x="459" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">Copia código fuente</text>
+  <text x="459" y="366" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">después de instalar</text>
+  <text x="459" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">deps (mejor cache)</text>
+
+  <line x1="526" y1="348" x2="544" y2="348" stroke="#6B4FBB" stroke-width="1.5" marker-end="url(#arrowP)"/>
+
+  <rect x="546" y="310" width="220" height="76" rx="6" fill="#0E1A10" stroke="#3FB950" stroke-width="1"/>
+  <text x="656" y="330" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">CMD ["uv", "run",</text>
+  <text x="656" y="346" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">     "python",</text>
+  <text x="656" y="362" text-anchor="middle" font-family="Menlo, monospace, sans-serif" font-size="10" fill="#3FB950">     "src/server.py"]</text>
+  <text x="656" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8B949E">Ejecuta con uv run</text>
+
+  <defs>
+    <marker id="arrowO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F0883E"/>
+    </marker>
+    <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#58A6FF"/>
+    </marker>
+    <marker id="arrowP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#BC8CFF"/>
+    </marker>
+  </defs>
+</svg>
