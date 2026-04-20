@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="500" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">FastMCP (Python) vs McpServer (TypeScript)</text>
+  <text x="410" y="54" text-anchor="middle" font-size="13" fill="#8B949E">Los mismos conceptos MCP en dos ecosistemas</text>
+
+  <!-- Divider line -->
+  <line x1="410" y1="70" x2="410" y2="490" stroke="#30363D" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Python header -->
+  <rect x="30" y="70" width="365" height="36" rx="6" fill="#21262D"/>
+  <text x="212" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#3FB950">🐍 Python — FastMCP</text>
+
+  <!-- TypeScript header -->
+  <rect x="420" y="70" width="370" height="36" rx="6" fill="#21262D"/>
+  <text x="605" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#58A6FF">⬡ TypeScript — McpServer</text>
+
+  <!-- Row 1: Package manager -->
+  <text x="212" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Package manager</text>
+  <text x="605" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Package manager</text>
+  <text x="212" y="146" text-anchor="middle" font-size="11" fill="#3FB950">uv add mcp==1.9.0</text>
+  <text x="605" y="146" text-anchor="middle" font-size="11" fill="#58A6FF">pnpm add @modelcontextprotocol/sdk@1.10.2</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="158" x2="790" y2="158" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Row 2: Import -->
+  <text x="212" y="176" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Import</text>
+  <text x="605" y="176" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Import</text>
+  <text x="40" y="194" font-size="10" fill="#BC8CFF">from</text>
+  <text x="63" y="194" font-size="10" fill="#E6EDF3">mcp.server.fastmcp </text>
+  <text x="182" y="194" font-size="10" fill="#BC8CFF">import</text>
+  <text x="214" y="194" font-size="10" fill="#F0883E">FastMCP</text>
+
+  <text x="430" y="194" font-size="10" fill="#BC8CFF">import</text>
+  <text x="458" y="194" font-size="10" fill="#E6EDF3">{ McpServer } </text>
+  <text x="537" y="194" font-size="10" fill="#BC8CFF">from</text>
+  <text x="560" y="194" font-size="10" fill="#3FB950">"...sdk/server/mcp.js"</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="208" x2="790" y2="208" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Row 3: Instantiation -->
+  <text x="212" y="226" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Instanciación</text>
+  <text x="605" y="226" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Instanciación</text>
+  <text x="40" y="244" font-size="10" fill="#58A6FF">mcp</text>
+  <text x="56" y="244" font-size="10" fill="#E6EDF3">= </text>
+  <text x="64" y="244" font-size="10" fill="#F0883E">FastMCP</text>
+  <text x="106" y="244" font-size="10" fill="#E6EDF3">(</text>
+  <text x="113" y="244" font-size="10" fill="#3FB950">"my-server"</text>
+  <text x="173" y="244" font-size="10" fill="#E6EDF3">)</text>
+
+  <text x="430" y="244" font-size="10" fill="#58A6FF">server</text>
+  <text x="457" y="244" font-size="10" fill="#E6EDF3">= </text>
+  <text x="465" y="244" font-size="10" fill="#BC8CFF">new</text>
+  <text x="485" y="244" font-size="10" fill="#F0883E">McpServer</text>
+  <text x="533" y="244" font-size="10" fill="#E6EDF3">({ name: </text>
+  <text x="585" y="244" font-size="10" fill="#3FB950">"my-server"</text>
+  <text x="645" y="244" font-size="10" fill="#E6EDF3">})</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="258" x2="790" y2="258" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Row 4: Tool registration -->
+  <text x="212" y="275" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Registrar tool</text>
+  <text x="605" y="275" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Registrar tool</text>
+
+  <!-- Python tool -->
+  <text x="40" y="293" font-size="10" fill="#8B6CDB">@mcp.tool()</text>
+  <text x="40" y="309" font-size="10" fill="#BC8CFF">async</text>
+  <text x="67" y="309" font-size="10" fill="#BC8CFF">def</text>
+  <text x="83" y="309" font-size="10" fill="#3FB950">add</text>
+  <text x="99" y="309" font-size="10" fill="#E6EDF3">(a: </text>
+  <text x="120" y="309" font-size="10" fill="#F0883E">int</text>
+  <text x="138" y="309" font-size="10" fill="#E6EDF3">, b: </text>
+  <text x="162" y="309" font-size="10" fill="#F0883E">int</text>
+  <text x="180" y="309" font-size="10" fill="#E6EDF3">) -></text>
+  <text x="202" y="309" font-size="10" fill="#F0883E">int</text>
+  <text x="220" y="309" font-size="10" fill="#E6EDF3">:</text>
+  <text x="52" y="325" font-size="10" fill="#E6EDF3">"""Add two integers."""</text>
+  <text x="52" y="341" font-size="10" fill="#BC8CFF">return</text>
+  <text x="83" y="341" font-size="10" fill="#E6EDF3">a + b</text>
+
+  <!-- TypeScript tool -->
+  <text x="430" y="293" font-size="10" fill="#58A6FF">server</text>
+  <text x="457" y="293" font-size="10" fill="#E6EDF3">.tool(</text>
+  <text x="488" y="293" font-size="10" fill="#3FB950">"add"</text>
+  <text x="516" y="293" font-size="10" fill="#E6EDF3">,</text>
+  <text x="442" y="309" font-size="10" fill="#E6EDF3">{ a: </text>
+  <text x="468" y="309" font-size="10" fill="#F0883E">z</text>
+  <text x="475" y="309" font-size="10" fill="#E6EDF3">.number(), b: </text>
+  <text x="551" y="309" font-size="10" fill="#F0883E">z</text>
+  <text x="558" y="309" font-size="10" fill="#E6EDF3">.number() },</text>
+  <text x="442" y="325" font-size="10" fill="#BC8CFF">async</text>
+  <text x="471" y="325" font-size="10" fill="#E6EDF3">({ a, b }) </text>
+  <text x="529" y="325" font-size="10" fill="#BC8CFF">=></text>
+  <text x="544" y="325" font-size="10" fill="#E6EDF3">({</text>
+  <text x="455" y="341" font-size="10" fill="#E6EDF3">content: [{ type: </text>
+  <text x="562" y="341" font-size="10" fill="#3FB950">"text"</text>
+  <text x="594" y="341" font-size="10" fill="#E6EDF3">, text: </text>
+  <text x="634" y="341" font-size="10" fill="#F0883E">String</text>
+  <text x="668" y="341" font-size="10" fill="#E6EDF3">(a+b) }]</text>
+  <text x="442" y="357" font-size="10" fill="#E6EDF3">})</text>
+  <text x="430" y="357" font-size="10" fill="#E6EDF3">);</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="372" x2="790" y2="372" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Row 5: Start server -->
+  <text x="212" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Arrancar servidor</text>
+  <text x="605" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#8B949E">Arrancar servidor</text>
+
+  <text x="40" y="410" font-size="10" fill="#58A6FF">mcp</text>
+  <text x="57" y="410" font-size="10" fill="#E6EDF3">.run()</text>
+  <text x="40" y="426" font-size="10" fill="#8B949E"># FastMCP gestiona asyncio + stdio</text>
+
+  <text x="430" y="410" font-size="10" fill="#BC8CFF">const</text>
+  <text x="457" y="410" font-size="10" fill="#58A6FF">transport</text>
+  <text x="506" y="410" font-size="10" fill="#E6EDF3">= </text>
+  <text x="514" y="410" font-size="10" fill="#BC8CFF">new</text>
+  <text x="534" y="410" font-size="10" fill="#F0883E">StdioServerTransport</text>
+  <text x="674" y="410" font-size="10" fill="#E6EDF3">();</text>
+  <text x="430" y="426" font-size="10" fill="#BC8CFF">await</text>
+  <text x="457" y="426" font-size="10" fill="#58A6FF">server</text>
+  <text x="490" y="426" font-size="10" fill="#E6EDF3">.connect(</text>
+  <text x="540" y="426" font-size="10" fill="#58A6FF">transport</text>
+  <text x="589" y="426" font-size="10" fill="#E6EDF3">);</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="440" x2="790" y2="440" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Key differences row -->
+  <text x="40" y="460" font-size="10" fill="#8B949E">Schema: automático desde type hints</text>
+  <text x="40" y="476" font-size="10" fill="#8B949E">Transport: implícito en mcp.run()</text>
+
+  <text x="430" y="460" font-size="10" fill="#8B949E">Schema: explícito con Zod</text>
+  <text x="430" y="476" font-size="10" fill="#8B949E">Transport: explícito con new StdioServerTransport()</text>
+</svg>

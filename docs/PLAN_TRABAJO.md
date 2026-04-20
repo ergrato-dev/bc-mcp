@@ -209,26 +209,33 @@
 - [x] Carpetas base
 
 ### Assets Visuales (`0-assets/`)
-- [ ] `typescript-server-anatomy.svg` — anatomía de un MCP server en TypeScript
-- [ ] `zod-validation-flow.svg` — validación de inputs con Zod
+- [x] `01-mcpserver-anatomy.svg` — anatomía de un MCP server TypeScript con StdioServerTransport
+- [x] `02-server-tool-zod-schema.svg` — flujo server.tool() → Zod → JSON Schema
+- [x] `03-pnpm-typescript-workflow.svg` — ciclo pnpm + tsc + Docker
+- [x] `04-fastmcp-vs-mcpserver.svg` — comparativa Python vs TypeScript
+- [x] `05-esm-modules-node22.svg` — CJS vs ESM, top-level await
 
 ### Teoría (`1-teoria/`)
-- [ ] `01-mcp-typescript-sdk.md` — @modelcontextprotocol/sdk, pnpm, estructura
-- [ ] `02-definir-tools-typescript.md` — Zod, tipos estrictos, CallToolResult
-- [ ] `03-stdio-en-typescript.md` — StdioServerTransport
-- [ ] `04-testing-basico.md` — vitest + InMemoryTransport
+- [x] `01-mcpserver-el-sdk-de-typescript-para-mcp.md`
+- [x] `02-server-tool-y-zod-esquemas-de-validacion.md`
+- [x] `03-package-json-tsconfig-y-compilacion.md`
+- [x] `04-esm-modules-y-node22.md`
+- [x] `05-comparativa-fastmcp-vs-mcpserver.md`
 
 ### Prácticas (`2-practicas/`)
-- [ ] `01-setup-entorno-typescript/` — package.json, pnpm, tsconfig, Docker
-- [ ] `02-tool-calculadora/` — equivalente TypeScript de semana 04
-- [ ] `03-tool-filesystem/` — tool para leer archivos en TypeScript
-- [ ] `04-multiple-tools/` — server con 3+ tools
+- [x] `practica-01-mcpserver-basico/` — McpServer + StdioServerTransport + tool add
+- [x] `practica-02-zod-schemas/` — tipos Zod, optional, default, describe, z.object()
+- [x] `practica-03-calltoolresult/` — CallToolResult: texto, multi-content, JSON, isError
+- [x] `practica-04-error-handling/` — z.enum(), try/catch, errores de dominio
+- [x] `practica-05-multiples-tools/` — servidor completo con tools matemáticas/texto/fechas
 
 ### Proyecto (`3-proyecto/`)
-- [ ] `README.md`, `starter/`, `solution/`
+- [x] `README.md` — instrucciones completas con los 3 tools
+- [x] `starter/` — código con TODOs: calculate, transform_text, date_info
 
 ### Recursos + Glosario
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `4-recursos/webgrafia/`, `videografia/`, `ebooks-free/`
+- [x] `5-glosario/README.md` — 14 términos
 
 ---
 

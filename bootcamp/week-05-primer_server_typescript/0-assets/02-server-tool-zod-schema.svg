@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="480" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">server.tool() → Zod Schema → JSON Schema MCP</text>
+  <text x="410" y="58" text-anchor="middle" font-size="13" fill="#8B949E">Cómo Zod convierte tipos TypeScript en contratos del protocolo</text>
+
+  <!-- Step 1: TypeScript function -->
+  <rect x="30" y="80" width="220" height="170" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="1.5"/>
+  <text x="140" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#BC8CFF">① TypeScript</text>
+  <text x="140" y="120" text-anchor="middle" font-size="10" fill="#8B949E">server.tool() call</text>
+
+  <text x="46" y="145" font-size="10" fill="#58A6FF">server</text>
+  <text x="80" y="145" font-size="10" fill="#E6EDF3">.tool(</text>
+  <text x="113" y="161" font-size="10" fill="#3FB950">"search"</text>
+  <text x="155" y="161" font-size="10" fill="#E6EDF3">,</text>
+  <text x="113" y="177" font-size="10" fill="#E6EDF3">{</text>
+  <text x="125" y="193" font-size="10" fill="#E6EDF3">query: </text>
+  <text x="170" y="193" font-size="10" fill="#F0883E">z</text>
+  <text x="177" y="193" font-size="10" fill="#E6EDF3">.string()</text>
+  <text x="125" y="209" font-size="10" fill="#8B949E">  .describe(</text>
+  <text x="189" y="209" font-size="10" fill="#3FB950">"text to search"</text>
+  <text x="113" y="225" font-size="10" fill="#E6EDF3">},</text>
+  <text x="113" y="241" font-size="10" fill="#BC8CFF">async</text>
+  <text x="140" y="241" font-size="10" fill="#E6EDF3">({ query }) </text>
+  <text x="194" y="241" font-size="10" fill="#BC8CFF">=></text>
+
+  <!-- Arrow 1 -->
+  <line x1="250" y1="165" x2="288" y2="165" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arr1)"/>
+  <text x="269" y="157" text-anchor="middle" font-size="9" fill="#6B4FBB">introspect</text>
+
+  <!-- Step 2: Zod inference -->
+  <rect x="290" y="80" width="220" height="170" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="400" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#F0883E">② Zod Inference</text>
+  <text x="400" y="120" text-anchor="middle" font-size="10" fill="#8B949E">SDK inspecciona el schema</text>
+
+  <text x="308" y="148" font-size="10" fill="#8B949E">// z.string() → type: "string"</text>
+  <text x="308" y="166" font-size="10" fill="#8B949E">// .optional() → not required</text>
+  <text x="308" y="184" font-size="10" fill="#8B949E">// .describe() → description</text>
+  <text x="308" y="202" font-size="10" fill="#8B949E">// .default() → defaultValue</text>
+  <text x="308" y="220" font-size="10" fill="#8B949E">// z.enum([...]) → enum array</text>
+  <text x="308" y="238" font-size="10" fill="#8B949E">// z.number() → type: "number"</text>
+
+  <!-- Arrow 2 -->
+  <line x1="510" y1="165" x2="548" y2="165" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arr1)"/>
+  <text x="529" y="157" text-anchor="middle" font-size="9" fill="#6B4FBB">generates</text>
+
+  <!-- Step 3: JSON Schema -->
+  <rect x="550" y="80" width="240" height="170" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="1.5"/>
+  <text x="670" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#3FB950">③ JSON Schema MCP</text>
+  <text x="670" y="120" text-anchor="middle" font-size="10" fill="#8B949E">Protocolo lo envía al cliente</text>
+
+  <text x="566" y="148" font-size="10" fill="#E6EDF3">{</text>
+  <text x="578" y="164" font-size="10" fill="#58A6FF">"name"</text>
+  <text x="614" y="164" font-size="10" fill="#E6EDF3">: </text>
+  <text x="622" y="164" font-size="10" fill="#3FB950">"search"</text>
+  <text x="578" y="180" font-size="10" fill="#58A6FF">"inputSchema"</text>
+  <text x="652" y="180" font-size="10" fill="#E6EDF3">: {</text>
+  <text x="592" y="196" font-size="10" fill="#58A6FF">"type"</text>
+  <text x="625" y="196" font-size="10" fill="#E6EDF3">: </text>
+  <text x="633" y="196" font-size="10" fill="#3FB950">"object"</text>
+  <text x="592" y="212" font-size="10" fill="#58A6FF">"properties"</text>
+  <text x="659" y="212" font-size="10" fill="#E6EDF3">: {</text>
+  <text x="607" y="228" font-size="10" fill="#58A6FF">"query"</text>
+  <text x="640" y="228" font-size="10" fill="#E6EDF3">: {</text>
+  <text x="620" y="244" font-size="10" fill="#58A6FF">"type"</text>
+  <text x="650" y="244" font-size="10" fill="#E6EDF3">: </text>
+  <text x="658" y="244" font-size="10" fill="#3FB950">"string"</text>
+
+  <!-- Zod type mapping table -->
+  <rect x="30" y="280" width="370" height="175" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="215" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#E6EDF3">Tipos Zod → JSON Schema</text>
+
+  <!-- Table header -->
+  <rect x="44" y="312" width="160" height="22" rx="4" fill="#21262D"/>
+  <rect x="216" y="312" width="170" height="22" rx="4" fill="#21262D"/>
+  <text x="124" y="327" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">Zod (TypeScript)</text>
+  <text x="301" y="327" text-anchor="middle" font-size="10" font-weight="700" fill="#3FB950">JSON Schema</text>
+
+  <!-- Table rows -->
+  <text x="54" y="352" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="352" font-size="10" fill="#E6EDF3">.string()</text>
+  <text x="226" y="352" font-size="10" fill="#E6EDF3">{ "type": "string" }</text>
+
+  <text x="54" y="370" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="370" font-size="10" fill="#E6EDF3">.number()</text>
+  <text x="226" y="370" font-size="10" fill="#E6EDF3">{ "type": "number" }</text>
+
+  <text x="54" y="388" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="388" font-size="10" fill="#E6EDF3">.boolean()</text>
+  <text x="226" y="388" font-size="10" fill="#E6EDF3">{ "type": "boolean" }</text>
+
+  <text x="54" y="406" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="406" font-size="10" fill="#E6EDF3">.optional()</text>
+  <text x="226" y="406" font-size="10" fill="#E6EDF3">no aparece en "required"</text>
+
+  <text x="54" y="424" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="424" font-size="10" fill="#E6EDF3">.enum(["a","b"])</text>
+  <text x="226" y="424" font-size="10" fill="#E6EDF3">{ "enum": ["a", "b"] }</text>
+
+  <text x="54" y="442" font-size="10" fill="#F0883E">z</text>
+  <text x="62" y="442" font-size="10" fill="#E6EDF3">.describe("txt")</text>
+  <text x="226" y="442" font-size="10" fill="#E6EDF3">{ "description": "txt" }</text>
+
+  <!-- Result box -->
+  <rect x="420" y="280" width="370" height="175" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+  <text x="605" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#E6EDF3">Retorno del handler</text>
+  <text x="605" y="318" text-anchor="middle" font-size="10" fill="#8B949E">CallToolResult</text>
+
+  <text x="436" y="345" font-size="10" fill="#8B949E">// Texto simple</text>
+  <text x="436" y="361" font-size="10" fill="#E6EDF3">{ content: [{ type: </text>
+  <text x="560" y="361" font-size="10" fill="#3FB950">"text"</text>
+  <text x="592" y="361" font-size="10" fill="#E6EDF3">, text: </text>
+  <text x="632" y="361" font-size="10" fill="#3FB950">"..."</text>
+  <text x="652" y="361" font-size="10" fill="#E6EDF3">}] }</text>
+
+  <text x="436" y="385" font-size="10" fill="#8B949E">// Error</text>
+  <text x="436" y="401" font-size="10" fill="#E6EDF3">{ content: [{ type: </text>
+  <text x="560" y="401" font-size="10" fill="#3FB950">"text"</text>
+  <text x="592" y="401" font-size="10" fill="#E6EDF3">, text: </text>
+  <text x="632" y="401" font-size="10" fill="#3FB950">"err"</text>
+  <text x="652" y="401" font-size="10" fill="#E6EDF3">}],</text>
+  <text x="452" y="417" font-size="10" fill="#F0883E">isError</text>
+  <text x="494" y="417" font-size="10" fill="#E6EDF3">: </text>
+  <text x="502" y="417" font-size="10" fill="#BC8CFF">true</text>
+  <text x="523" y="417" font-size="10" fill="#E6EDF3">}</text>
+
+  <text x="436" y="441" font-size="10" fill="#8B949E">// Multi-content</text>
+  <text x="436" y="457" font-size="10" fill="#E6EDF3">{ content: [</text>
+  <text x="504" y="457" font-size="10" fill="#E6EDF3">{...}, {...</text>
+  <text x="570" y="457" font-size="10" fill="#E6EDF3">}] }</text>
+
+  <defs>
+    <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6B4FBB"/>
+    </marker>
+  </defs>
+</svg>

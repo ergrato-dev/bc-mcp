@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="440" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">ESM Modules en Node.js 22</text>
+  <text x="410" y="55" text-anchor="middle" font-size="13" fill="#8B949E">import/export nativo · extensiones .js · top-level await</text>
+
+  <!-- Left: CJS (old, strikethrough concept) -->
+  <rect x="30" y="78" width="240" height="160" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="150" y="101" text-anchor="middle" font-size="12" font-weight="700" fill="#F0883E">CommonJS (NO usar)</text>
+  <text x="150" y="118" text-anchor="middle" font-size="9" fill="#8B949E">Sistema antiguo de módulos Node.js</text>
+
+  <text x="46" y="142" font-size="10" fill="#8B949E">// ❌ require / module.exports</text>
+  <text x="46" y="158" font-size="10" fill="#E6EDF3">const sdk = require(</text>
+  <text x="46" y="174" font-size="10" fill="#3FB950">  "@modelcontextprotocol/sdk"</text>
+  <text x="46" y="190" font-size="10" fill="#E6EDF3">);</text>
+  <text x="46" y="210" font-size="10" fill="#E6EDF3">module.exports = { myFn };</text>
+
+  <!-- Right: ESM (correct) -->
+  <rect x="300" y="78" width="490" height="160" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="2"/>
+  <text x="545" y="101" text-anchor="middle" font-size="12" font-weight="700" fill="#3FB950">ESM — ECMAScript Modules (usar siempre)</text>
+  <text x="545" y="118" text-anchor="middle" font-size="9" fill="#8B949E">Activado con "type": "module" en package.json</text>
+
+  <text x="316" y="142" font-size="10" fill="#8B949E">// ✅ import estático — se resuelve en compile time</text>
+  <text x="316" y="158" font-size="10" fill="#BC8CFF">import</text>
+  <text x="345" y="158" font-size="10" fill="#E6EDF3">{ McpServer } </text>
+  <text x="419" y="158" font-size="10" fill="#BC8CFF">from</text>
+  <text x="442" y="158" font-size="10" fill="#3FB950">"@modelcontextprotocol/sdk/server/mcp.js"</text>
+
+  <text x="316" y="176" font-size="10" fill="#8B949E">// ✅ extensión .js obligatoria (incluso en .ts) con Node16</text>
+  <text x="316" y="192" font-size="10" fill="#BC8CFF">import</text>
+  <text x="345" y="192" font-size="10" fill="#E6EDF3">{ z } </text>
+  <text x="376" y="192" font-size="10" fill="#BC8CFF">from</text>
+  <text x="399" y="192" font-size="10" fill="#3FB950">"zod"</text>
+  <text x="427" y="192" font-size="10" fill="#E6EDF3">;</text>
+
+  <text x="316" y="210" font-size="10" fill="#8B949E">// ✅ import dinámico (condicional)</text>
+  <text x="316" y="225" font-size="10" fill="#BC8CFF">const</text>
+  <text x="344" y="225" font-size="10" fill="#E6EDF3">mod = </text>
+  <text x="376" y="225" font-size="10" fill="#BC8CFF">await</text>
+  <text x="402" y="225" font-size="10" fill="#E6EDF3">import(</text>
+  <text x="442" y="225" font-size="10" fill="#3FB950">"./utils.js"</text>
+  <text x="498" y="225" font-size="10" fill="#E6EDF3">);</text>
+
+  <!-- Top-level await section -->
+  <rect x="30" y="265" width="360" height="150" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="1.5"/>
+  <text x="210" y="287" text-anchor="middle" font-size="12" font-weight="700" fill="#BC8CFF">Top-level await (Node.js 22+)</text>
+  <text x="210" y="304" text-anchor="middle" font-size="10" fill="#8B949E">await fuera de funciones async</text>
+
+  <text x="46" y="328" font-size="10" fill="#8B949E">// ✅ ESM: await en el nivel raíz del módulo</text>
+  <text x="46" y="345" font-size="10" fill="#BC8CFF">const</text>
+  <text x="74" y="345" font-size="10" fill="#58A6FF">transport</text>
+  <text x="123" y="345" font-size="10" fill="#E6EDF3">= </text>
+  <text x="131" y="345" font-size="10" fill="#BC8CFF">new</text>
+  <text x="151" y="345" font-size="10" fill="#F0883E">StdioServerTransport</text>
+  <text x="288" y="345" font-size="10" fill="#E6EDF3">();</text>
+  <text x="46" y="362" font-size="10" fill="#BC8CFF">await</text>
+  <text x="74" y="362" font-size="10" fill="#58A6FF">server</text>
+  <text x="107" y="362" font-size="10" fill="#E6EDF3">.connect(</text>
+  <text x="158" y="362" font-size="10" fill="#58A6FF">transport</text>
+  <text x="208" y="362" font-size="10" fill="#E6EDF3">);</text>
+  <text x="46" y="382" font-size="10" fill="#8B949E">// No se necesita async function main() {}</text>
+  <text x="46" y="398" font-size="10" fill="#8B949E">// El módulo espera la promesa antes de terminar</text>
+
+  <!-- .js extension note -->
+  <rect x="410" y="265" width="380" height="150" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="600" y="287" text-anchor="middle" font-size="12" font-weight="700" fill="#F0883E">Extensión .js en imports TypeScript</text>
+  <text x="600" y="305" text-anchor="middle" font-size="10" fill="#8B949E">con module: "Node16"</text>
+
+  <text x="426" y="332" font-size="10" fill="#8B949E">// ❌ INCORRECTO (falla en Node16)</text>
+  <text x="426" y="349" font-size="10" fill="#BC8CFF">import</text>
+  <text x="454" y="349" font-size="10" fill="#E6EDF3">{ util } </text>
+  <text x="490" y="349" font-size="10" fill="#BC8CFF">from</text>
+  <text x="513" y="349" font-size="10" fill="#F0883E">"./util"</text>
+  <text x="548" y="349" font-size="10" fill="#E6EDF3">;</text>
+
+  <text x="426" y="373" font-size="10" fill="#8B949E">// ✅ CORRECTO (extensión .js)</text>
+  <text x="426" y="390" font-size="10" fill="#BC8CFF">import</text>
+  <text x="454" y="390" font-size="10" fill="#E6EDF3">{ util } </text>
+  <text x="490" y="390" font-size="10" fill="#BC8CFF">from</text>
+  <text x="513" y="390" font-size="10" fill="#3FB950">"./util.js"</text>
+  <text x="559" y="390" font-size="10" fill="#E6EDF3">;</text>
+
+  <text x="426" y="410" font-size="10" fill="#8B949E">// TypeScript compila .ts → .js</text>
+  <text x="426" y="426" font-size="10" fill="#8B949E">// pero los imports ya referencian .js</text>
+</svg>
