@@ -58,14 +58,17 @@ week-07-servers_bd_apis_externas/
 
 ### 💻 Prácticas ([2-practicas/](2-practicas/README.md))
 
-1. Conectar server Python a SQLite y exponer tools de consulta
-2. Integrar una API REST externa (OpenWeatherMap u otra pública)
-3. Implementar lo mismo en TypeScript
-4. Manejar errores de BD y HTTP con tipos correctos
+1. [practica-01](2-practicas/practica-01-books-sqlite-python/) — SQLite con aiosqlite en Python (CRUD de libros)
+2. [practica-02](2-practicas/practica-02-weather-api-python/) — API externa con httpx y Open-Meteo (Python)
+3. [practica-03](2-practicas/practica-03-typescript/) — SQLite + API externa en TypeScript (better-sqlite3 + fetch)
+4. [practica-04](2-practicas/practica-04-error-handling/) — Manejo de errores con `isError`, McpError y retry
 
 ### 🏗️ Proyecto ([3-proyecto/](3-proyecto/README.md))
 
-MCP Server completo con BD SQLite + API externa (Python y TypeScript)
+**Library Manager** — MCP Server completo con 7 tools:
+- 5 tools SQLite CRUD (libros)
+- 2 tools Open Library API (búsqueda y enrichment de metadata)
+- Implementado en Python (aiosqlite + httpx) y TypeScript (better-sqlite3 + fetch)
 
 ---
 

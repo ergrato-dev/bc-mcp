@@ -265,11 +265,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — diagramas de integración DB y APIs
-- [ ] `1-teoria/` — SQLite/PostgreSQL con MCP, httpx, rate limiting
-- [ ] `2-practicas/` — server con BD SQLite, server con API externa
-- [ ] `3-proyecto/` — MCP server de e-commerce (BD + API de pagos)
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — diagramas de integración DB y APIs
+- [x] `1-teoria/` — SQLite/PostgreSQL con MCP, httpx, rate limiting
+- [x] `2-practicas/` — server con BD SQLite, server con API externa
+- [x] `3-proyecto/` — Library Manager (BD + Open Library API)
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

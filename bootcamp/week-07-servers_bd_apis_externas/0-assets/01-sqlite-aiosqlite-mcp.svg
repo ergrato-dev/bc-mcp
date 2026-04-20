@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="400" fill="#0D1117"/>
+  <defs>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3FB950"/>
+    </marker>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F0883E"/>
+    </marker>
+    <marker id="as" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8B949E"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">MCP Server + SQLite — Arquitectura con aiosqlite</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#8B949E">Conexion async a base de datos desde tools MCP</text>
+
+  <!-- CLIENT BOX -->
+  <rect x="20" y="65" width="160" height="110" rx="8" fill="#161B22" stroke="#8B949E" stroke-width="1.5"/>
+  <rect x="20" y="65" width="160" height="26" rx="8" fill="#21262D"/>
+  <rect x="20" y="79" width="160" height="12" fill="#21262D"/>
+  <text x="100" y="83" text-anchor="middle" font-size="11" font-weight="700" fill="#8B949E">MCP Client</text>
+  <text x="32" y="106" font-size="9" fill="#E6EDF3">Claude Desktop</text>
+  <text x="32" y="120" font-size="9" fill="#E6EDF3">MCP Inspector</text>
+  <text x="32" y="137" font-size="8.5" fill="#8B949E">client.call_tool(</text>
+  <text x="42" y="149" font-size="8.5" fill="#F0883E">"search_books",</text>
+  <text x="42" y="161" font-size="8.5" fill="#F0883E">{"query": "Python"}</text>
+  <text x="32" y="170" font-size="8.5" fill="#8B949E">)</text>
+
+  <!-- Arrow client->server (top) -->
+  <line x1="180" y1="106" x2="218" y2="106" stroke="#3FB950" stroke-width="2" marker-end="url(#ag)"/>
+  <text x="184" y="102" font-size="8" fill="#3FB950">tools/call</text>
+  <!-- Arrow server->client (bottom dashed) -->
+  <line x1="218" y1="128" x2="180" y2="128" stroke="#8B949E" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#as)"/>
+  <text x="184" y="142" font-size="8" fill="#8B949E">JSON resp</text>
+
+  <!-- SERVER BOX -->
+  <rect x="218" y="65" width="374" height="110" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1.5"/>
+  <rect x="218" y="65" width="374" height="26" rx="8" fill="#0D2818"/>
+  <rect x="218" y="79" width="374" height="12" fill="#0D2818"/>
+  <text x="405" y="83" text-anchor="middle" font-size="11" font-weight="700" fill="#3FB950">MCP Server — Python + aiosqlite</text>
+  <text x="230" y="106" font-size="9" fill="#BC8CFF">@mcp.tool()</text>
+  <text x="230" y="119" font-size="9" fill="#BC8CFF">async def </text>
+  <text x="274" y="119" font-size="9" fill="#3FB950">search_books</text>
+  <text x="337" y="119" font-size="9" fill="#E6EDF3">(query: str) -&gt; str:</text>
+  <text x="230" y="132" font-size="9" fill="#BC8CFF">  async with </text>
+  <text x="289" y="132" font-size="9" fill="#58A6FF">aiosqlite.connect</text>
+  <text x="383" y="132" font-size="9" fill="#E6EDF3">(DB) as db:</text>
+  <text x="230" y="145" font-size="9" fill="#E6EDF3">    cur = </text>
+  <text x="264" y="145" font-size="9" fill="#BC8CFF">await </text>
+  <text x="290" y="145" font-size="9" fill="#E6EDF3">db.execute(SQL, (query,))</text>
+  <text x="230" y="158" font-size="9" fill="#BC8CFF">    return </text>
+  <text x="268" y="158" font-size="9" fill="#E6EDF3">json.dumps(</text>
+  <text x="319" y="158" font-size="9" fill="#BC8CFF">await </text>
+  <text x="345" y="158" font-size="9" fill="#E6EDF3">cur.fetchall())</text>
+  <text x="230" y="169" font-size="8" fill="#8B949E">  # context manager cierra la conexion automaticamente</text>
+
+  <!-- Arrow server->sqlite (top) -->
+  <line x1="592" y1="106" x2="630" y2="106" stroke="#F0883E" stroke-width="2" marker-end="url(#ao)"/>
+  <text x="596" y="102" font-size="8" fill="#F0883E">SQL + ?</text>
+  <!-- Arrow sqlite->server (bottom dashed) -->
+  <line x1="630" y1="128" x2="592" y2="128" stroke="#8B949E" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#as)"/>
+  <text x="596" y="142" font-size="8" fill="#8B949E">rows [ ]</text>
+
+  <!-- SQLITE BOX -->
+  <rect x="630" y="65" width="170" height="110" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <rect x="630" y="65" width="170" height="26" rx="8" fill="#2D1810"/>
+  <rect x="630" y="79" width="170" height="12" fill="#2D1810"/>
+  <text x="715" y="83" text-anchor="middle" font-size="11" font-weight="700" fill="#F0883E">SQLite DB</text>
+  <text x="715" y="106" text-anchor="middle" font-size="9" fill="#E6EDF3">books.db</text>
+  <text x="643" y="122" font-size="8.5" fill="#8B949E">books</text>
+  <text x="643" y="135" font-size="8.5" fill="#8B949E">id  INTEGER  PK</text>
+  <text x="643" y="148" font-size="8.5" fill="#8B949E">title   TEXT</text>
+  <text x="643" y="161" font-size="8.5" fill="#8B949E">author  TEXT</text>
+  <text x="643" y="174" font-size="8.5" fill="#8B949E">year    INTEGER</text>
+
+  <!-- Section title -->
+  <text x="410" y="205" text-anchor="middle" font-size="12" font-weight="700" fill="#BC8CFF">Dos patrones de conexion</text>
+
+  <!-- Simple pattern -->
+  <rect x="20" y="215" width="385" height="160" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+  <text x="213" y="235" text-anchor="middle" font-size="10" font-weight="700" fill="#3FB950">Patron Simple — async with por tool</text>
+  <text x="35" y="253" font-size="8.5" fill="#E6EDF3">- Crea una conexion nueva en cada llamada</text>
+  <text x="35" y="268" font-size="8.5" fill="#3FB950">+ Facil de entender e implementar</text>
+  <text x="35" y="283" font-size="8.5" fill="#3FB950">+ La conexion se cierra automaticamente</text>
+  <text x="35" y="298" font-size="8.5" fill="#F0883E">- Overhead: nueva conexion por cada call</text>
+  <text x="35" y="313" font-size="8.5" fill="#F0883E">- No optimo para alto trafico</text>
+  <text x="35" y="332" font-size="9" fill="#8B949E">Ideal para:</text>
+  <text x="35" y="347" font-size="8.5" fill="#E6EDF3">aprendizaje, prototipos, bajo trafico</text>
+  <text x="35" y="362" font-size="8.5" fill="#E6EDF3">tools que se llaman pocas veces</text>
+
+  <!-- Lifespan pattern -->
+  <rect x="415" y="215" width="385" height="160" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+  <text x="607" y="235" text-anchor="middle" font-size="10" font-weight="700" fill="#58A6FF">Patron Lifespan — conexion compartida</text>
+  <text x="430" y="253" font-size="8.5" fill="#E6EDF3">- Una conexion para toda la vida del server</text>
+  <text x="430" y="268" font-size="8.5" fill="#3FB950">+ Mas eficiente — menos overhead por call</text>
+  <text x="430" y="283" font-size="8.5" fill="#3FB950">+ Conexion en ctx.request_context</text>
+  <text x="430" y="298" font-size="8.5" fill="#3FB950">+ Recomendado para produccion</text>
+  <text x="430" y="313" font-size="8.5" fill="#F0883E">- Mas codigo de setup (asynccontextmanager)</text>
+  <text x="430" y="332" font-size="9" fill="#8B949E">Ideal para:</text>
+  <text x="430" y="347" font-size="8.5" fill="#E6EDF3">produccion, multiples tools con BD</text>
+  <text x="430" y="362" font-size="8.5" fill="#E6EDF3">alto volumen de llamadas</text>
+
+  <!-- Footer -->
+  <rect x="20" y="385" width="780" height="12" rx="4" fill="#161B22"/>
+  <text x="410" y="394" text-anchor="middle" font-size="8" fill="#8B949E">aiosqlite — async SQLite para Python | pip: aiosqlite==0.20.0 | TypeScript: better-sqlite3 (sync, simple)</text>
+</svg>

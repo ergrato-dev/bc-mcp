@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="420" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">HTTP Clients Async — httpx (Python) vs fetch (TypeScript)</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#8B949E">Integracion con APIs externas desde un MCP tool</text>
+
+  <!-- Column headers -->
+  <rect x="20" y="62" width="385" height="26" rx="6" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-width="1"/>
+  <text x="212" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="#3FB950">Python — httpx AsyncClient</text>
+
+  <rect x="415" y="62" width="385" height="26" rx="6" fill="#58A6FF" fill-opacity="0.15" stroke="#58A6FF" stroke-width="1"/>
+  <text x="607" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="#58A6FF">TypeScript — fetch nativo (Node 22+)</text>
+
+  <!-- Python: basic GET -->
+  <rect x="20" y="96" width="385" height="90" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+  <text x="30" y="113" font-size="9.5" font-weight="700" fill="#3FB950">GET basico con timeout</text>
+  <text x="30" y="130" font-size="9" fill="#BC8CFF">async with </text>
+  <text x="84" y="130" font-size="9" fill="#58A6FF">httpx.AsyncClient</text>
+  <text x="173" y="130" font-size="9" fill="#E6EDF3">() as client:</text>
+  <text x="30" y="143" font-size="9" fill="#E6EDF3">  resp = </text>
+  <text x="64" y="143" font-size="9" fill="#BC8CFF">await </text>
+  <text x="90" y="143" font-size="9" fill="#E6EDF3">client.get(</text>
+  <text x="140" y="143" font-size="9" fill="#F0883E">url</text>
+  <text x="152" y="143" font-size="9" fill="#E6EDF3">,</text>
+  <text x="30" y="156" font-size="9" fill="#E6EDF3">    params=params, timeout=</text>
+  <text x="186" y="156" font-size="9" fill="#F0883E">10.0</text>
+  <text x="206" y="156" font-size="9" fill="#E6EDF3">)</text>
+  <text x="30" y="169" font-size="9" fill="#E6EDF3">  resp.raise_for_status()  </text>
+  <text x="186" y="169" font-size="9" fill="#8B949E"># HTTPStatusError</text>
+  <text x="30" y="182" font-size="9" fill="#BC8CFF">  return </text>
+  <text x="67" y="182" font-size="9" fill="#E6EDF3">resp.json()</text>
+
+  <!-- TypeScript: basic GET -->
+  <rect x="415" y="96" width="385" height="90" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+  <text x="425" y="113" font-size="9.5" font-weight="700" fill="#58A6FF">GET basico con timeout</text>
+  <text x="425" y="130" font-size="9" fill="#BC8CFF">const </text>
+  <text x="453" y="130" font-size="9" fill="#E6EDF3">resp = </text>
+  <text x="484" y="130" font-size="9" fill="#BC8CFF">await </text>
+  <text x="510" y="130" font-size="9" fill="#3FB950">fetch</text>
+  <text x="535" y="130" font-size="9" fill="#E6EDF3">(url, {</text>
+  <text x="425" y="143" font-size="9" fill="#E6EDF3">  signal: </text>
+  <text x="468" y="143" font-size="9" fill="#58A6FF">AbortSignal.timeout</text>
+  <text x="565" y="143" font-size="9" fill="#E6EDF3">(10_000)</text>
+  <text x="425" y="156" font-size="9" fill="#E6EDF3">})</text>
+  <text x="425" y="169" font-size="9" fill="#BC8CFF">if </text>
+  <text x="440" y="169" font-size="9" fill="#E6EDF3">(!resp.ok) </text>
+  <text x="490" y="169" font-size="9" fill="#BC8CFF">throw new </text>
+  <text x="539" y="169" font-size="9" fill="#3FB950">Error</text>
+  <text x="561" y="169" font-size="9" fill="#E6EDF3">(`HTTP ${resp.status}`)</text>
+  <text x="425" y="182" font-size="9" fill="#BC8CFF">return </text>
+  <text x="459" y="182" font-size="9" fill="#E6EDF3">resp.json()</text>
+
+  <!-- Python: error handling -->
+  <rect x="20" y="194" width="385" height="88" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="30" y="211" font-size="9.5" font-weight="700" fill="#F0883E">Manejo de errores HTTP</text>
+  <text x="30" y="228" font-size="9" fill="#BC8CFF">try:</text>
+  <text x="30" y="241" font-size="9" fill="#E6EDF3">  resp.raise_for_status()</text>
+  <text x="30" y="254" font-size="9" fill="#BC8CFF">except </text>
+  <text x="67" y="254" font-size="9" fill="#58A6FF">httpx.HTTPStatusError </text>
+  <text x="178" y="254" font-size="9" fill="#BC8CFF">as </text>
+  <text x="190" y="254" font-size="9" fill="#E6EDF3">e:</text>
+  <text x="30" y="267" font-size="9" fill="#8B949E">  # e.response.status_code</text>
+  <text x="30" y="280" font-size="9" fill="#BC8CFF">except </text>
+  <text x="67" y="280" font-size="9" fill="#58A6FF">httpx.TimeoutException</text>
+  <text x="176" y="280" font-size="9" fill="#E6EDF3">:</text>
+
+  <!-- TypeScript: error handling -->
+  <rect x="415" y="194" width="385" height="88" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="425" y="211" font-size="9.5" font-weight="700" fill="#F0883E">Manejo de errores HTTP</text>
+  <text x="425" y="228" font-size="9" fill="#BC8CFF">try </text>
+  <text x="446" y="228" font-size="9" fill="#E6EDF3">{</text>
+  <text x="425" y="241" font-size="9" fill="#BC8CFF">  const </text>
+  <text x="456" y="241" font-size="9" fill="#E6EDF3">data = </text>
+  <text x="487" y="241" font-size="9" fill="#BC8CFF">await </text>
+  <text x="513" y="241" font-size="9" fill="#3FB950">fetchWeather</text>
+  <text x="572" y="241" font-size="9" fill="#E6EDF3">(city)</text>
+  <text x="425" y="254" font-size="9" fill="#E6EDF3">} </text>
+  <text x="435" y="254" font-size="9" fill="#BC8CFF">catch </text>
+  <text x="463" y="254" font-size="9" fill="#E6EDF3">(err) {</text>
+  <text x="425" y="267" font-size="9" fill="#BC8CFF">  if </text>
+  <text x="444" y="267" font-size="9" fill="#E6EDF3">(err </text>
+  <text x="464" y="267" font-size="9" fill="#BC8CFF">instanceof </text>
+  <text x="518" y="267" font-size="9" fill="#3FB950">TypeError</text>
+  <text x="565" y="267" font-size="9" fill="#E6EDF3">) {</text>
+  <text x="425" y="280" font-size="9" fill="#8B949E">    // Network error / timeout</text>
+
+  <!-- Python: Query params + headers -->
+  <rect x="20" y="290" width="385" height="88" rx="8" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="30" y="307" font-size="9.5" font-weight="700" fill="#BC8CFF">Params + headers seguros</text>
+  <text x="30" y="324" font-size="9" fill="#E6EDF3">resp = </text>
+  <text x="60" y="324" font-size="9" fill="#BC8CFF">await </text>
+  <text x="86" y="324" font-size="9" fill="#E6EDF3">client.get(url,</text>
+  <text x="30" y="337" font-size="9" fill="#E6EDF3">  params={</text>
+  <text x="68" y="337" font-size="9" fill="#F0883E">"city"</text>
+  <text x="92" y="337" font-size="9" fill="#E6EDF3">: city},</text>
+  <text x="30" y="350" font-size="9" fill="#E6EDF3">  headers={</text>
+  <text x="74" y="350" font-size="9" fill="#F0883E">"X-API-Key"</text>
+  <text x="123" y="350" font-size="9" fill="#E6EDF3">: api_key},</text>
+  <text x="30" y="363" font-size="9" fill="#8B949E">  # key desde env, nunca hardcoded</text>
+
+  <!-- TypeScript: Query params + headers -->
+  <rect x="415" y="290" width="385" height="88" rx="8" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="425" y="307" font-size="9.5" font-weight="700" fill="#BC8CFF">Params + headers seguros</text>
+  <text x="425" y="324" font-size="9" fill="#BC8CFF">const </text>
+  <text x="452" y="324" font-size="9" fill="#E6EDF3">url = </text>
+  <text x="476" y="324" font-size="9" fill="#BC8CFF">new </text>
+  <text x="494" y="324" font-size="9" fill="#3FB950">URL</text>
+  <text x="510" y="324" font-size="9" fill="#E6EDF3">(BASE_URL)</text>
+  <text x="425" y="337" font-size="9" fill="#E6EDF3">url.searchParams.set(</text>
+  <text x="541" y="337" font-size="9" fill="#F0883E">"city"</text>
+  <text x="567" y="337" font-size="9" fill="#E6EDF3">, city)</text>
+  <text x="425" y="350" font-size="9" fill="#BC8CFF">const </text>
+  <text x="452" y="350" font-size="9" fill="#E6EDF3">resp = </text>
+  <text x="483" y="350" font-size="9" fill="#BC8CFF">await </text>
+  <text x="509" y="350" font-size="9" fill="#3FB950">fetch</text>
+  <text x="531" y="350" font-size="9" fill="#E6EDF3">(url, { headers })</text>
+  <text x="425" y="363" font-size="9" fill="#8B949E">  // key desde process.env</text>
+
+  <!-- Footer comparison row -->
+  <rect x="20" y="388" width="780" height="26" rx="6" fill="#161B22" stroke="#6B4FBB" stroke-width="1"/>
+  <text x="30" y="401" font-size="8.5" fill="#8B949E">httpx:</text>
+  <text x="60" y="401" font-size="8.5" fill="#3FB950">raise_for_status()</text>
+  <text x="148" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="155" y="401" font-size="8.5" fill="#8B949E">timeout=10.0 (seg)</text>
+  <text x="256" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="263" y="401" font-size="8.5" fill="#8B949E">params= dict</text>
+  <text x="330" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="337" y="401" font-size="8.5" fill="#8B949E">resp.json()</text>
+  <text x="395" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="402" y="401" font-size="8.5" fill="#58A6FF">fetch:</text>
+  <text x="430" y="401" font-size="8.5" fill="#58A6FF">if (!resp.ok) throw</text>
+  <text x="530" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="537" y="401" font-size="8.5" fill="#8B949E">AbortSignal.timeout(ms)</text>
+  <text x="662" y="401" font-size="8.5" fill="#8B949E">|</text>
+  <text x="670" y="401" font-size="8.5" fill="#8B949E">new URL().searchParams</text>
+  <text x="30" y="411" font-size="8" fill="#8B949E">Ambos: async/await obligatorio | nunca hardcodear API keys | validar respuesta antes de usar</text>
+</svg>

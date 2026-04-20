@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="480" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">Python vs TypeScript — BD y APIs Externas</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#8B949E">Mismos conceptos, distinta implementacion</text>
+
+  <!-- Column headers -->
+  <rect x="20" y="62" width="385" height="26" rx="6" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-width="1"/>
+  <text x="212" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="#3FB950">Python — FastMCP + aiosqlite + httpx</text>
+
+  <rect x="415" y="62" width="385" height="26" rx="6" fill="#58A6FF" fill-opacity="0.15" stroke="#58A6FF" stroke-width="1"/>
+  <text x="607" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="#58A6FF">TypeScript — Server + better-sqlite3 + fetch</text>
+
+  <!-- Python: DB tool -->
+  <rect x="20" y="96" width="385" height="95" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+  <text x="30" y="113" font-size="9.5" font-weight="700" fill="#3FB950">Tool de base de datos</text>
+  <text x="30" y="130" font-size="9" fill="#BC8CFF">@mcp.tool()</text>
+  <text x="30" y="143" font-size="9" fill="#BC8CFF">async def </text>
+  <text x="74" y="143" font-size="9" fill="#3FB950">search_books</text>
+  <text x="137" y="143" font-size="9" fill="#E6EDF3">(query: str) -&gt; str:</text>
+  <text x="30" y="156" font-size="9" fill="#BC8CFF">    async with </text>
+  <text x="90" y="156" font-size="9" fill="#58A6FF">aiosqlite.connect</text>
+  <text x="184" y="156" font-size="9" fill="#E6EDF3">(DB_PATH) as db:</text>
+  <text x="30" y="169" font-size="9" fill="#E6EDF3">        cur = </text>
+  <text x="73" y="169" font-size="9" fill="#BC8CFF">await </text>
+  <text x="99" y="169" font-size="9" fill="#E6EDF3">db.execute(SQL, (query,))</text>
+  <text x="30" y="182" font-size="9" fill="#BC8CFF">        return </text>
+  <text x="74" y="182" font-size="9" fill="#E6EDF3">json.dumps(</text>
+  <text x="125" y="182" font-size="9" fill="#BC8CFF">await </text>
+  <text x="151" y="182" font-size="9" fill="#E6EDF3">cur.fetchall())</text>
+
+  <!-- TypeScript: DB tool -->
+  <rect x="415" y="96" width="385" height="95" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+  <text x="425" y="113" font-size="9.5" font-weight="700" fill="#58A6FF">Tool de base de datos</text>
+  <text x="425" y="130" font-size="9" fill="#E6EDF3">server.tool(</text>
+  <text x="425" y="143" font-size="9" fill="#F0883E">  "search_books"</text>
+  <text x="490" y="143" font-size="9" fill="#E6EDF3">,</text>
+  <text x="425" y="156" font-size="9" fill="#E6EDF3">  { query: </text>
+  <text x="468" y="156" font-size="9" fill="#BC8CFF">z.string</text>
+  <text x="509" y="156" font-size="9" fill="#E6EDF3">() },</text>
+  <text x="425" y="169" font-size="9" fill="#BC8CFF">  async </text>
+  <text x="454" y="169" font-size="9" fill="#E6EDF3">({ query }) =&gt; {</text>
+  <text x="425" y="182" font-size="9" fill="#BC8CFF">    const </text>
+  <text x="452" y="182" font-size="9" fill="#E6EDF3">rows = db.prepare(SQL).all(</text>
+  <text x="579" y="182" font-size="9" fill="#F0883E">`%${query}%`</text>
+  <text x="625" y="182" font-size="9" fill="#E6EDF3">)</text>
+
+  <!-- Python: API tool -->
+  <rect x="20" y="199" width="385" height="95" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="30" y="216" font-size="9.5" font-weight="700" fill="#F0883E">Tool de API externa (httpx)</text>
+  <text x="30" y="233" font-size="9" fill="#BC8CFF">@mcp.tool()</text>
+  <text x="30" y="246" font-size="9" fill="#BC8CFF">async def </text>
+  <text x="74" y="246" font-size="9" fill="#3FB950">get_weather</text>
+  <text x="130" y="246" font-size="9" fill="#E6EDF3">(city: str) -&gt; str:</text>
+  <text x="30" y="259" font-size="9" fill="#BC8CFF">    async with </text>
+  <text x="90" y="259" font-size="9" fill="#58A6FF">httpx.AsyncClient</text>
+  <text x="178" y="259" font-size="9" fill="#E6EDF3">() as c:</text>
+  <text x="30" y="272" font-size="9" fill="#E6EDF3">        r = </text>
+  <text x="57" y="272" font-size="9" fill="#BC8CFF">await </text>
+  <text x="83" y="272" font-size="9" fill="#E6EDF3">c.get(URL, params={</text>
+  <text x="195" y="272" font-size="9" fill="#F0883E">"q"</text>
+  <text x="211" y="272" font-size="9" fill="#E6EDF3">: city})</text>
+  <text x="30" y="285" font-size="9" fill="#E6EDF3">        r.raise_for_status()</text>
+  <text x="30" y="298" font-size="9" fill="#BC8CFF">        return </text>
+  <text x="74" y="298" font-size="9" fill="#E6EDF3">json.dumps(r.json())</text>
+
+  <!-- TypeScript: API tool -->
+  <rect x="415" y="199" width="385" height="95" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="425" y="216" font-size="9.5" font-weight="700" fill="#F0883E">Tool de API externa (fetch)</text>
+  <text x="425" y="233" font-size="9" fill="#E6EDF3">server.tool(</text>
+  <text x="425" y="246" font-size="9" fill="#F0883E">  "get_weather"</text>
+  <text x="480" y="246" font-size="9" fill="#E6EDF3">,</text>
+  <text x="425" y="259" font-size="9" fill="#E6EDF3">  { city: </text>
+  <text x="465" y="259" font-size="9" fill="#BC8CFF">z.string</text>
+  <text x="506" y="259" font-size="9" fill="#E6EDF3">() },</text>
+  <text x="425" y="272" font-size="9" fill="#BC8CFF">  async </text>
+  <text x="454" y="272" font-size="9" fill="#E6EDF3">({ city }) =&gt; {</text>
+  <text x="425" y="285" font-size="9" fill="#BC8CFF">    const </text>
+  <text x="452" y="285" font-size="9" fill="#E6EDF3">resp = </text>
+  <text x="483" y="285" font-size="9" fill="#BC8CFF">await </text>
+  <text x="509" y="285" font-size="9" fill="#3FB950">fetch</text>
+  <text x="531" y="285" font-size="9" fill="#E6EDF3">(`${URL}?q=${city}`)</text>
+  <text x="425" y="298" font-size="9" fill="#BC8CFF">    if </text>
+  <text x="444" y="298" font-size="9" fill="#E6EDF3">(!resp.ok) </text>
+  <text x="492" y="298" font-size="9" fill="#BC8CFF">throw new </text>
+  <text x="540" y="298" font-size="9" fill="#3FB950">Error</text>
+  <text x="562" y="298" font-size="9" fill="#E6EDF3">(resp.status)</text>
+
+  <!-- Dependencies comparison -->
+  <rect x="20" y="302" width="385" height="85" rx="8" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="212" y="320" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">pyproject.toml (Python)</text>
+  <text x="35" y="338" font-size="8.5" fill="#E6EDF3">dependencies = [</text>
+  <text x="45" y="351" font-size="8.5" fill="#F0883E">"mcp==1.9.0"</text>
+  <text x="103" y="351" font-size="8.5" fill="#E6EDF3">,</text>
+  <text x="108" y="351" font-size="8.5" fill="#F0883E">"aiosqlite==0.20.0"</text>
+  <text x="45" y="364" font-size="8.5" fill="#F0883E">"httpx==0.27.2"</text>
+  <text x="108" y="364" font-size="8.5" fill="#F0883E">"python-dotenv==1.0.1"</text>
+  <text x="35" y="377" font-size="8.5" fill="#E6EDF3">]</text>
+
+  <rect x="415" y="302" width="385" height="85" rx="8" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="607" y="320" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">package.json (TypeScript)</text>
+  <text x="430" y="338" font-size="8.5" fill="#E6EDF3">dependencies: {</text>
+  <text x="440" y="351" font-size="8.5" fill="#F0883E">"@modelcontextprotocol/sdk"</text>
+  <text x="588" y="351" font-size="8.5" fill="#E6EDF3">:</text>
+  <text x="592" y="351" font-size="8.5" fill="#F0883E">"1.10.2"</text>
+  <text x="440" y="364" font-size="8.5" fill="#F0883E">"better-sqlite3"</text>
+  <text x="518" y="364" font-size="8.5" fill="#E6EDF3">:</text>
+  <text x="523" y="364" font-size="8.5" fill="#F0883E">"9.6.0"</text>
+  <text x="570" y="364" font-size="8.5" fill="#E6EDF3">,</text>
+  <text x="440" y="377" font-size="8.5" fill="#F0883E">"dotenv"</text>
+  <text x="470" y="377" font-size="8.5" fill="#E6EDF3">:</text>
+  <text x="476" y="377" font-size="8.5" fill="#F0883E">"16.4.7"</text>
+
+  <!-- Equivalences -->
+  <rect x="20" y="396" width="780" height="74" rx="8" fill="#161B22" stroke="#6B4FBB" stroke-width="1.5"/>
+  <text x="410" y="416" text-anchor="middle" font-size="11" font-weight="700" fill="#BC8CFF">Equivalencias Python vs TypeScript</text>
+  <text x="35" y="434" font-size="8.5" fill="#3FB950">aiosqlite.connect(DB)</text>
+  <text x="155" y="434" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="172" y="434" font-size="8.5" fill="#58A6FF">new Database(DB)</text>
+  <text x="268" y="434" font-size="8.5" fill="#8B949E">|</text>
+  <text x="275" y="434" font-size="8.5" fill="#3FB950">async — await cursor</text>
+  <text x="373" y="434" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="390" y="434" font-size="8.5" fill="#58A6FF">sync — stmt.all()</text>
+  <text x="472" y="434" font-size="8.5" fill="#8B949E">|</text>
+  <text x="479" y="434" font-size="8.5" fill="#3FB950">httpx.AsyncClient</text>
+  <text x="570" y="434" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="584" y="434" font-size="8.5" fill="#58A6FF">fetch nativo Node 22</text>
+  <text x="35" y="452" font-size="8.5" fill="#3FB950">raise_for_status()</text>
+  <text x="120" y="452" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="133" y="452" font-size="8.5" fill="#58A6FF">if (!resp.ok) throw</text>
+  <text x="231" y="452" font-size="8.5" fill="#8B949E">|</text>
+  <text x="238" y="452" font-size="8.5" fill="#3FB950">load_dotenv()</text>
+  <text x="296" y="452" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="310" y="452" font-size="8.5" fill="#58A6FF">dotenv.config()</text>
+  <text x="388" y="452" font-size="8.5" fill="#8B949E">|</text>
+  <text x="395" y="452" font-size="8.5" fill="#3FB950">os.environ["KEY"]</text>
+  <text x="476" y="452" font-size="8.5" fill="#8B949E">vs</text>
+  <text x="490" y="452" font-size="8.5" fill="#58A6FF">process.env["KEY"]</text>
+  <text x="588" y="452" font-size="8.5" fill="#8B949E">|</text>
+  <text x="595" y="452" font-size="8.5" fill="#8B949E">ambos: params nunca hardcodeados</text>
+  <text x="35" y="462" font-size="8" fill="#8B949E">Queries SQL identicas en ambos — parametrizadas con ? para prevenir SQL injection</text>
+</svg>

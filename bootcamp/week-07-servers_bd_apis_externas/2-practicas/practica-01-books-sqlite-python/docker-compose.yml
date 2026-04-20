@@ -1,0 +1,11 @@
+services:
+  books-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/books.db
+    stdin_open: true
+    tty: true

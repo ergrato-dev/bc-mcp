@@ -1,0 +1,11 @@
+services:
+  books-weather-ts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/books.db
+    stdin_open: true
+    tty: true

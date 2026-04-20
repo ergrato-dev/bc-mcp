@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" width="820" height="380" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="380" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#E6EDF3">Variables de Entorno — Configuracion Segura</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#8B949E">Gestion segura de credenciales y configuracion en MCP Servers</text>
+
+  <!-- Flow: .env -> dotenv -> os.environ -> Server -->
+  <!-- Box 1: .env file -->
+  <rect x="20" y="66" width="145" height="110" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <rect x="20" y="66" width="145" height="24" rx="8" fill="#2D1810"/>
+  <rect x="20" y="78" width="145" height="12" fill="#2D1810"/>
+  <text x="92" y="83" text-anchor="middle" font-size="10" font-weight="700" fill="#F0883E">.env (local)</text>
+  <text x="32" y="104" font-size="8.5" fill="#8B949E">DB_PATH=./data/books.db</text>
+  <text x="32" y="117" font-size="8.5" fill="#8B949E">API_KEY=sk-abc123</text>
+  <text x="32" y="130" font-size="8.5" fill="#8B949E">LOG_LEVEL=INFO</text>
+  <text x="32" y="146" font-size="8" fill="#F0883E">NO subir a git (.gitignore)</text>
+  <text x="32" y="158" font-size="8" fill="#F0883E">Copiar de .env.example</text>
+  <text x="32" y="170" font-size="8" fill="#F0883E">Datos sensibles aqui</text>
+
+  <!-- Arrow 1->2 -->
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#BC8CFF"/>
+    </marker>
+  </defs>
+  <line x1="165" y1="121" x2="200" y2="121" stroke="#BC8CFF" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="169" y="116" font-size="8" fill="#BC8CFF">load</text>
+
+  <!-- Box 2: dotenv -->
+  <rect x="200" y="66" width="165" height="110" rx="8" fill="#161B22" stroke="#BC8CFF" stroke-width="1.5"/>
+  <rect x="200" y="66" width="165" height="24" rx="8" fill="#1A1230"/>
+  <rect x="200" y="78" width="165" height="12" fill="#1A1230"/>
+  <text x="282" y="83" text-anchor="middle" font-size="10" font-weight="700" fill="#BC8CFF">python-dotenv / dotenvx</text>
+  <text x="212" y="104" font-size="8.5" fill="#E6EDF3">Python:</text>
+  <text x="212" y="117" font-size="8.5" fill="#BC8CFF">from </text>
+  <text x="236" y="117" font-size="8.5" fill="#E6EDF3">dotenv </text>
+  <text x="270" y="117" font-size="8.5" fill="#BC8CFF">import </text>
+  <text x="300" y="117" font-size="8.5" fill="#3FB950">load_dotenv</text>
+  <text x="212" y="130" font-size="8.5" fill="#3FB950">load_dotenv</text>
+  <text x="267" y="130" font-size="8.5" fill="#E6EDF3">()</text>
+  <text x="212" y="148" font-size="8.5" fill="#E6EDF3">TypeScript:</text>
+  <text x="212" y="161" font-size="8.5" fill="#BC8CFF">import </text>
+  <text x="241" y="161" font-size="8.5" fill="#3FB950">dotenv </text>
+  <text x="271" y="161" font-size="8.5" fill="#BC8CFF">from </text>
+  <text x="296" y="161" font-size="8.5" fill="#F0883E">"dotenv"</text>
+  <text x="212" y="174" font-size="8.5" fill="#E6EDF3">dotenv.config()</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="365" y1="121" x2="400" y2="121" stroke="#BC8CFF" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="369" y="116" font-size="8" fill="#BC8CFF">inject</text>
+
+  <!-- Box 3: os.environ / process.env -->
+  <rect x="400" y="66" width="200" height="110" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1.5"/>
+  <rect x="400" y="66" width="200" height="24" rx="8" fill="#0D2818"/>
+  <rect x="400" y="78" width="200" height="12" fill="#0D2818"/>
+  <text x="500" y="83" text-anchor="middle" font-size="10" font-weight="700" fill="#3FB950">os.environ / process.env</text>
+  <text x="412" y="104" font-size="8.5" fill="#E6EDF3">Python:</text>
+  <text x="412" y="117" font-size="8.5" fill="#BC8CFF">import </text>
+  <text x="441" y="117" font-size="8.5" fill="#E6EDF3">os</text>
+  <text x="412" y="130" font-size="8.5" fill="#E6EDF3">DB = os.environ[</text>
+  <text x="494" y="130" font-size="8.5" fill="#F0883E">"DB_PATH"</text>
+  <text x="540" y="130" font-size="8.5" fill="#E6EDF3">]</text>
+  <text x="412" y="148" font-size="8.5" fill="#E6EDF3">TypeScript:</text>
+  <text x="412" y="161" font-size="8.5" fill="#BC8CFF">const </text>
+  <text x="440" y="161" font-size="8.5" fill="#E6EDF3">DB = process.env.</text>
+  <text x="530" y="161" font-size="8.5" fill="#3FB950">DB_PATH</text>
+  <text x="412" y="174" font-size="8.5" fill="#8B949E">  ?? raise error</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="600" y1="121" x2="635" y2="121" stroke="#BC8CFF" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="604" y="116" font-size="8" fill="#BC8CFF">read</text>
+
+  <!-- Box 4: MCP Server -->
+  <rect x="635" y="66" width="165" height="110" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <rect x="635" y="66" width="165" height="24" rx="8" fill="#0D1B2A"/>
+  <rect x="635" y="78" width="165" height="12" fill="#0D1B2A"/>
+  <text x="717" y="83" text-anchor="middle" font-size="10" font-weight="700" fill="#58A6FF">MCP Server</text>
+  <text x="647" y="104" font-size="8.5" fill="#E6EDF3">DB_PATH = os.environ[</text>
+  <text x="647" y="117" font-size="8.5" fill="#F0883E">  "DB_PATH"</text>
+  <text x="647" y="130" font-size="8.5" fill="#E6EDF3">]</text>
+  <text x="647" y="143" font-size="8.5" fill="#E6EDF3">API_KEY = os.environ[</text>
+  <text x="647" y="156" font-size="8.5" fill="#F0883E">  "API_KEY"</text>
+  <text x="647" y="169" font-size="8.5" fill="#E6EDF3">]</text>
+
+  <!-- Security rules -->
+  <rect x="20" y="192" width="385" height="160" rx="8" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="213" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="#F0883E">Reglas de Seguridad OBLIGATORIAS</text>
+  <text x="35" y="230" font-size="9" fill="#E6EDF3">NUNCA hardcodear credenciales en el codigo:</text>
+  <text x="35" y="244" font-size="8.5" fill="#F0883E">  api_key = "sk-abc123"  # PELIGROSO — NO hacer</text>
+  <text x="35" y="258" font-size="8.5" fill="#3FB950">  api_key = os.environ["API_KEY"]  # CORRECTO</text>
+  <text x="35" y="275" font-size="9" fill="#E6EDF3">NUNCA subir .env a git:</text>
+  <text x="35" y="289" font-size="8.5" fill="#8B949E">  .gitignore debe incluir: .env, *.env, .env.*</text>
+  <text x="35" y="303" font-size="9" fill="#E6EDF3">SIEMPRE proveer .env.example sin valores reales:</text>
+  <text x="35" y="317" font-size="8.5" fill="#8B949E">  DB_PATH=./data/books.db</text>
+  <text x="35" y="330" font-size="8.5" fill="#8B949E">  API_KEY=your_api_key_here</text>
+  <text x="35" y="343" font-size="9" fill="#E6EDF3">VALIDAR variables al inicio (fail-fast):</text>
+
+  <!-- Best practices -->
+  <rect x="415" y="192" width="385" height="160" rx="8" fill="#161B22" stroke="#3FB950" stroke-width="1"/>
+  <text x="607" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="#3FB950">Validacion Fail-Fast al Arranque</text>
+  <text x="430" y="230" font-size="9" fill="#8B949E">Python — validar en startup:</text>
+  <text x="430" y="244" font-size="8.5" fill="#BC8CFF">def </text>
+  <text x="448" y="244" font-size="8.5" fill="#3FB950">get_required</text>
+  <text x="510" y="244" font-size="8.5" fill="#E6EDF3">(key: str) -&gt; str:</text>
+  <text x="430" y="257" font-size="8.5" fill="#E6EDF3">  val = os.environ.get(key)</text>
+  <text x="430" y="270" font-size="8.5" fill="#BC8CFF">  if not </text>
+  <text x="467" y="270" font-size="8.5" fill="#E6EDF3">val:</text>
+  <text x="430" y="283" font-size="8.5" fill="#BC8CFF">    raise </text>
+  <text x="464" y="283" font-size="8.5" fill="#58A6FF">ValueError</text>
+  <text x="512" y="283" font-size="8.5" fill="#E6EDF3">(f"Missing {key}")</text>
+  <text x="430" y="296" font-size="8.5" fill="#BC8CFF">  return </text>
+  <text x="467" y="296" font-size="8.5" fill="#E6EDF3">val</text>
+  <text x="430" y="313" font-size="8.5" fill="#8B949E">TypeScript:</text>
+  <text x="430" y="326" font-size="8.5" fill="#BC8CFF">const </text>
+  <text x="458" y="326" font-size="8.5" fill="#3FB950">requireEnv </text>
+  <text x="514" y="326" font-size="8.5" fill="#E6EDF3">= (k: string) =&gt;</text>
+  <text x="430" y="339" font-size="8.5" fill="#E6EDF3">  process.env[k] ?? (() =&gt; {</text>
+  <text x="430" y="352" font-size="8.5" fill="#BC8CFF">    throw new </text>
+  <text x="484" y="352" font-size="8.5" fill="#3FB950">Error</text>
+  <text x="506" y="352" font-size="8.5" fill="#E6EDF3">(`Missing ${k}`)</text>
+
+  <!-- Footer -->
+  <rect x="20" y="362" width="780" height="14" rx="4" fill="#161B22"/>
+  <text x="410" y="372" text-anchor="middle" font-size="8" fill="#8B949E">Python: python-dotenv==1.0.1 | TypeScript: dotenv==16.4.7 | Docker: variables en docker-compose.yml env_file</text>
+</svg>
