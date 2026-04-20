@@ -103,7 +103,7 @@
   <text x="226" y="442" font-size="10" fill="#E6EDF3">{ "description": "txt" }</text>
 
   <!-- Result box -->
-  <rect x="420" y="280" width="370" height="175" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
+  <rect x="420" y="280" width="370" height="182" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1"/>
   <text x="605" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#E6EDF3">Retorno del handler</text>
   <text x="605" y="318" text-anchor="middle" font-size="10" fill="#8B949E">CallToolResult</text>
 
