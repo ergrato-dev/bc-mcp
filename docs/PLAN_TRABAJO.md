@@ -350,11 +350,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — CI/CD pipeline diagram, project architecture diagram
-- [ ] `1-teoria/` — GitHub Actions, deploy a Railway/Fly.io, monorepo patterns
-- [ ] `2-practicas/` — configurar CI/CD, deploy del server de semana 07
-- [ ] `3-proyecto/` — **Proyecto Final**: MCP system completo (server + client + LLM + CI/CD)
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — 5 SVGs: CI/CD pipeline, GH Actions anatomy, SemVer+Docker tags, producción MCP, docs profesional
+- [x] `1-teoria/` — GitHub Actions, CI para MCP, SemVer+Docker tags, docs profesional, arquitectura producción
+- [x] `2-practicas/` — practica-01 CI Python, practica-02 CI TypeScript, practica-03 Docker GHCR, practica-04 Badges README
+- [x] `3-proyecto/` — **Proyecto Final**: MCP Library System (server + client + LLM + CI/CD + Docker + README)
+- [x] `4-recursos/`, `5-glosario/README.md`
 
 ---
 

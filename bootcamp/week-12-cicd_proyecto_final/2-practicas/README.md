@@ -2,10 +2,10 @@
 
 ## Ejercicios Guiados
 
-- [practica-01/](practica-01/) — Crear workflow de GitHub Actions para CI del server Python
-- [practica-02/](practica-02/) — Crear workflow de CI para el server TypeScript
-- [practica-03/](practica-03/) — Automatizar build y push de imágenes Docker a GHCR
-- [practica-04/](practica-04/) — Configurar badges de estado de CI en el README
+- [practica-01-ci-python/](practica-01-ci-python/) — Crear workflow de GitHub Actions para CI del server Python
+- [practica-02-ci-typescript/](practica-02-ci-typescript/) — Crear workflow de CI para el server TypeScript
+- [practica-03-docker-ghcr/](practica-03-docker-ghcr/) — Automatizar build y push de imágenes Docker a GHCR
+- [practica-04-badges-readme/](practica-04-badges-readme/) — Configurar badges de estado de CI en el README
 
 > 📌 Los ejercicios usan el formato **descomentar código** (NO TODOs).
 > El estudiante aprende descomentando las secciones indicadas en el `README.md`

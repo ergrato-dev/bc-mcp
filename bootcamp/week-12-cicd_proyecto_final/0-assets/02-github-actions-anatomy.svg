@@ -1,0 +1,93 @@
+<svg viewBox="0 0 880 520"
+  xmlns="http://www.w3.org/2000/svg" font-family="Inter, Roboto, system-ui, sans-serif">
+  <rect width="880" height="520" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f9fafb">Anatomía de un Workflow de GitHub Actions</text>
+  <text x="440" y="58" text-anchor="middle" font-size="12" fill="#6b7280">.github/workflows/ci.yml — estructura y componentes</text>
+
+  <!-- YAML panel background -->
+  <rect x="30" y="75" width="390" height="420" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="50" y="100" font-size="13" font-weight="700" fill="#8b949e" font-family="monospace">.github/workflows/ci.yml</text>
+
+  <!-- YAML content -->
+  <text x="50" y="125" font-size="11" fill="#79c0ff" font-family="monospace">name</text>
+  <text x="100" y="125" font-size="11" fill="#e6edf3" font-family="monospace">: CI Pipeline</text>
+
+  <text x="50" y="148" font-size="11" fill="#79c0ff" font-family="monospace">on</text>
+  <text x="70" y="148" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="60" y="165" font-size="11" fill="#79c0ff" font-family="monospace">  push</text>
+  <text x="120" y="165" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="70" y="182" font-size="11" fill="#ffa657" font-family="monospace">    branches</text>
+  <text x="160" y="182" font-size="11" fill="#e6edf3" font-family="monospace">: [main]</text>
+  <text x="60" y="199" font-size="11" fill="#79c0ff" font-family="monospace">  pull_request</text>
+  <text x="150" y="199" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+
+  <text x="50" y="226" font-size="11" fill="#79c0ff" font-family="monospace">jobs</text>
+  <text x="82" y="226" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="60" y="245" font-size="11" fill="#ffa657" font-family="monospace">  ci</text>
+  <text x="80" y="245" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="70" y="264" font-size="11" fill="#79c0ff" font-family="monospace">    runs-on</text>
+  <text x="148" y="264" font-size="11" fill="#a5d6ff" font-family="monospace">: ubuntu-latest</text>
+  <text x="70" y="283" font-size="11" fill="#79c0ff" font-family="monospace">    steps</text>
+  <text x="122" y="283" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+
+  <text x="80" y="302" font-size="11" fill="#e6edf3" font-family="monospace">      - uses</text>
+  <text x="136" y="302" font-size="11" fill="#a5d6ff" font-family="monospace">: actions/checkout@v4</text>
+
+  <text x="80" y="321" font-size="11" fill="#e6edf3" font-family="monospace">      - name</text>
+  <text x="140" y="321" font-size="11" fill="#e6edf3" font-family="monospace">: Set up Python</text>
+  <text x="88" y="338" font-size="11" fill="#79c0ff" font-family="monospace">        uses</text>
+  <text x="136" y="338" font-size="11" fill="#a5d6ff" font-family="monospace">: actions/setup-python@v5</text>
+  <text x="88" y="355" font-size="11" fill="#79c0ff" font-family="monospace">        with</text>
+  <text x="130" y="355" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="98" y="372" font-size="11" fill="#ffa657" font-family="monospace">          python-version</text>
+  <text x="234" y="372" font-size="11" fill="#a5d6ff" font-family="monospace">: "3.13"</text>
+
+  <text x="80" y="391" font-size="11" fill="#e6edf3" font-family="monospace">      - name</text>
+  <text x="140" y="391" font-size="11" fill="#e6edf3" font-family="monospace">: Run tests</text>
+  <text x="88" y="408" font-size="11" fill="#79c0ff" font-family="monospace">        run</text>
+  <text x="120" y="408" font-size="11" fill="#e6edf3" font-family="monospace">: |</text>
+  <text x="98" y="425" font-size="11" fill="#a5d6ff" font-family="monospace">          uv run pytest</text>
+  <text x="98" y="442" font-size="11" fill="#6b7280" font-family="monospace">          # --cov --cov-min=75</text>
+  <text x="98" y="459" font-size="11" fill="#a5d6ff" font-family="monospace">          uv run ruff check .</text>
+  <text x="98" y="476" font-size="11" fill="#a5d6ff" font-family="monospace">          uv run mypy src/</text>
+
+  <!-- Concepts panel -->
+  <text x="470" y="100" font-size="14" font-weight="700" fill="#f9fafb">Componentes clave</text>
+
+  <!-- on: trigger -->
+  <rect x="460" y="112" width="390" height="70" rx="8" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="480" y="135" font-size="13" font-weight="700" fill="#60a5fa">on: — Triggers</text>
+  <text x="480" y="155" font-size="11" fill="#cbd5e1">Define cuándo se ejecuta el workflow.</text>
+  <text x="480" y="170" font-size="11" fill="#94a3b8">push · pull_request · schedule · workflow_dispatch</text>
+
+  <!-- jobs: -->
+  <rect x="460" y="195" width="390" height="70" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="480" y="218" font-size="13" font-weight="700" fill="#22c55e">jobs: — Unidades de trabajo</text>
+  <text x="480" y="238" font-size="11" fill="#cbd5e1">Grupos de steps. Corren en paralelo por defecto.</text>
+  <text x="480" y="253" font-size="11" fill="#94a3b8">Usar needs: para dependencias entre jobs.</text>
+
+  <!-- runs-on: -->
+  <rect x="460" y="278" width="390" height="70" rx="8" fill="#1a1a0a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="480" y="301" font-size="13" font-weight="700" fill="#fbbf24">runs-on: — Runner</text>
+  <text x="480" y="321" font-size="11" fill="#cbd5e1">VM donde corre el job. ubuntu-latest recomendado.</text>
+  <text x="480" y="336" font-size="11" fill="#94a3b8">También: windows-latest · macos-latest · self-hosted</text>
+
+  <!-- steps: -->
+  <rect x="460" y="361" width="390" height="70" rx="8" fill="#0f1f0f" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="480" y="384" font-size="13" font-weight="700" fill="#4ade80">steps: — Pasos del job</text>
+  <text x="480" y="404" font-size="11" fill="#cbd5e1">Secuencia de acciones. uses: para actions pre-hechas.</text>
+  <text x="480" y="419" font-size="11" fill="#94a3b8">run: para comandos shell arbitrarios.</text>
+
+  <!-- secrets note -->
+  <rect x="460" y="444" width="390" height="45" rx="8" fill="#1f0a2a" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="480" y="464" font-size="12" font-weight="600" fill="#c084fc">secrets.GHCR_TOKEN — secrets de repositorio</text>
+  <text x="480" y="480" font-size="10" fill="#94a3b8">Configurados en Settings → Secrets and variables → Actions</text>
+
+  <!-- Arrow from YAML to concepts -->
+  <line x1="420" y1="148" x2="458" y2="148" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="420" y1="234" x2="458" y2="234" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="420" y1="264" x2="458" y2="310" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="420" y1="302" x2="458" y2="395" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
+</svg>

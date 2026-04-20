@@ -1,0 +1,33 @@
+[project]
+name = "practica-01-ci-python"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp==1.9.0",
+    "pydantic==2.11.4",
+]
+
+[project.optional-dependencies]
+# Dependencias de test (instalar con: uv sync --group test)
+test = [
+    "pytest==8.3.5",
+    "pytest-asyncio==0.25.3",
+    "pytest-cov==6.1.0",
+    "ruff==0.11.2",
+    "mypy==1.15.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true

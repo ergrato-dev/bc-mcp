@@ -1,0 +1,16 @@
+# .dockerignore — excluir archivos del contexto de build Docker
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+.env.*
+tests/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+.git/
+.github/
+*.md

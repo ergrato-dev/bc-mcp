@@ -1,0 +1,34 @@
+# ============================================
+# Dockerfile.client — MCP Library Client
+# Imagen para el cliente con agentic loop
+# ============================================
+
+# ============================================
+# TODO: Implementar Dockerfile del cliente
+# ============================================
+# Similar al server, pero:
+# - Instalar TODAS las dependencias (incluyendo anthropic)
+# - El CMD ejecuta client.py en modo interactivo
+# - stdin_open: true en docker-compose para interacción
+#
+# FROM python:3.13-slim AS builder
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     UV_SYSTEM_PYTHON=1
+# RUN pip install --no-cache-dir uv==0.6.6
+# WORKDIR /app
+# COPY pyproject.toml ./
+# RUN uv venv .venv && UV_SYSTEM_PYTHON=0 uv sync --frozen --no-dev
+#
+# FROM python:3.13-slim AS runtime
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     PATH="/app/.venv/bin:$PATH"
+# RUN groupadd --gid 1001 appgroup && \
+#     useradd --uid 1001 --gid appgroup --no-create-home appuser
+# WORKDIR /app
+# COPY --from=builder /app/.venv /app/.venv
+# COPY client.py .
+# COPY src/ src/
+# USER appuser
+# CMD ["python", "client.py"]

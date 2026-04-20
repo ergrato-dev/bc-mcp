@@ -1,0 +1,92 @@
+<svg viewBox="0 0 900 400"
+  xmlns="http://www.w3.org/2000/svg" font-family="Inter, Roboto, system-ui, sans-serif">
+  <rect width="900" height="400" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f9fafb">Pipeline CI/CD para MCP Servers</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#6b7280">commit → lint → test → build → push → deploy</text>
+
+  <!-- Arrow helper line -->
+  <line x1="68" y1="200" x2="840" y2="200" stroke="#374151" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Stage boxes -->
+  <!-- 1. Commit -->
+  <rect x="20" y="145" width="110" height="110" rx="10" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2"/>
+  <text x="75" y="175" text-anchor="middle" font-size="22" fill="#60a5fa">⬆</text>
+  <text x="75" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">git push</text>
+  <text x="75" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">trigger</text>
+  <text x="75" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">GitHub</text>
+  <text x="75" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">Actions</text>
+
+  <!-- Arrow 1→2 -->
+  <polygon points="145,196 155,200 145,204" fill="#4b5563"/>
+
+  <!-- 2. Lint -->
+  <rect x="158" y="145" width="110" height="110" rx="10" fill="#1a1a0a" stroke="#fbbf24" stroke-width="2"/>
+  <text x="213" y="175" text-anchor="middle" font-size="22" fill="#fbbf24">✦</text>
+  <text x="213" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Lint</text>
+  <text x="213" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">ruff / mypy</text>
+  <text x="213" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">eslint</text>
+  <text x="213" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">tsc --noEmit</text>
+
+  <!-- Arrow 2→3 -->
+  <polygon points="283,196 293,200 283,204" fill="#4b5563"/>
+
+  <!-- 3. Test -->
+  <rect x="296" y="145" width="110" height="110" rx="10" fill="#14532d" stroke="#22c55e" stroke-width="2"/>
+  <text x="351" y="175" text-anchor="middle" font-size="22" fill="#22c55e">✓</text>
+  <text x="351" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Test</text>
+  <text x="351" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">pytest</text>
+  <text x="351" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">vitest</text>
+  <text x="351" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">coverage ≥75%</text>
+
+  <!-- Arrow 3→4 -->
+  <polygon points="421,196 431,200 421,204" fill="#4b5563"/>
+
+  <!-- 4. Build -->
+  <rect x="434" y="145" width="110" height="110" rx="10" fill="#0f1f0f" stroke="#22c55e" stroke-width="2"/>
+  <text x="489" y="175" text-anchor="middle" font-size="22" fill="#4ade80">⬡</text>
+  <text x="489" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Build</text>
+  <text x="489" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">docker build</text>
+  <text x="489" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">multi-stage</text>
+  <text x="489" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">linux/amd64</text>
+
+  <!-- Arrow 4→5 -->
+  <polygon points="559,196 569,200 559,204" fill="#4b5563"/>
+
+  <!-- 5. Push -->
+  <rect x="572" y="145" width="110" height="110" rx="10" fill="#0a1628" stroke="#22d3ee" stroke-width="2"/>
+  <text x="627" y="175" text-anchor="middle" font-size="22" fill="#22d3ee">↑</text>
+  <text x="627" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Push</text>
+  <text x="627" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">ghcr.io</text>
+  <text x="627" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">:latest</text>
+  <text x="627" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">:v1.2.3</text>
+
+  <!-- Arrow 5→6 -->
+  <polygon points="697,196 707,200 697,204" fill="#4b5563"/>
+
+  <!-- 6. Deploy (optional) -->
+  <rect x="710" y="145" width="110" height="110" rx="10" fill="#1f0a2a" stroke="#a855f7" stroke-width="2"/>
+  <text x="765" y="175" text-anchor="middle" font-size="22" fill="#a855f7">▶</text>
+  <text x="765" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Deploy</text>
+  <text x="765" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">Railway</text>
+  <text x="765" y="230" text-anchor="middle" font-size="10" fill="#94a3b8">Fly.io</text>
+  <text x="765" y="244" text-anchor="middle" font-size="10" fill="#94a3b8">VPS</text>
+
+  <!-- Fail path indicator -->
+  <rect x="296" y="290" width="110" height="36" rx="6" fill="#2a0a0a" stroke="#f87171" stroke-width="1.5"/>
+  <text x="351" y="308" text-anchor="middle" font-size="11" font-weight="600" fill="#f87171">✗ Tests fail</text>
+  <text x="351" y="320" text-anchor="middle" font-size="10" fill="#94a3b8">pipeline stops</text>
+  <line x1="351" y1="255" x2="351" y2="290" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- GitHub Actions label -->
+  <rect x="820" y="145" width="70" height="110" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="855" y="183" text-anchor="middle" font-size="10" fill="#8b949e">GitHub</text>
+  <text x="855" y="197" text-anchor="middle" font-size="10" fill="#8b949e">Actions</text>
+  <text x="855" y="215" text-anchor="middle" font-size="20" fill="#f0f6fc">⚙</text>
+  <text x="855" y="238" text-anchor="middle" font-size="9" fill="#8b949e">ubuntu-</text>
+  <text x="855" y="250" text-anchor="middle" font-size="9" fill="#8b949e">latest</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="370" text-anchor="middle" font-size="11" fill="#6b7280">Cada push a main dispara el workflow · Los PRs solo ejecutan lint + test</text>
+</svg>

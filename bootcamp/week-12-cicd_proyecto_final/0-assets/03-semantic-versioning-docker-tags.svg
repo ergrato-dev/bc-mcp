@@ -1,0 +1,67 @@
+<svg viewBox="0 0 880 500"
+  xmlns="http://www.w3.org/2000/svg" font-family="Inter, Roboto, system-ui, sans-serif">
+  <rect width="880" height="500" fill="#111827"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f9fafb">Semantic Versioning y Tags de Docker en CI</text>
+  <text x="440" y="58" text-anchor="middle" font-size="12" fill="#6b7280">git tag v1.2.3 → CI genera imagen Docker etiquetada automáticamente</text>
+
+  <!-- SEMVER box -->
+  <rect x="30" y="78" width="390" height="180" rx="10" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2"/>
+  <text x="225" y="103" text-anchor="middle" font-size="14" font-weight="700" fill="#60a5fa">Semantic Versioning (SemVer)</text>
+
+  <!-- Version display -->
+  <rect x="60" y="115" width="340" height="70" rx="8" fill="#0d1b2a"/>
+  <text x="230" y="145" text-anchor="middle" font-size="36" font-weight="800" fill="#e2e8f0" letter-spacing="2" font-family="monospace">v1.2.3</text>
+  <text x="100" y="172" text-anchor="middle" font-size="11" fill="#f87171">MAJOR</text>
+  <text x="230" y="172" text-anchor="middle" font-size="11" fill="#fbbf24">MINOR</text>
+  <text x="360" y="172" text-anchor="middle" font-size="11" fill="#4ade80">PATCH</text>
+
+  <text x="60" y="205" font-size="11" fill="#f87171">■</text>
+  <text x="75" y="205" font-size="11" fill="#e2e8f0">MAJOR: cambios que rompen compatibilidad (breaking)</text>
+  <text x="60" y="222" font-size="11" fill="#fbbf24">■</text>
+  <text x="75" y="222" font-size="11" fill="#e2e8f0">MINOR: nuevas funciones compatible con versión anterior</text>
+  <text x="60" y="239" font-size="11" fill="#4ade80">■</text>
+  <text x="75" y="239" font-size="11" fill="#e2e8f0">PATCH: fixes y correcciones menores de bugs</text>
+
+  <!-- Docker tags box -->
+  <rect x="460" y="78" width="390" height="180" rx="10" fill="#0f1f0f" stroke="#22c55e" stroke-width="2"/>
+  <text x="655" y="103" text-anchor="middle" font-size="14" font-weight="700" fill="#22c55e">Docker Tags generados en CI</text>
+
+  <text x="480" y="128" font-size="12" fill="#94a3b8">Dado el evento: git tag v1.2.3 en main</text>
+
+  <rect x="480" y="140" width="350" height="105" rx="6" fill="#0d1b22"/>
+  <text x="500" y="163" font-size="11" fill="#6b7280" font-family="monospace"># Tags generados automáticamente:</text>
+  <text x="500" y="182" font-size="12" fill="#22d3ee" font-family="monospace">ghcr.io/user/mcp-server:latest</text>
+  <text x="500" y="201" font-size="12" fill="#22d3ee" font-family="monospace">ghcr.io/user/mcp-server:v1</text>
+  <text x="500" y="220" font-size="12" fill="#22d3ee" font-family="monospace">ghcr.io/user/mcp-server:v1.2</text>
+  <text x="500" y="239" font-size="12" fill="#a5d6ff" font-family="monospace">ghcr.io/user/mcp-server:v1.2.3</text>
+
+  <!-- Workflow snippet -->
+  <rect x="30" y="278" width="820" height="190" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="50" y="300" font-size="13" font-weight="700" fill="#8b949e" font-family="monospace">Fragmento de workflow — build y push condicional al tag</text>
+
+  <text x="50" y="322" font-size="11" fill="#79c0ff" font-family="monospace">on</text>
+  <text x="70" y="322" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="60" y="338" font-size="11" fill="#79c0ff" font-family="monospace">  push</text>
+  <text x="100" y="338" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="70" y="354" font-size="11" fill="#ffa657" font-family="monospace">    tags</text>
+  <text x="106" y="354" font-size="11" fill="#e6edf3" font-family="monospace">: ["v*.*.*"]   </text>
+  <text x="260" y="354" font-size="11" fill="#6b7280" font-family="monospace"># solo cuando se crea un tag semver</text>
+
+  <text x="50" y="376" font-size="11" fill="#ffa657" font-family="monospace">  - name</text>
+  <text x="110" y="376" font-size="11" fill="#e6edf3" font-family="monospace">: Extract Docker metadata</text>
+  <text x="58" y="392" font-size="11" fill="#79c0ff" font-family="monospace">    uses</text>
+  <text x="96" y="392" font-size="11" fill="#a5d6ff" font-family="monospace">: docker/metadata-action@v5   </text>
+  <text x="280" y="392" font-size="11" fill="#6b7280" font-family="monospace"># genera tags automáticos según SemVer</text>
+  <text x="58" y="408" font-size="11" fill="#79c0ff" font-family="monospace">    with</text>
+  <text x="100" y="408" font-size="11" fill="#e6edf3" font-family="monospace">:</text>
+  <text x="68" y="424" font-size="11" fill="#ffa657" font-family="monospace">      images</text>
+  <text x="128" y="424" font-size="11" fill="#a5d6ff" font-family="monospace">: ghcr.io/${{ github.repository_owner }}/mcp-server</text>
+  <text x="68" y="440" font-size="11" fill="#ffa657" font-family="monospace">      flavor</text>
+  <text x="128" y="440" font-size="11" fill="#a5d6ff" font-family="monospace">: latest=auto   </text>
+  <text x="260" y="440" font-size="11" fill="#6b7280" font-family="monospace"># :latest solo en tag de release</text>
+  <text x="68" y="456" font-size="11" fill="#ffa657" font-family="monospace">      tags</text>
+  <text x="108" y="456" font-size="11" fill="#a5d6ff" font-family="monospace">: type=semver,pattern={{version}}   </text>
+  <text x="340" y="456" font-size="11" fill="#6b7280" font-family="monospace"># :v1.2.3 :v1.2 :v1</text>
+</svg>

@@ -1,0 +1,56 @@
+# Dockerfile multi-stage para MCP Server Python
+#
+# INSTRUCCIONES: Descomenta las secciones indicadas en cada PASO.
+# El patrón multi-stage reduce el tamaño final y mejora la seguridad.
+
+# ============================================
+# PASO 3: Stage builder — instalar dependencias con uv
+# ============================================
+# Descomenta las siguientes líneas:
+
+# FROM python:3.13-slim AS builder
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     UV_SYSTEM_PYTHON=1
+#
+# # Instalar uv para gestión de dependencias
+# RUN pip install --no-cache-dir uv==0.6.6
+#
+# WORKDIR /app
+#
+# # Copiar solo archivos de dependencias (aprovecha layer cache)
+# COPY pyproject.toml ./
+#
+# # Instalar dependencias en el directorio .venv local
+# RUN uv venv /app/.venv && \
+#     uv sync --no-dev
+
+
+# ============================================
+# PASO 4: Stage runtime — imagen final limpia
+# ============================================
+# Descomenta las siguientes líneas:
+
+# FROM python:3.13-slim AS runtime
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     PATH="/app/.venv/bin:$PATH"
+#
+# # Crear usuario no-root para seguridad
+# RUN groupadd --gid 1000 appgroup && \
+#     useradd --uid 1000 --gid appgroup --no-create-home appuser
+#
+# WORKDIR /app
+#
+# # Copiar solo el venv del stage builder (sin uv, sin caché de pip)
+# COPY --from=builder /app/.venv /app/.venv
+#
+# # Copiar código fuente
+# COPY src/ ./src/
+#
+# # Ejecutar como usuario no-root
+# USER appuser
+#
+# CMD ["python", "src/server.py"]

@@ -1,0 +1,59 @@
+# ============================================
+# Dockerfile.python — MCP Library Server
+# Build multi-etapa: builder + runtime
+# ============================================
+
+# ============================================
+# TODO 1: Etapa builder — instalar dependencias
+# ============================================
+# FROM python:3.13-slim AS builder
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     UV_SYSTEM_PYTHON=1
+#
+# # Instalar uv (gestor de paquetes)
+# RUN pip install --no-cache-dir uv==0.6.6
+#
+# WORKDIR /app
+#
+# # Copiar solo archivos de dependencias primero (cache layer)
+# COPY pyproject.toml ./
+#
+# # Instalar dependencias de producción en /app/.venv
+# RUN uv venv .venv && \
+#     UV_SYSTEM_PYTHON=0 uv sync --frozen --no-dev
+
+
+# ============================================
+# TODO 2: Etapa runtime — imagen mínima final
+# ============================================
+# FROM python:3.13-slim AS runtime
+#
+# ENV PYTHONDONTWRITEBYTECODE=1 \
+#     PYTHONUNBUFFERED=1 \
+#     PATH="/app/.venv/bin:$PATH"
+#
+# # Crear usuario no-root por seguridad
+# RUN groupadd --gid 1001 appgroup && \
+#     useradd --uid 1001 --gid appgroup --no-create-home appuser
+#
+# WORKDIR /app
+#
+# # Copiar .venv del builder (sin incluir herramientas de build)
+# COPY --from=builder /app/.venv /app/.venv
+#
+# # Copiar código fuente
+# COPY src/ src/
+#
+# # Crear directorio para la base de datos con permisos correctos
+# RUN mkdir -p /data && chown appuser:appgroup /data
+#
+# USER appuser
+#
+# EXPOSE 8000
+#
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \
+#     CMD python -c "import httpx; httpx.get('http://localhost:8000/health')" || exit 1
+#
+# CMD ["python", "-m", "src.server"]

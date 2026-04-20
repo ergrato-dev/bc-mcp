@@ -1,0 +1,84 @@
+# CI — TypeScript MCP Server
+#
+# INSTRUCCIONES: Descomenta las secciones indicadas en cada PASO.
+# Cada PASO activa una parte del pipeline de CI para TypeScript.
+
+# ============================================
+# PASO 3: Nombre, triggers y permisos
+# ============================================
+# Descomenta las siguientes líneas:
+
+# name: CI — TypeScript MCP Server
+#
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#
+# permissions:
+#   contents: read
+#   packages: write
+
+# ============================================
+# PASO 4: Job de lint y type check
+# ============================================
+# Descomenta el bloque de jobs:
+
+# jobs:
+#   lint:
+#     name: Lint & Type Check
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: "22"
+#
+#       - name: Enable pnpm via corepack
+#         run: corepack enable && corepack prepare pnpm@10.7.0 --activate
+#
+#       - name: Cache pnpm store
+#         uses: actions/cache@v4
+#         with:
+#           path: ~/.local/share/pnpm/store
+#           key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+#           restore-keys: pnpm-${{ runner.os }}-
+#
+#       - name: Install dependencies
+#         run: pnpm install --frozen-lockfile
+#
+#       - name: Type check
+#         run: pnpm exec tsc --noEmit
+
+# ============================================
+# PASO 4 (continuación): Job de tests
+# ============================================
+# Descomenta el job de tests:
+
+#   test:
+#     name: Tests with vitest
+#     runs-on: ubuntu-latest
+#     needs: lint
+#     steps:
+#       - uses: actions/checkout@v4
+#
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: "22"
+#
+#       - name: Enable pnpm via corepack
+#         run: corepack enable && corepack prepare pnpm@10.7.0 --activate
+#
+#       - name: Cache pnpm store
+#         uses: actions/cache@v4
+#         with:
+#           path: ~/.local/share/pnpm/store
+#           key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+#           restore-keys: pnpm-${{ runner.os }}-
+#
+#       - name: Install dependencies
+#         run: pnpm install --frozen-lockfile
+#
+#       - name: Run tests
+#         run: pnpm test

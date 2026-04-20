@@ -1,0 +1,65 @@
+# docker-compose.yml — MCP Library System (Proyecto Final)
+#
+# Orquesta el servidor MCP, el cliente LLM y un volumen persistente.
+#
+# INSTRUCCIONES:
+# 1. Copia .env.example a .env y añade ANTHROPIC_API_KEY
+# 2. Descomenta las secciones TODO una por una
+# 3. Verifica con: docker compose config (muestra el YAML sin errores)
+# 4. Ejecuta con: docker compose up --build
+
+# ============================================
+# TODO 1: Servicio mcp-server
+# ============================================
+# Construye y ejecuta el servidor MCP con HTTP+SSE.
+#
+# services:
+#   mcp-server:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.python
+#     container_name: mcp-server
+#     ports:
+#       - "8000:8000"        # Exponer SSE endpoint
+#     volumes:
+#       - library_data:/data  # Base de datos persistente
+#     env_file: .env
+#     environment:
+#       DB_PATH: /data/library.db
+#     healthcheck:
+#       test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health')"]
+#       interval: 30s
+#       timeout: 5s
+#       retries: 3
+#       start_period: 10s
+#     restart: unless-stopped
+
+
+# ============================================
+# TODO 2: Servicio mcp-client
+# ============================================
+# Construye y ejecuta el cliente LLM interactivo.
+# Depende del servidor y espera a que esté healthy.
+#
+#   mcp-client:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.client
+#     container_name: mcp-client
+#     depends_on:
+#       mcp-server:
+#         condition: service_healthy    # Esperar al healthcheck del server
+#     env_file: .env
+#     environment:
+#       MCP_SERVER_URL: http://mcp-server:8000/sse  # Nombre del servicio Docker
+#     stdin_open: true      # Permite entrada interactiva del usuario
+#     tty: true
+
+
+# ============================================
+# TODO 3: Volumen para datos persistentes
+# ============================================
+#
+# volumes:
+#   library_data:
+#     driver: local
