@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="480" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">MCP Resources — Arquitectura list + read</text>
+  <text x="410" y="56" text-anchor="middle" font-size="13" fill="#8B949E">El cliente descubre URIs y lee contenido a través del servidor</text>
+
+  <!-- CLIENT box (x=20, w=155, y=76, h=290) -->
+  <rect x="20" y="76" width="155" height="290" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="97" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#58A6FF">Cliente MCP</text>
+  <text x="97" y="115" text-anchor="middle" font-size="10" fill="#8B949E">LLM / App</text>
+
+  <!-- Client call 1: resources/list -->
+  <rect x="34" y="130" width="127" height="36" rx="6" fill="#0D1117" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="97" y="146" text-anchor="middle" font-size="10" fill="#BC8CFF">resources/list</text>
+  <text x="97" y="160" text-anchor="middle" font-size="9" fill="#8B949E">sin parámetros</text>
+
+  <!-- Client call 2: resources/read -->
+  <rect x="34" y="248" width="127" height="46" rx="6" fill="#0D1117" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="97" y="264" text-anchor="middle" font-size="10" fill="#BC8CFF">resources/read</text>
+  <text x="97" y="278" text-anchor="middle" font-size="9" fill="#E6EDF3">uri:</text>
+  <text x="113" y="278" font-size="9" fill="#F0883E">"tasks://all"</text>
+
+  <!-- Arrow list request -->
+  <line x1="175" y1="148" x2="258" y2="148" stroke="#BC8CFF" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
+  <text x="216" y="141" text-anchor="middle" font-size="9" fill="#BC8CFF">request</text>
+
+  <!-- Arrow list response -->
+  <line x1="258" y1="198" x2="175" y2="198" stroke="#3FB950" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="216" y="191" text-anchor="middle" font-size="9" fill="#3FB950">URI list</text>
+
+  <!-- Arrow read request -->
+  <line x1="175" y1="271" x2="258" y2="271" stroke="#BC8CFF" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
+  <text x="216" y="264" text-anchor="middle" font-size="9" fill="#BC8CFF">request</text>
+
+  <!-- Arrow read response -->
+  <line x1="258" y1="315" x2="175" y2="315" stroke="#3FB950" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="216" y="308" text-anchor="middle" font-size="9" fill="#3FB950">content</text>
+
+  <!-- SERVER box (x=258, w=310, y=76, h=290) -->
+  <rect x="258" y="76" width="310" height="290" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="1.5"/>
+  <text x="413" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#3FB950">MCP Server</text>
+  <text x="413" y="115" text-anchor="middle" font-size="10" fill="#8B949E">Python / TypeScript</text>
+
+  <!-- resources/list response box -->
+  <rect x="272" y="128" width="282" height="80" rx="6" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+  <text x="413" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#E6EDF3">resources/list response</text>
+  <text x="283" y="160" font-size="9" fill="#E6EDF3">[</text>
+  <text x="293" y="173" font-size="9" fill="#E6EDF3">{ uri:</text>
+  <text x="327" y="173" font-size="9" fill="#F0883E">"tasks://all"</text>
+  <text x="392" y="173" font-size="9" fill="#E6EDF3">, name:</text>
+  <text x="432" y="173" font-size="9" fill="#3FB950">"All Tasks"</text>
+  <text x="490" y="173" font-size="9" fill="#E6EDF3">},</text>
+  <text x="293" y="186" font-size="9" fill="#E6EDF3">{ uri:</text>
+  <text x="327" y="186" font-size="9" fill="#F0883E">"tasks://pending"</text>
+  <text x="406" y="186" font-size="9" fill="#E6EDF3">, name:</text>
+  <text x="446" y="186" font-size="9" fill="#3FB950">"Pending"</text>
+  <text x="494" y="186" font-size="9" fill="#E6EDF3">}</text>
+  <text x="283" y="199" font-size="9" fill="#E6EDF3">]</text>
+
+  <!-- resources/read response box -->
+  <rect x="272" y="246" width="282" height="72" rx="6" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+  <text x="413" y="261" text-anchor="middle" font-size="10" font-weight="700" fill="#E6EDF3">resources/read response</text>
+  <text x="283" y="278" font-size="9" fill="#E6EDF3">{ contents: [{</text>
+  <text x="293" y="291" font-size="9" fill="#58A6FF">uri:</text>
+  <text x="315" y="291" font-size="9" fill="#F0883E">"tasks://all"</text>
+  <text x="371" y="291" font-size="9" fill="#E6EDF3">,</text>
+  <text x="379" y="291" font-size="9" fill="#58A6FF">mimeType:</text>
+  <text x="432" y="291" font-size="9" fill="#3FB950">"application/json"</text>
+  <text x="293" y="304" font-size="9" fill="#58A6FF">text:</text>
+  <text x="315" y="304" font-size="9" fill="#3FB950">"[{\"id\":1, ...}]"</text>
+  <text x="283" y="311" font-size="9" fill="#E6EDF3">}] }</text>
+
+  <!-- DATA box (x=598, w=202, y=76, h=290) -->
+  <rect x="598" y="76" width="202" height="290" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="699" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#F0883E">Fuente de Datos</text>
+  <text x="699" y="115" text-anchor="middle" font-size="10" fill="#8B949E">archivo / DB / API</text>
+
+  <!-- Data URIs -->
+  <text x="614" y="148" font-size="10" fill="#3FB950">tasks://all</text>
+  <text x="614" y="162" font-size="9" fill="#8B949E">→ todas las tareas</text>
+  <text x="614" y="184" font-size="10" fill="#3FB950">tasks://pending</text>
+  <text x="614" y="198" font-size="9" fill="#8B949E">→ tareas pendientes</text>
+  <text x="614" y="220" font-size="10" fill="#3FB950">tasks://done</text>
+  <text x="614" y="234" font-size="9" fill="#8B949E">→ tareas completadas</text>
+  <text x="614" y="256" font-size="10" fill="#F0883E">tasks://{id}</text>
+  <text x="614" y="270" font-size="9" fill="#8B949E">→ template (§2)</text>
+
+  <!-- Arrow server → data -->
+  <line x1="568" y1="200" x2="596" y2="200" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowOrange)"/>
+
+  <!-- Bottom code row -->
+  <rect x="20" y="392" width="780" height="72" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="410" text-anchor="middle" font-size="11" font-weight="700" fill="#E6EDF3">Implementación del handler de resource</text>
+
+  <!-- Python code -->
+  <text x="36" y="430" font-size="10" fill="#8B949E">Python</text>
+  <text x="80" y="430" font-size="10" fill="#BC8CFF">@mcp.resource(</text>
+  <text x="170" y="430" font-size="10" fill="#F0883E">"tasks://all"</text>
+  <text x="224" y="430" font-size="10" fill="#BC8CFF">)</text>
+  <text x="36" y="450" font-size="10" fill="#BC8CFF">async def</text>
+  <text x="88" y="450" font-size="10" fill="#3FB950">all_tasks</text>
+  <text x="134" y="450" font-size="10" fill="#E6EDF3">() -> str:</text>
+  <text x="195" y="450" font-size="10" fill="#BC8CFF">return</text>
+  <text x="230" y="450" font-size="10" fill="#E6EDF3">json.dumps(tasks)</text>
+
+  <!-- TypeScript code -->
+  <text x="420" y="430" font-size="10" fill="#8B949E">TypeScript</text>
+  <text x="479" y="430" font-size="10" fill="#E6EDF3">server.</text>
+  <text x="513" y="430" font-size="10" fill="#3FB950">resource</text>
+  <text x="553" y="430" font-size="10" fill="#E6EDF3">(</text>
+  <text x="559" y="430" font-size="10" fill="#F0883E">"tasks://all"</text>
+  <text x="614" y="430" font-size="10" fill="#E6EDF3">,</text>
+  <text x="622" y="430" font-size="10" fill="#BC8CFF">async</text>
+  <text x="652" y="430" font-size="10" fill="#E6EDF3">() => ({</text>
+  <text x="479" y="450" font-size="10" fill="#E6EDF3">contents: [{ uri:</text>
+  <text x="569" y="450" font-size="10" fill="#F0883E">"tasks://all"</text>
+  <text x="626" y="450" font-size="10" fill="#E6EDF3">, text:</text>
+  <text x="660" y="450" font-size="10" fill="#E6EDF3">JSON.stringify(tasks) }] }))</text>
+
+  <defs>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#BC8CFF"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3FB950"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F0883E"/>
+    </marker>
+  </defs>
+</svg>

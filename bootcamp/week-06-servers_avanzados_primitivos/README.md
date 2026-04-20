@@ -49,22 +49,22 @@ week-06-servers_avanzados_primitivos/
 
 ### 📖 Teoría ([1-teoria/](1-teoria/README.md))
 
-1. Implementación de Resources: list y read handlers
-2. Resource templates: URIs con variables {param}
-3. Implementación de Prompts: list y get handlers
-4. Combinación de los 3 primitivos en un server completo
-5. Gestión de contexto en tools (ctx: Context)
+1. [Resources: list y read handlers](1-teoria/01-resources-list-y-read.md)
+2. [Resource templates: URIs con variables {param}](1-teoria/02-resource-templates-uris-variables.md)
+3. [Prompts: list y get handlers con argumentos](1-teoria/03-prompts-argumentos-y-plantillas.md)
+4. [Combinando los 3 primitivos en un server](1-teoria/04-combinando-los-tres-primitivos.md)
+5. [Context object y gestión de estado](1-teoria/05-context-y-estado-en-mcp.md)
 
-### 💻 Prácticas ([2-practicas/](2-practicas/README.md))
+### 💻 Prácticas ([2-practicas/](2-practicas/))
 
-1. Agregar resources a un server Python existente
-2. Agregar resources al server TypeScript
-3. Implementar prompts con argumentos en ambos lenguajes
-4. Crear un server completo con los 3 primitivos
+1. [practica-01](2-practicas/practica-01-resources-python/) — Resources en Python (FastMCP)
+2. [practica-02](2-practicas/practica-02-resources-typescript/) — Resources en TypeScript
+3. [practica-03](2-practicas/practica-03-prompts-ambos/) — Prompts en Python y TypeScript
+4. [practica-04](2-practicas/practica-04-server-completo/) — Server completo con los 3 primitivos
 
 ### 🏗️ Proyecto ([3-proyecto/](3-proyecto/README.md))
 
-MCP Server (Python y TypeScript) con tools + resources + prompts sobre un dominio real
+Task Manager MCP con Tools + Resources + Prompts en Python y TypeScript
 
 ---
 

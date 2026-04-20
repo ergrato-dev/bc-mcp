@@ -1,8 +1,53 @@
-# Proyecto — Semana 06: Servers Avanzados — Los 3 Primitivos
+# Proyecto — Task Manager MCP (Semana 06)
 
 ## 🎯 Descripción
 
-MCP Server (Python y TypeScript) con tools + resources + prompts sobre un dominio real
+Construye un **Task Manager** con los 3 primitivos MCP:
+
+- **Tools**: crear, completar, eliminar y buscar tareas
+- **Resources**: leer tareas por estado y por ID
+- **Prompts**: generar conversaciones contextuales de revisión y planificación
+
+Implementa el server en **Python** y **TypeScript** siguiendo los archivos `starter/`.
+
+## 📋 Entregables
+
+1. `python-server/src/server.py` — todos los TODOs implementados
+2. `ts-server/src/index.ts` — todos los TODOs implementados
+3. Evidencia de pruebas con MCP Inspector (screenshots o texto)
+
+## ✅ Criterios de Evaluación
+
+Ver [rubrica-evaluacion.md](../rubrica-evaluacion.md) para los criterios detallados.
+
+## 🚀 Instrucciones
+
+1. Navega a `starter/`
+2. Lee los comentarios `TODO` en cada archivo fuente
+3. Implementa cada TODO
+4. Levanta con `docker compose up --build`
+5. Verifica con MCP Inspector
+
+## 📁 Estructura
+
+```
+3-proyecto/
+├── README.md
+└── starter/
+    ├── docker-compose.yml
+    ├── .env.example
+    ├── python-server/
+    │   ├── Dockerfile.python
+    │   ├── pyproject.toml
+    │   └── src/
+    │       └── server.py
+    └── ts-server/
+        ├── Dockerfile.node
+        ├── package.json
+        ├── tsconfig.json
+        └── src/
+            └── index.ts
+```
 
 ## 📋 Instrucciones
 

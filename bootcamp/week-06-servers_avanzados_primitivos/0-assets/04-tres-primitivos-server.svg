@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="500" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">Los 3 Primitivos en un Solo Server</text>
+  <text x="410" y="56" text-anchor="middle" font-size="13" fill="#8B949E">Tools + Resources + Prompts — arquitectura completa</text>
+
+  <!-- CLIENT (left, x=20, w=130, y=80, h=340) -->
+  <rect x="20" y="80" width="130" height="340" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="85" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#58A6FF">Cliente MCP</text>
+  <text x="85" y="118" text-anchor="middle" font-size="9" fill="#8B949E">LLM / App</text>
+
+  <!-- Client calls -->
+  <text x="85" y="148" text-anchor="middle" font-size="9" fill="#BC8CFF">tools/call</text>
+  <text x="85" y="163" text-anchor="middle" font-size="9" fill="#8B949E">ejecutar acción</text>
+
+  <line x1="85" y1="168" x2="85" y2="202" stroke="#30363D" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="85" y="222" text-anchor="middle" font-size="9" fill="#3FB950">resources/list</text>
+  <text x="85" y="237" text-anchor="middle" font-size="9" fill="#8B949E">resources/read</text>
+
+  <line x1="85" y1="242" x2="85" y2="276" stroke="#30363D" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="85" y="296" text-anchor="middle" font-size="9" fill="#F0883E">prompts/list</text>
+  <text x="85" y="311" text-anchor="middle" font-size="9" fill="#8B949E">prompts/get</text>
+
+  <!-- Arrows client → server -->
+  <line x1="150" y1="155" x2="198" y2="155" stroke="#BC8CFF" stroke-width="1.5" marker-end="url(#aBlue)"/>
+  <line x1="150" y1="230" x2="198" y2="230" stroke="#3FB950" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <line x1="150" y1="303" x2="198" y2="303" stroke="#F0883E" stroke-width="1.5" marker-end="url(#aOrange)"/>
+
+  <!-- SERVER MAIN BOX (x=198, w=430, y=80, h=340) -->
+  <rect x="198" y="80" width="430" height="340" rx="10" fill="#161B22" stroke="#6B4FBB" stroke-width="2"/>
+  <text x="413" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#BC8CFF">MCP Server</text>
+  <text x="413" y="118" text-anchor="middle" font-size="10" fill="#8B949E">"task-manager" v1.0.0</text>
+
+  <!-- TOOLS section (y=128, h=90) -->
+  <rect x="212" y="128" width="402" height="88" rx="8" fill="#0D1117" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="222" y="144" font-size="10" font-weight="700" fill="#BC8CFF">🔧 Tools</text>
+  <text x="222" y="159" font-size="9" fill="#E6EDF3">create_task(title, description, priority)</text>
+  <text x="222" y="173" font-size="9" fill="#E6EDF3">complete_task(id)</text>
+  <text x="370" y="173" font-size="9" fill="#8B949E">→ marca tarea como hecha</text>
+  <text x="222" y="187" font-size="9" fill="#E6EDF3">list_tasks(status?)</text>
+  <text x="370" y="187" font-size="9" fill="#8B949E">→ filtra por estado</text>
+  <text x="222" y="201" font-size="9" fill="#E6EDF3">get_task_stats()</text>
+  <text x="370" y="201" font-size="9" fill="#8B949E">→ contadores y métricas</text>
+
+  <!-- RESOURCES section (y=228, h=90) -->
+  <rect x="212" y="226" width="402" height="88" rx="8" fill="#0D1117" stroke="#3FB950" stroke-width="1"/>
+  <text x="222" y="242" font-size="10" font-weight="700" fill="#3FB950">📄 Resources</text>
+  <text x="222" y="257" font-size="9" fill="#E6EDF3">tasks://all</text>
+  <text x="296" y="257" font-size="9" fill="#8B949E">→ todas las tareas en JSON</text>
+  <text x="222" y="271" font-size="9" fill="#E6EDF3">tasks://pending</text>
+  <text x="320" y="271" font-size="9" fill="#8B949E">→ tareas sin completar</text>
+  <text x="222" y="285" font-size="9" fill="#E6EDF3">tasks://done</text>
+  <text x="306" y="285" font-size="9" fill="#8B949E">→ tareas completadas</text>
+  <text x="222" y="299" font-size="9" fill="#F0883E">tasks://{id}</text>
+  <text x="296" y="299" font-size="9" fill="#8B949E">→ template: tarea por ID</text>
+
+  <!-- PROMPTS section (y=324, h=82) -->
+  <rect x="212" y="324" width="402" height="80" rx="8" fill="#0D1117" stroke="#F0883E" stroke-width="1"/>
+  <text x="222" y="340" font-size="10" font-weight="700" fill="#F0883E">💬 Prompts</text>
+  <text x="222" y="355" font-size="9" fill="#E6EDF3">daily_review(date)</text>
+  <text x="330" y="355" font-size="9" fill="#8B949E">→ plantilla de revisión diaria</text>
+  <text x="222" y="369" font-size="9" fill="#E6EDF3">task_analysis(task_id)</text>
+  <text x="344" y="369" font-size="9" fill="#8B949E">→ prompt para analizar tarea</text>
+  <text x="222" y="383" font-size="9" fill="#E6EDF3">productivity_report(week)</text>
+  <text x="376" y="383" font-size="9" fill="#8B949E">→ resumen de productividad</text>
+
+  <!-- DATA box (x=648, w=152, y=80, h=340) -->
+  <rect x="648" y="80" width="152" height="340" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="724" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#58A6FF">Estado</text>
+  <text x="724" y="118" text-anchor="middle" font-size="9" fill="#8B949E">en memoria / DB</text>
+
+  <text x="662" y="148" font-size="9" fill="#8B949E">tasks: [</text>
+  <text x="672" y="162" font-size="9" fill="#E6EDF3">{ id: 1,</text>
+  <text x="672" y="176" font-size="9" fill="#58A6FF">title:</text>
+  <text x="701" y="176" font-size="9" fill="#3FB950">"Estudiar"</text>
+  <text x="672" y="190" font-size="9" fill="#58A6FF">done:</text>
+  <text x="702" y="190" font-size="9" fill="#BC8CFF">false</text>
+  <text x="662" y="204" font-size="9" fill="#E6EDF3">},</text>
+  <text x="672" y="218" font-size="9" fill="#E6EDF3">{ id: 2, ... }</text>
+  <text x="662" y="232" font-size="9" fill="#8B949E">]</text>
+
+  <!-- Arrows server → data -->
+  <line x1="628" y1="175" x2="646" y2="175" stroke="#BC8CFF" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#aBlue)"/>
+  <line x1="628" y1="270" x2="646" y2="270" stroke="#3FB950" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#aGreen)"/>
+  <line x1="628" y1="363" x2="646" y2="363" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#aOrange)"/>
+
+  <!-- Bottom: key differences row -->
+  <rect x="20" y="442" width="780" height="44" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="410" y="459" text-anchor="middle" font-size="10" font-weight="700" fill="#E6EDF3">Diferencia clave entre los 3 primitivos</text>
+  <text x="100" y="477" text-anchor="middle" font-size="9" fill="#BC8CFF">Tools</text>
+  <text x="170" y="477" text-anchor="middle" font-size="9" fill="#8B949E">→ ejecutan acciones, pueden mutar estado</text>
+  <text x="430" y="477" text-anchor="middle" font-size="9" fill="#3FB950">Resources</text>
+  <text x="510" y="477" text-anchor="middle" font-size="9" fill="#8B949E">→ lectura de datos, URI addressable</text>
+  <text x="650" y="477" text-anchor="middle" font-size="9" fill="#F0883E">Prompts</text>
+  <text x="720" y="477" text-anchor="middle" font-size="9" fill="#8B949E">→ plantillas de mensajes</text>
+
+  <defs>
+    <marker id="aBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#BC8CFF"/>
+    </marker>
+    <marker id="aGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3FB950"/>
+    </marker>
+    <marker id="aOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F0883E"/>
+    </marker>
+  </defs>
+</svg>

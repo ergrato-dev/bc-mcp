@@ -17,9 +17,18 @@ con mínimo **21 pts** en cada tipo de evidencia.
 
 | Criterio | Excelente (30) | Satisfactorio (21) | Insuficiente (<21) |
 |----------|---------------|--------------------|--------------------|
-| Comprensión conceptual | Explica todos los conceptos con precisión y puede relacionarlos | Explica los conceptos principales con algunos errores menores | No comprende los conceptos clave de la semana |
-| Terminología MCP | Usa correctamente toda la terminología del glosario | Usa la mayoría de los términos correctamente | Confunde o no usa la terminología del protocolo |
-| Casos de uso | Identifica y justifica múltiples casos de uso con criterio técnico | Identifica los casos de uso principales | No logra justificar los casos de uso |
+| Comprensión de Resources | Explica la diferencia entre resource estático y template, protocolo list/read | Explica el concepto principal con algún error menor | No distingue resources de tools |
+| Comprensión de Prompts | Explica prompts/list vs prompts/get, argumentos requeridos/opcionales | Explica el concepto pero confunde algunos detalles | No comprende la diferencia con un tool |
+| Terminología MCP | Usa correctamente: URI scheme, resource template, prompt argument, Context, state | Usa la mayoría de los términos correctamente | Confunde o no usa la terminología |
+| Casos de uso | Justifica cuándo usar tool vs resource vs prompt con criterio técnico | Identifica los casos de uso principales | No puede justificar la elección de primitivo |
+
+### Preguntas de evaluación oral (conocimiento)
+
+1. ¿Cuándo usarías un Resource en lugar de un Tool para exponer datos?
+2. ¿Qué diferencia hay entre `@mcp.resource("tasks://all")` y `@mcp.resource("tasks://{id}")`?
+3. ¿Qué retorna `prompts/get`? ¿En qué formato?
+4. ¿Por qué los Resources deben ser solo lectura?
+5. ¿Qué es el objeto `Context` en FastMCP y para qué se usa?
 
 ---
 
@@ -27,9 +36,19 @@ con mínimo **21 pts** en cada tipo de evidencia.
 
 | Criterio | Excelente (40) | Satisfactorio (28) | Insuficiente (<28) |
 |----------|---------------|--------------------|--------------------|
-| Ejercicios completados | Completa todos los ejercicios correctamente | Completa 70%+ de los ejercicios | Completa menos del 70% |
-| Calidad del código | Código limpio, type hints, async correcto, sin warnings | Código funcional con mejoras menores posibles | Código con errores o malas prácticas |
-| Comprensión del proceso | Puede explicar cada paso que realizó | Puede explicar la mayoría de los pasos | No puede explicar lo que hizo |
+| Prácticas completadas | Completa las 4 prácticas con código correcto y sin errores | Completa 3 de 4 prácticas | Completa menos de 2 prácticas |
+| Resources correctos | Resources estáticos y templates funcionan, mimeType correcto | Resources estáticos funcionan, templates con errores menores | Resources no responden o retornan formato incorrecto |
+| Prompts correctos | Prompts con argumentos funcionan, mensajes bien formados | Prompts sin argumentos funcionan | Prompts no registrados o mensajes mal formados |
+| Calidad del código Python | Type hints, async, nombres snake_case, docstrings en tools/resources | Código funcional con mejoras menores | Sin type hints o código síncrono en I/O |
+| Calidad del código TypeScript | Tipos estrictos, ESM imports, manejo correcto de `as const` | Código funcional con mejoras menores | `any` generalizado o errores de tipos |
+
+### Checklist de desempeño
+
+- [ ] practica-01: `books://all`, `books://available`, `books://{isbn}` funcionan en Python
+- [ ] practica-02: `books://all`, `books://available`, `books://isbn/{isbn}` funcionan en TypeScript
+- [ ] practica-03: Prompts con y sin argumentos funcionan en Python y TypeScript
+- [ ] practica-04: Server completo con tools + resources + prompts en ambos lenguajes
+- [ ] Cada práctica arranca con `docker compose up --build` sin errores
 
 ---
 
@@ -37,9 +56,18 @@ con mínimo **21 pts** en cada tipo de evidencia.
 
 | Criterio | Excelente (30) | Satisfactorio (21) | Insuficiente (<21) |
 |----------|---------------|--------------------|--------------------|
-| Funcionalidad | Todos los entregables funcionan correctamente con Docker | Los entregables principales funcionan | Los entregables no funcionan o están incompletos |
-| Documentación | README claro con instrucciones completas y ejemplos | README básico con instrucciones de setup | Sin README o instrucciones insuficientes |
-| Entregables completos | Todos los ítems del checklist marcados | 70%+ de los ítems completados | Menos del 70% completado |
+| Server Python funcional | Tools, Resources (estáticos + template) y Prompts funcionan en MCP Inspector | Los 3 primitivos están registrados pero algún detalle falla | El server no arranca o falta algún primitivo |
+| Server TypeScript funcional | Tools, Resources (estáticos + template) y Prompts funcionan en MCP Inspector | Los 3 primitivos están registrados pero algún detalle falla | El server no arranca o falta algún primitivo |
+| Estado compartido | Tools y Resources usan el mismo estado (crear una tarea → aparece en el resource) | El estado es compartido pero con inconsistencias menores | Estado duplicado o separado entre primitivos |
+| Docker correcto | `docker compose up --build` levanta ambos servers sin advertencias | Levanta con advertencias menores | No levanta o requiere pasos manuales |
+
+### Checklist de producto
+
+- [ ] `python-server`: `create_task` + `complete_task` + `list_tasks` + `get_task_stats` funcionan
+- [ ] `python-server`: `tasks://all`, `tasks://pending`, `tasks://done`, `tasks://{id}` funcionan
+- [ ] `python-server`: `daily_review(date)` + `productivity_report()` retornan mensajes correctos
+- [ ] `ts-server`: misma funcionalidad que el Python server
+- [ ] Verificado en MCP Inspector (screenshots o log de pruebas)
 
 ---
 

@@ -1,0 +1,14 @@
+services:
+  python-server:
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile.python
+    stdin_open: true
+    tty: true
+
+  ts-server:
+    build:
+      context: ./ts-server
+      dockerfile: Dockerfile.node
+    stdin_open: true
+    tty: true

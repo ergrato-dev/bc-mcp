@@ -248,11 +248,11 @@
 - [x] Carpetas base
 
 ### Assets + Teoría + Prácticas + Proyecto + Recursos + Glosario
-- [ ] `0-assets/` — SVGs de los 3 primitivos integrados
-- [ ] `1-teoria/` — tools complejos, resources con DB, prompts dinámicos
-- [ ] `2-practicas/` — server completo con Tools + Resources + Prompts
-- [ ] `3-proyecto/` — server de documentación con los 3 primitivos
-- [ ] `4-recursos/`, `5-glosario/README.md`
+- [x] `0-assets/` — 5 SVGs: resources arquitectura, templates, prompts flow, 3 primitivos, Python vs TS
+- [x] `1-teoria/` — 5 archivos: resources list/read, templates, prompts, combinando primitivos, context/estado
+- [x] `2-practicas/` — 4 prácticas: resources Python, resources TS, prompts ambos, server completo ambos
+- [x] `3-proyecto/` — Task Manager starter Python + TypeScript con TODOs (Tools + Resources + Prompts)
+- [x] `4-recursos/`, `5-glosario/README.md` — 20 términos, 3 READMEs de recursos
 
 ---
 

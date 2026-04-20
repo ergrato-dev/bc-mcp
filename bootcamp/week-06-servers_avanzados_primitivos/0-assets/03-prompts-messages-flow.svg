@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="820" height="460" fill="#0D1117"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#E6EDF3">MCP Prompts — Flujo list → get → messages</text>
+  <text x="410" y="56" text-anchor="middle" font-size="13" fill="#8B949E">Plantillas de conversación que el LLM puede solicitar</text>
+
+  <!-- Flow: 4 boxes connected by arrows -->
+  <!-- Box 1: prompts/list (x=20, w=165) -->
+  <rect x="20" y="80" width="165" height="200" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="1.5"/>
+  <text x="102" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#BC8CFF">prompts/list</text>
+  <text x="102" y="119" text-anchor="middle" font-size="9" fill="#8B949E">descubrir prompts</text>
+
+  <rect x="34" y="130" width="137" height="130" rx="5" fill="#0D1117" stroke="#30363D"/>
+  <text x="103" y="147" text-anchor="middle" font-size="9" fill="#E6EDF3">Response:</text>
+  <text x="44" y="163" font-size="9" fill="#E6EDF3">[{</text>
+  <text x="54" y="177" font-size="9" fill="#58A6FF">name:</text>
+  <text x="88" y="177" font-size="9" fill="#F0883E">"task_review"</text>
+  <text x="54" y="191" font-size="9" fill="#58A6FF">desc:</text>
+  <text x="84" y="191" font-size="9" fill="#3FB950">"Revisar..."</text>
+  <text x="54" y="205" font-size="9" fill="#58A6FF">args:</text>
+  <text x="84" y="205" font-size="9" fill="#E6EDF3">[</text>
+  <text x="94" y="219" font-size="9" fill="#E6EDF3">{name:</text>
+  <text x="132" y="219" font-size="9" fill="#F0883E">"date"</text>
+  <text x="163" y="219" font-size="9" fill="#E6EDF3">}</text>
+  <text x="84" y="233" font-size="9" fill="#E6EDF3">]</text>
+  <text x="44" y="247" font-size="9" fill="#E6EDF3">}]</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="185" y1="180" x2="218" y2="180" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arrP)"/>
+  <text x="201" y="173" text-anchor="middle" font-size="8" fill="#6B4FBB">call</text>
+
+  <!-- Box 2: prompts/get (x=218, w=185) -->
+  <rect x="218" y="80" width="185" height="200" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="310" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#F0883E">prompts/get</text>
+  <text x="310" y="119" text-anchor="middle" font-size="9" fill="#8B949E">obtener con argumentos</text>
+
+  <rect x="232" y="130" width="157" height="130" rx="5" fill="#0D1117" stroke="#30363D"/>
+  <text x="310" y="147" text-anchor="middle" font-size="9" fill="#E6EDF3">Request:</text>
+  <text x="242" y="163" font-size="9" fill="#E6EDF3">{</text>
+  <text x="252" y="177" font-size="9" fill="#58A6FF">name:</text>
+  <text x="285" y="177" font-size="9" fill="#F0883E">"task_review"</text>
+  <text x="252" y="191" font-size="9" fill="#58A6FF">arguments: {</text>
+  <text x="262" y="205" font-size="9" fill="#58A6FF">date:</text>
+  <text x="290" y="205" font-size="9" fill="#3FB950">"2026-04-19"</text>
+  <text x="252" y="219" font-size="9" fill="#E6EDF3">}</text>
+  <text x="242" y="233" font-size="9" fill="#E6EDF3">}</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="403" y1="180" x2="436" y2="180" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arrP)"/>
+  <text x="419" y="173" text-anchor="middle" font-size="8" fill="#6B4FBB">resolve</text>
+
+  <!-- Box 3: messages array (x=436, w=210) -->
+  <rect x="436" y="80" width="210" height="200" rx="10" fill="#161B22" stroke="#3FB950" stroke-width="1.5"/>
+  <text x="541" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#3FB950">messages [ ]</text>
+  <text x="541" y="119" text-anchor="middle" font-size="9" fill="#8B949E">array de mensajes</text>
+
+  <rect x="450" y="130" width="182" height="130" rx="5" fill="#0D1117" stroke="#30363D"/>
+  <text x="541" y="147" text-anchor="middle" font-size="9" fill="#E6EDF3">Response messages:</text>
+  <text x="460" y="163" font-size="9" fill="#E6EDF3">[{</text>
+  <text x="470" y="177" font-size="9" fill="#58A6FF">role:</text>
+  <text x="498" y="177" font-size="9" fill="#F0883E">"user"</text>
+  <text x="470" y="191" font-size="9" fill="#58A6FF">content: {</text>
+  <text x="480" y="205" font-size="9" fill="#58A6FF">type:</text>
+  <text x="507" y="205" font-size="9" fill="#3FB950">"text"</text>
+  <text x="480" y="219" font-size="9" fill="#58A6FF">text:</text>
+  <text x="503" y="219" font-size="9" fill="#3FB950">"Revisa las tareas</text>
+  <text x="503" y="231" font-size="9" fill="#3FB950">del 2026-04-19"</text>
+  <text x="460" y="247" font-size="9" fill="#E6EDF3">}]</text>
+
+  <!-- Arrow 3 → 4 -->
+  <line x1="646" y1="180" x2="676" y2="180" stroke="#6B4FBB" stroke-width="2" marker-end="url(#arrP)"/>
+  <text x="661" y="173" text-anchor="middle" font-size="8" fill="#6B4FBB">inject</text>
+
+  <!-- Box 4: LLM (x=676, w=124) -->
+  <rect x="676" y="80" width="124" height="200" rx="10" fill="#161B22" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="738" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#58A6FF">LLM</text>
+  <text x="738" y="119" text-anchor="middle" font-size="9" fill="#8B949E">contexto de inicio</text>
+
+  <rect x="690" y="130" width="96" height="130" rx="5" fill="#0D1117" stroke="#30363D"/>
+  <text x="738" y="147" text-anchor="middle" font-size="9" fill="#E6EDF3">Recibe</text>
+  <text x="738" y="163" text-anchor="middle" font-size="9" fill="#E6EDF3">mensajes</text>
+  <text x="738" y="177" text-anchor="middle" font-size="9" fill="#E6EDF3">pre-escritos</text>
+  <text x="738" y="197" text-anchor="middle" font-size="9" fill="#8B949E">como contexto</text>
+  <text x="738" y="211" text-anchor="middle" font-size="9" fill="#8B949E">inicial de</text>
+  <text x="738" y="225" text-anchor="middle" font-size="9" fill="#8B949E">conversación</text>
+
+  <!-- Python implementation box -->
+  <rect x="20" y="302" width="380" height="142" rx="10" fill="#161B22" stroke="#BC8CFF" stroke-width="1"/>
+  <text x="210" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#BC8CFF">Python — @mcp.prompt()</text>
+
+  <text x="34" y="342" font-size="9" fill="#BC8CFF">@mcp.prompt()</text>
+  <text x="34" y="357" font-size="9" fill="#BC8CFF">async def</text>
+  <text x="88" y="357" font-size="9" fill="#3FB950">task_review</text>
+  <text x="146" y="357" font-size="9" fill="#E6EDF3">(date: str) -> list[</text>
+  <text x="270" y="357" font-size="9" fill="#BC8CFF">Message</text>
+  <text x="311" y="357" font-size="9" fill="#E6EDF3">]:</text>
+  <text x="34" y="372" font-size="9" fill="#BC8CFF">    return</text>
+  <text x="80" y="372" font-size="9" fill="#E6EDF3">[</text>
+  <text x="44" y="387" font-size="9" fill="#E6EDF3">Message(role=</text>
+  <text x="122" y="387" font-size="9" fill="#F0883E">"user"</text>
+  <text x="148" y="387" font-size="9" fill="#E6EDF3">, content=TextContent(</text>
+  <text x="44" y="402" font-size="9" fill="#E6EDF3">type=</text>
+  <text x="70" y="402" font-size="9" fill="#F0883E">"text"</text>
+  <text x="96" y="402" font-size="9" fill="#E6EDF3">, text=</text>
+  <text x="126" y="402" font-size="9" fill="#3FB950">f"Revisa las tareas del {date}"</text>
+  <text x="44" y="416" font-size="9" fill="#E6EDF3">))</text>
+  <text x="34" y="430" font-size="9" fill="#E6EDF3">]</text>
+
+  <!-- TypeScript implementation box -->
+  <rect x="420" y="302" width="380" height="142" rx="10" fill="#161B22" stroke="#F0883E" stroke-width="1"/>
+  <text x="610" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#F0883E">TypeScript — server.prompt()</text>
+
+  <text x="434" y="342" font-size="9" fill="#E6EDF3">server.</text>
+  <text x="465" y="342" font-size="9" fill="#3FB950">prompt</text>
+  <text x="497" y="342" font-size="9" fill="#E6EDF3">(</text>
+  <text x="502" y="342" font-size="9" fill="#F0883E">"task_review"</text>
+  <text x="563" y="342" font-size="9" fill="#E6EDF3">,</text>
+  <text x="434" y="357" font-size="9" fill="#E6EDF3">{ date:</text>
+  <text x="474" y="357" font-size="9" fill="#BC8CFF">z.string()</text>
+  <text x="521" y="357" font-size="9" fill="#E6EDF3">},</text>
+  <text x="434" y="372" font-size="9" fill="#BC8CFF">async</text>
+  <text x="460" y="372" font-size="9" fill="#E6EDF3">({ date }) => ({</text>
+  <text x="434" y="387" font-size="9" fill="#E6EDF3">messages: [{</text>
+  <text x="444" y="402" font-size="9" fill="#58A6FF">role:</text>
+  <text x="470" y="402" font-size="9" fill="#F0883E">"user"</text>
+  <text x="496" y="402" font-size="9" fill="#E6EDF3">,</text>
+  <text x="504" y="402" font-size="9" fill="#58A6FF">content:</text>
+  <text x="548" y="402" font-size="9" fill="#E6EDF3">{ type:</text>
+  <text x="583" y="402" font-size="9" fill="#F0883E">"text"</text>
+  <text x="609" y="402" font-size="9" fill="#E6EDF3">,</text>
+  <text x="444" y="416" font-size="9" fill="#58A6FF">text:</text>
+  <text x="469" y="416" font-size="9" fill="#3FB950">`Revisa las tareas del ${date}`</text>
+  <text x="434" y="430" font-size="9" fill="#E6EDF3">}}] }))</text>
+
+  <defs>
+    <marker id="arrP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6B4FBB"/>
+    </marker>
+  </defs>
+</svg>

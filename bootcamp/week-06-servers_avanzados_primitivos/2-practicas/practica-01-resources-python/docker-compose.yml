@@ -1,0 +1,7 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    stdin_open: true
+    tty: true
